@@ -1,0 +1,4 @@
+interface:
+  display_name: "EMARX"
+  short_description: "成熟学理思辨论文选题摘要结构正文写作与审校增强技能"
+  default_prompt: "Use $emarx to draft a Chinese theoretical essay topic, title, abstract, and three-level outline."
