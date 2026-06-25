@@ -1,4 +1,4 @@
 interface:
   display_name: "EMARX"
-  short_description: "成熟学理思辨论文选题摘要结构正文写作与审校增强技能"
-  default_prompt: "Use $emarx to draft a Chinese theoretical essay topic, title, abstract, and three-level outline."
+  short_description: "深度学理思辨论文写作与 Word 交付技能，强化核心论断、概念辨析、机制分析和学术语体。"
+  default_prompt: "使用 $emarx 写一篇有深度、有学术质感并生成 Word 文档的中文学理思辨论文。"
