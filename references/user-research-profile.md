@@ -89,3 +89,9 @@ Append future user feedback here with date, topic, preference, and action taken.
 - Topic: 遣词造句与表述方法
 - Feedback: EMARX 不能只控制宏观结构和学理性，还要解决具体表述方法问题。尤其不能出现段落开头就是一个否定句、读者完全不知道文章在纠正什么的问题。句子必须先交代对象、关系或材料，再进入否定、限定、批判和判断。
 - Action: 新增 `wording-expression-protocol.md`，要求段首先给对象锚点、关系说明、材料依据、学术位置或必要过渡；否定句只用于有明确对象的概念边界和纠偏；审稿和坏稿脚本加入裸否定段首、泛动词、松散过渡等检查。
+
+## Feedback 2026-06-25 17:45
+
+- Topic: 表述失灵类型谱
+- Feedback: 用户强调问题不只是段首否定句，而是一整类类似的表述问题都要避免。需要系统处理空泛起笔、悬空指代、过早判断、概念堆叠、伪过渡、只有断言没有证明、口号化结尾等问题。
+- Action: 扩展 `wording-expression-protocol.md` 为表达失灵类型谱，并扩展 `bad_draft_audit.py`，新增 `empty_framing_openings`、`suspended_pronoun_openings`、`premature_judgment_openings`、`slogan_paragraph_endings` 等审计项。

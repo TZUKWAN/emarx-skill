@@ -48,6 +48,86 @@ Better: 生成式人工智能进入文化传播后，首先改变的是内容被
 
 The second version still contains a correction, but the correction follows an object and a reason.
 
+## Expression Failure Types
+
+Avoid the whole family of expression failures below. They share the same root: the sentence asks the reader to accept a turn, judgment, or abstraction before the object and relation have been made clear.
+
+### 1. Empty Framing Opening
+
+Weak openings:
+
+- `在……背景下`
+- `随着……的发展`
+- `当前`
+- `近年来`
+- `从……来看`
+- `在……语境下`
+
+These openings are not automatically wrong, but they often delay the real object. Use them only when the sentence quickly names the concrete relation being analyzed.
+
+### 2. Suspended Pronoun Opening
+
+Weak openings:
+
+- `这种`
+- `这一`
+- `上述`
+- `这说明`
+- `这意味着`
+
+These words require a nearby referent. Do not use them to open a new paragraph unless the previous paragraph has clearly prepared the object and the new paragraph immediately names what is being carried forward.
+
+### 3. Premature Judgment
+
+Weak openings:
+
+- `关键在于...`
+- `核心是...`
+- `根本上...`
+- `本质上...`
+- `必须...`
+
+Such openings often produce a conclusion before analysis. Use them after the paragraph has shown why the judgment is necessary.
+
+### 4. Concept Stack
+
+Weak sentences pile several abstract terms together:
+
+```text
+主体性、解释关系、治理秩序和价值协同构成了智能传播的结构基础。
+```
+
+This may sound academic, but it hides relations. Rewrite by explaining which term acts on which object through what mechanism.
+
+### 5. Pseudo Transition
+
+Weak transitions make the passage look connected while the reasoning has not moved:
+
+- `因此`
+- `由此可见`
+- `与此同时`
+- `值得注意的是`
+- `进一步看`
+- `从这个意义上说`
+
+Use a transition only when it names the actual movement: concept to material, material to mechanism, mechanism to judgment, or literature limit to paper entry.
+
+### 6. Claim-Only Paragraph
+
+A paragraph fails when every sentence asserts and no sentence proves, distinguishes, exemplifies, or interprets. A paragraph needs an argumentative action, not just a topic.
+
+### 7. Slogan Ending
+
+Avoid paragraph endings that only sound positive:
+
+- `具有重要意义`
+- `提供有力支撑`
+- `形成强大合力`
+- `开辟新路径`
+- `提升传播效能`
+
+End with what has been clarified, not with how important the issue is.
+
 ## Sentence Method
 
 Use this default movement when a paragraph feels loose:

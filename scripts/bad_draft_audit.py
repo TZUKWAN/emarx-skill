@@ -69,7 +69,19 @@ NAKED_NEGATIVE_OPENING_RE = re.compile(
 )
 
 LOOSE_TRANSITION_OPENING_RE = re.compile(
-    r"^(因此|由此可见|与此同时|值得注意的是|从这个意义上说|在这一意义上)"
+    r"^(因此|由此可见|与此同时|值得注意的是|从这个意义上说|在这一意义上|进一步看|进一步而言)"
+)
+
+EMPTY_FRAMING_OPENING_RE = re.compile(
+    r"^(在.{0,18}(背景|语境|视域|视角|时代|格局)下|随着.{0,18}(发展|推进|演进)|当前|近年来|从.{0,18}来看)"
+)
+
+SUSPENDED_PRONOUN_OPENING_RE = re.compile(
+    r"^(这种|这一|上述|这说明|这意味着|由此)"
+)
+
+PREMATURE_JUDGMENT_OPENING_RE = re.compile(
+    r"^(关键在于|核心是|根本上|本质上|必须|应当|需要)"
 )
 
 GENERIC_VERB_PATTERNS = [
@@ -81,6 +93,16 @@ GENERIC_VERB_PATTERNS = [
     "赋能",
     "打造",
     "构建",
+]
+
+SLOGAN_ENDING_PATTERNS = [
+    "具有重要意义",
+    "提供有力支撑",
+    "形成强大合力",
+    "开辟新路径",
+    "提升传播效能",
+    "现实价值",
+    "内在要求",
 ]
 
 
@@ -150,18 +172,36 @@ def paragraph_starts(body: str) -> list[str]:
 def paragraph_opening_issues(body: str) -> dict:
     naked_negative = []
     loose_transition = []
+    empty_framing = []
+    suspended_pronoun = []
+    premature_judgment = []
+    slogan_ending = []
     for index, para in enumerate([item.strip() for item in re.split(r"\n\s*\n", body) if item.strip()], 1):
         if para.startswith("#"):
             continue
         cleaned = re.sub(r"^[#\s]+", "", para)
         first_sentence = re.split(r"[。！？!?；;]", cleaned, maxsplit=1)[0][:120]
+        last_sentence_candidates = [item.strip() for item in re.split(r"[。！？!?；;]", cleaned) if item.strip()]
+        last_sentence = (last_sentence_candidates[-1] if last_sentence_candidates else "")[-120:]
         if NAKED_NEGATIVE_OPENING_RE.match(first_sentence):
             naked_negative.append({"paragraph": index, "opening": first_sentence})
         if LOOSE_TRANSITION_OPENING_RE.match(first_sentence):
             loose_transition.append({"paragraph": index, "opening": first_sentence})
+        if EMPTY_FRAMING_OPENING_RE.match(first_sentence):
+            empty_framing.append({"paragraph": index, "opening": first_sentence})
+        if SUSPENDED_PRONOUN_OPENING_RE.match(first_sentence):
+            suspended_pronoun.append({"paragraph": index, "opening": first_sentence})
+        if PREMATURE_JUDGMENT_OPENING_RE.match(first_sentence):
+            premature_judgment.append({"paragraph": index, "opening": first_sentence})
+        if any(pattern in last_sentence for pattern in SLOGAN_ENDING_PATTERNS):
+            slogan_ending.append({"paragraph": index, "ending": last_sentence})
     return {
         "naked_negative_openings": naked_negative,
         "loose_transition_openings": loose_transition,
+        "empty_framing_openings": empty_framing,
+        "suspended_pronoun_openings": suspended_pronoun,
+        "premature_judgment_openings": premature_judgment,
+        "slogan_endings": slogan_ending,
     }
 
 
@@ -229,6 +269,14 @@ def audit(path: Path, terms: list[str]) -> dict:
         risks.append("naked_negative_paragraph_openings")
     if len(opening_issues["loose_transition_openings"]) >= 3:
         risks.append("loose_transition_openings")
+    if len(opening_issues["empty_framing_openings"]) >= 3:
+        risks.append("empty_framing_openings")
+    if len(opening_issues["suspended_pronoun_openings"]) >= 3:
+        risks.append("suspended_pronoun_openings")
+    if len(opening_issues["premature_judgment_openings"]) >= 3:
+        risks.append("premature_judgment_openings")
+    if opening_issues["slogan_endings"]:
+        risks.append("slogan_paragraph_endings")
     if sum(generic_verb_counts.values()) >= max(8, main_chars // 600):
         risks.append("generic_verb_overuse")
     bucket_pct = sentence_stats.get("bucket_pct", {})
