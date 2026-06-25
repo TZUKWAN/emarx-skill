@@ -8,6 +8,8 @@ Check:
 
 - Does the paper answer a real problem?
 - Is the problem more than a broad topic?
+- Has the phenomenon been transformed into a theoretical problem?
+- Is the paper located in a discipline, subfield, or theoretical conversation?
 - Is there a tension, contradiction, gap, or mechanism to explain?
 - Does the introduction end with what the paper will prove?
 
@@ -23,6 +25,7 @@ Check:
 
 - Are core concepts defined once?
 - Are adjacent concepts distinguished?
+- Does each core concept have a boundary, object, function, and misuse risk?
 - Does the paper avoid concept drift?
 - Are concepts used as analytical tools rather than decorations?
 
@@ -60,6 +63,8 @@ Check:
 - Does each section transform the thesis rather than repeat it?
 - Are sources digested into the argument?
 - Do paragraphs perform argumentative actions rather than explain headings?
+- Does the paper move from material to interpretation and then to a transferable theoretical judgment?
+- Does the conclusion return to theory rather than only summarizing paths?
 
 Failure signs:
 
@@ -94,6 +99,30 @@ Check:
 - Are there invented citations, names, dates, data, or page numbers?
 - Are case claims too vague?
 - Does the paper mark source gaps honestly?
+- Are materials used to force the argument forward, or merely placed after claims?
+
+## 5.25 Scholarliness
+
+Apply `scholarliness-protocol.md`.
+
+Check:
+
+- academic map: field, subfield, theory conversation, and entry point;
+- problem extraction: phenomenon transformed into a theoretical problem;
+- framework construction: theory, object, and section logic are mutually supporting;
+- concept ledger: concepts have boundaries and stable functions;
+- literature dialogue: sources are organized by problem rather than listed by author;
+- measured critique: prior research limits are identified without exaggerated novelty claims;
+- abstraction: material analysis produces a transferable mechanism, relation, or concept clarification;
+- title and heading logic: headings form an argumentative chain.
+
+Failure signs:
+
+- smooth prose with no theoretical coordinate;
+- concept names without concept work;
+- literature used only as evidence labels;
+- materials summarized but not abstracted;
+- conclusion repeats suggestions without theoretical return.
 
 ## 5.5 Citation Discipline
 
