@@ -1,4 +1,6 @@
-# EMARX v4 Workflow
+# EMARX Workflow
+
+This workflow keeps the v4 research-production sequence and adds v5 length and heading-hierarchy constraints.
 
 Use this workflow when the user asks for a full paper, research plan, deep revision, or topic development.
 
@@ -127,6 +129,23 @@ Good chains:
 
 Each first-level heading must answer a different theoretical question. Each second-level heading must perform a distinct analytical function.
 
+## 5.5 Length And Heading Hierarchy
+
+Before drafting a full paper, read `length-and-hierarchy-protocol.md`.
+
+Build a length and hierarchy plan:
+
+```text
+target main-text characters: 10,000-12,000 unless user specifies otherwise
+first-level sections: normally 4-5
+second-level headings: at least two under every major body section
+third-level headings: only when a section has multiple mechanisms, stages, subjects, or cases
+sections at risk of being shallow:
+corpus structure pattern selected:
+```
+
+Do not treat this as formatting. Heading hierarchy is part of argument depth. A full paper with only first-level headings usually becomes a list essay, even if the prose is fluent.
+
 ## 6. Drafting
 
 Draft only after the brief and framework are stable.
@@ -142,6 +161,8 @@ Each paragraph must perform one action:
 - close a path loop.
 
 Avoid ungrounded "importance" statements. Replace them with the exact object of value: subjectivity, legitimacy, identity, interpretive power, governance capacity, educational efficacy, or civilization dialogue.
+
+During drafting, keep the planned length visible. Do not end the paper at 3,000-5,000 characters and call it complete. If the argument cannot sustain 10,000-12,000 characters, return to source intake and problem diagnosis instead of padding.
 
 ## 7. Review And Revision
 

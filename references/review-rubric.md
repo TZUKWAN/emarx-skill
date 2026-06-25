@@ -58,10 +58,14 @@ Check:
 - Does each heading advance the argument?
 - Are first-level sections distinct?
 - Are second-level sections not repetitive?
+- Does every major body section contain second-level headings?
+- Does the main text reach 10,000-12,000 Chinese characters unless the user explicitly requested a different length?
 - Does the path section answer prior challenges one by one?
 - Is the conclusion a theoretical return rather than a summary list?
 
 Corpus-derived reminder: EMARX should dynamically select structures from `distillation-evidence.md`, including theory-problem-path, problem-mechanism-path, concept-function-path, carrier-function-path, symbol-identity-value-practice, and technology risk governance chains.
+
+v5 structure reminder: the expanded 452-PDF audit showed that second-level headings and 10,000+ character scale are normal in the user's corpus. A full paper without second-level headings is a failed draft, not a stylistic variant.
 
 ## 5. Evidence And Facts
 
@@ -102,6 +106,7 @@ Use:
 
 ```text
 总体判断:
+篇幅与标题层级:
 主要问题:
 结构问题:
 概念问题:
