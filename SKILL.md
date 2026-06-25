@@ -25,6 +25,7 @@ Read these files when the corresponding task appears:
 
 - `references/workflow-v4.md`: full paper workflow, source-first sequence, innovation analysis, revision loop.
 - `references/length-and-hierarchy-protocol.md`: 10,000-12,000 Chinese-character default, mandatory second-level headings, heading hierarchy, and structure-depth checks.
+- `references/argument-depth-protocol.md`: argument permission, literature digestion, paragraph argument units, and bad-draft rejection rules.
 - `references/style-protocol.md`: plain but scholarly style, 大家风范 calibration, and non-mechanical rhythm principles.
 - `references/writing-rhythm-protocol.md`: qualitative writing rhythm, paragraph breathing, judgment landing, and rhythm-reading checks. Its corpus numbers are background evidence, not generation quotas.
 - `references/review-rubric.md`: anonymous-review style checks for problem consciousness, innovation, structure, evidence, prose, length, and hierarchy.
@@ -40,14 +41,17 @@ Read these files when the corresponding task appears:
 3. Do not fabricate citations, authors, journals, page numbers, publication metadata, policy quotations, statistics, cases, or source-backed claims.
 4. For full-paper tasks, default to creating a `.docx` Word document unless the user explicitly asks for chat text or Markdown only.
 5. Do not draft before producing a research diagnosis: core problem, research object, concept ledger, theoretical tension, mechanism chain, source support, innovation claim, fact-risk list, length plan, and heading plan.
-6. A normal full paper must target 10,000-12,000 Chinese characters in the main text unless the user explicitly asks for a shorter or longer work. Do not deliver 2,000-5,000 character chat essays as full papers.
-7. A normal full paper must include second-level headings under the major body sections. The default hierarchy is `一、` for first-level headings and `（一）` / `（二）` for second-level headings. Use third-level headings only when a section contains multiple mechanisms, stages, subjects, or cases.
-8. Do not produce flat "机遇、挑战、路径" essays. Each section must answer a theoretical question and advance the central thesis.
-9. Use corpus-derived structures dynamically. Pick a structure because it fits the topic, not because it sounds neat.
-10. Write in plain, clear, academically weighted Chinese. Let rhythm serve reasoning: long sentences can unfold relations, medium sentences can carry transitions, and short sentences can land judgments. Do not enforce sentence-count or sentence-length quotas.
-11. Treat review and revision as substantive reconstruction, not surface polishing.
-12. For referenced papers, use `references/citation-protocol.md`: one literature item only once, one author only once, citations inserted at the exact sentence, sequential numbering, and GB/T 7714 reference list in citation order.
-13. When new user materials or feedback reveal stable preferences, update `references/user-research-profile.md` or run `scripts/update_user_profile.py`.
+6. Do not draft until `references/argument-depth-protocol.md` grants argument permission: the paper must have a non-obvious thesis, a real tension, a mechanism chain, and section-level argumentative obligations.
+7. Do not use citations as support labels. A source must be digested before citation: what problem it answers, what concept it contributes, what limit it has, and how this paper uses it.
+8. A normal full paper must target 10,000-12,000 Chinese characters in the main text unless the user explicitly asks for a shorter or longer work. Do not deliver 2,000-5,000 character chat essays as full papers.
+9. A normal full paper must include second-level headings under the major body sections. The default hierarchy is `一、` for first-level headings and `（一）` / `（二）` for second-level headings. Use third-level headings only when a section contains multiple mechanisms, stages, subjects, or cases.
+10. Do not produce flat "机遇、挑战、路径" essays. Each section must answer a theoretical question and advance the central thesis.
+11. Use corpus-derived structures dynamically. Pick a structure because it fits the topic, not because it sounds neat.
+12. Write in plain, clear, academically weighted Chinese. Let rhythm serve reasoning: long sentences can unfold relations, medium sentences can carry transitions, and short sentences can land judgments. Do not enforce sentence-count or sentence-length quotas.
+13. Treat review and revision as substantive reconstruction, not surface polishing.
+14. Run bad-draft review before delivery. If the draft is merely compliant in length, headings, and references but still formulaic, repetitive, or under-argued, reject it and revise.
+15. For referenced papers, use `references/citation-protocol.md`: one literature item only once, one author only once, citations inserted at the exact sentence, sequential numbering, and GB/T 7714 reference list in citation order.
+16. When new user materials or feedback reveal stable preferences, update `references/user-research-profile.md` or run `scripts/update_user_profile.py`.
 
 ## Script Tools
 
@@ -57,6 +61,7 @@ Use bundled scripts when helpful:
 python scripts/scan_workspace_sources.py --root <workspace> --output sources.json
 python scripts/analyze_paper_structure.py --root <workspace> --output-dir structure-report
 python scripts/build_research_brief.py --topic "论文题目" --sources sources.json --output research-brief.md
+python scripts/bad_draft_audit.py --paper paper.md --output bad-draft-audit.json
 python scripts/citation_audit.py --paper paper.md --output citation-audit.json
 python scripts/markdown_to_docx.py --input paper.md --output paper.docx
 python scripts/update_user_profile.py --profile references/user-research-profile.md --topic "主题" --feedback "用户反馈"
@@ -71,19 +76,20 @@ For a full paper:
 1. **Source intake.** Scan local workspace sources and identify the most relevant materials. If local material is insufficient or freshness matters, perform web verification with reliable sources.
 2. **Research brief.** Produce a brief with local-source findings, source gaps, concept candidates, real tensions, and fact risks.
 3. **Problem diagnosis.** State the paper's central problem in one non-obvious thesis. Prefer "不是 A，而是 B" only when it reveals a real shift, not as decoration.
-4. **Corpus pattern selection.** Read `distillation-evidence.md` and select title, abstract, introduction, structure, paragraph, and style patterns that fit this topic.
-5. **Length and hierarchy plan.** Read `length-and-hierarchy-protocol.md`. Plan 10,000-12,000 Chinese characters, 4-5 first-level body sections, and second-level headings for every major body section before drafting.
-6. **Citation planning.** If references are required, read `citation-protocol.md`, build a coverage table, detect author/source conflicts, and plan exactly where each source will be cited.
-7. **Innovation analysis.** Separate topic, perspective, concept, mechanism, path, and expression innovation. Mark weak or fake innovation honestly.
-8. **Outline.** Build a structure whose first-level sections answer distinct theoretical questions and whose second-level headings perform distinct analytical functions.
-9. **Draft.** Write from the research brief and outline. Keep every paragraph tied to a theoretical action. Insert citations at the exact sentence where the source is used; do not pile citations at paragraph ends.
-10. **Style calibration.** Apply `style-protocol.md` and `writing-rhythm-protocol.md`: plain language, natural rhythm, clear judgment landing, no sloganized prose, no mechanical sentence-length control.
-11. **Depth calibration.** Apply the v5 rule: each major section needs concept boundary work, mechanism explanation, counter-tension, material support, and a judgment landing. Add missing depth before calling the draft complete.
-12. **Review.** Apply `review-rubric.md` like an anonymous reviewer, including length and heading hierarchy.
-13. **Revision.** Rewrite weak sections, not merely words.
-14. **Fact check and citation audit.** Apply `fact-check-protocol.md` and `citation-protocol.md`; remove, verify, or mark unsupported factual claims; audit citation numbering and GB/T 7714 order.
-15. **Word delivery.** Create `.docx`, then verify the file exists and can be read.
-16. **Profile update.** If the user's materials or feedback imply durable preferences, update the profile.
+4. **Argument permission.** Read `argument-depth-protocol.md`. Do not draft unless the thesis, tension, mechanism chain, literature position, and section obligations are strong enough.
+5. **Corpus pattern selection.** Read `distillation-evidence.md` and select title, abstract, introduction, structure, paragraph, and style patterns that fit this topic.
+6. **Length and hierarchy plan.** Read `length-and-hierarchy-protocol.md`. Plan 10,000-12,000 Chinese characters, 4-5 first-level body sections, and second-level headings for every major body section before drafting.
+7. **Citation and literature digestion.** If references are required, read `citation-protocol.md` and `argument-depth-protocol.md`, build a coverage table, detect author/source conflicts, and state how each source is digested into the argument.
+8. **Innovation analysis.** Separate topic, perspective, concept, mechanism, path, and expression innovation. Mark weak or fake innovation honestly.
+9. **Outline.** Build a structure whose first-level sections answer distinct theoretical questions and whose second-level headings perform distinct analytical functions.
+10. **Draft.** Write from the research brief and outline. Keep every paragraph tied to a theoretical action. Insert citations at the exact sentence where the source is used; do not pile citations at paragraph ends.
+11. **Style calibration.** Apply `style-protocol.md` and `writing-rhythm-protocol.md`: plain language, natural rhythm, clear judgment landing, no sloganized prose, no mechanical sentence-length control.
+12. **Depth calibration.** Apply `argument-depth-protocol.md`: each major section needs concept boundary work, mechanism explanation, counter-tension, material support, and a judgment landing. Add missing depth before calling the draft complete.
+13. **Bad-draft review.** Apply `review-rubric.md` and run `scripts/bad_draft_audit.py` when possible. A formally compliant but formulaic draft must be rejected.
+14. **Revision.** Rewrite weak sections, not merely words.
+15. **Fact check and citation audit.** Apply `fact-check-protocol.md` and `citation-protocol.md`; remove, verify, or mark unsupported factual claims; audit citation numbering and GB/T 7714 order.
+16. **Word delivery.** Create `.docx`, then verify the file exists and can be read.
+17. **Profile update.** If the user's materials or feedback imply durable preferences, update the profile.
 
 ## Output Contract
 
@@ -96,6 +102,7 @@ For full-paper work, deliver:
 - source basis and source gaps.
 - innovation assessment.
 - citation coverage and citation-conflict status when references are used.
+- bad-draft audit status.
 - fact-check status.
 - residual risks.
 

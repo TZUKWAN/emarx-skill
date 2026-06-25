@@ -51,6 +51,24 @@ Reject:
 - "first to study" claims without literature verification;
 - paths that repeat the problem in positive language.
 
+## 3.5 Argument Depth
+
+Check:
+
+- Is there a non-obvious thesis?
+- Does the paper have a real theoretical tension?
+- Does each section transform the thesis rather than repeat it?
+- Are sources digested into the argument?
+- Do paragraphs perform argumentative actions rather than explain headings?
+
+Failure signs:
+
+- formal compliance with length, headings, and citations but no insight;
+- repeated abstract terms standing in for analysis;
+- "某研究指出" used as citation decoration;
+- every section could be predicted from the title;
+- conclusion repeats the path list without theoretical return.
+
 ## 4. Structure
 
 Check:
@@ -118,6 +136,7 @@ Use:
 引用/参考文献问题:
 语言问题:
 节奏问题:
+烂稿风险:
 必须修改:
 可以优化:
 建议重写段落:

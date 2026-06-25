@@ -64,6 +64,25 @@ At minimum choose:
 
 Explain internally why each pattern fits the topic. Do not copy a pattern mechanically when it does not fit.
 
+## 3.5 Argument Permission
+
+Before outline or drafting, read `argument-depth-protocol.md`.
+
+Write an argument permission card:
+
+```text
+central thesis:
+why this thesis is not obvious:
+theoretical tension:
+mechanism chain:
+literature position:
+section obligations:
+bad-draft risks:
+permission: granted / denied
+```
+
+If permission is denied, do not draft. Rebuild the problem, thesis, or literature digestion first.
+
 ## 4. Innovation Analysis
 
 Separate innovation into six categories:
@@ -113,6 +132,17 @@ status:
 If the user requires all workspace literature, every usable literature source must be mapped to exactly one sentence. If two sources share an author, report the conflict because "all sources used" and "one author only once" cannot both be satisfied without relaxing one rule.
 
 Do not cite a source merely to satisfy coverage. Relevance remains mandatory.
+
+Also digest each important source before citation:
+
+```text
+problem it answers:
+core concept/mechanism:
+limitation:
+how this paper uses it:
+```
+
+Citations must enter the argument, not sit on top of it.
 
 ## 5. Logic Framework
 
@@ -167,6 +197,14 @@ During drafting, keep the planned length visible. Do not end the paper at 3,000-
 ## 7. Review And Revision
 
 Review the draft like an anonymous reviewer, then revise structurally.
+
+Before delivery, run a bad-draft review using `argument-depth-protocol.md`. If available, run:
+
+```bash
+python scripts/bad_draft_audit.py --paper paper.md --output bad-draft-audit.json
+```
+
+The script is only a heuristic warning system. The final judgment must come from reading the paper. If the script flags concept repetition, repeated paragraph openings, source-label citations, or short-medium-heavy expository style, inspect those passages and revise substantively.
 
 Revision may include:
 

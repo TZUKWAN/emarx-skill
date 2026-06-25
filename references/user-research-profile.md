@@ -65,3 +65,9 @@ Append future user feedback here with date, topic, preference, and action taken.
 - Topic: 写作节奏
 - Feedback: 节奏比例可以作为语料分析结果，但不能作为技能硬性要求；节奏不是通过定量要求得出来的，不能让 EMARX 机械凑句长和交替比例。
 - Action: 新增 `writing-rhythm-protocol.md`，把全量节奏分析转化为质性原则：节奏服从论证需要，长句展开关系，中句承接推进，短句落定判断；比例只作为后台诊断证据，不进入生成配额。
+
+## Feedback 2026-06-25 16:25
+
+- Topic: 形式合规但思想空转
+- Feedback: v5 重写稿虽然补齐字数、二级标题、引用和 Word，但行文风格仍然很差，像规则套壳，缺少真正的学理推进。
+- Action: 新增 `argument-depth-protocol.md` 和 `scripts/bad_draft_audit.py`。后续完整论文必须先通过论证许可、文献消化和烂稿反审；形式合规不等于可交付。
