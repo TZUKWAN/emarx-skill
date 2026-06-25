@@ -22,13 +22,7 @@ Principles:
 4. Short sentences should be used when a judgment needs to land. They should not be inserted just to satisfy rhythm.
 5. If a paragraph reads as congested, flat, rushed, or slogan-like, rewrite the sentence relations rather than mechanically adding or deleting sentences.
 
-Example rhythm:
-
-```text
-生成式人工智能改变的并不只是中华文化国际传播的工具条件，更改变了文化意义被组织、被翻译、被分发和被接受的基本方式。问题由此变得复杂。文化不再只是被“推出去”，还要在异质语境中被重新解释。
-```
-
-Read this example as a qualitative movement, not as a pattern to count: a complex relation is unfolded, the difficulty is named, and the judgment lands.
+Read rhythm as qualitative movement, not as a pattern to count: a complex relation is unfolded, the difficulty is named, and the judgment lands. Do not copy stock contrast formulas to simulate rhythm.
 
 ## Plain But Scholarly
 
@@ -65,18 +59,36 @@ Avoid:
 - decorative classical phrases;
 - dense abstract nouns with no mechanism;
 - "具有重要意义" without naming the value object.
+- inflated novelty verbs such as "重构", "重建", and "填补空白" unless the paper has already proved the historical or theoretical scale of that claim;
+- casual concept invention;
+- quote-mark decoration;
+- colon-heavy, dash-heavy, or list-like punctuation that makes the prose look generated;
+- mechanical sequencing words in running prose, especially "首先", "其次", "再次", and "最后";
+- formulaic binary contrast patterns such as "不是……而是……" and "并非……而是……".
 
-## Sentence Moves
+## Daily Prose Constraints
 
-Use these moves when they fit the reasoning:
+The user's current default writing prompt adds a stricter prose target. Apply it to article drafting and revision:
 
-- `问题的关键并不在于……而在于……`
-- `从表层看……但在更深层意义上……`
-- `这意味着……的重组，而不是……的简单延伸。`
-- `如果说……构成了技术前提，那么……则构成了价值边界。`
-- `由此可见，……并不是孤立现象，而是……逻辑作用下的结果。`
-- `在这一意义上，……既是方法问题，也是主体性问题。`
-- `这不是修辞问题，而是结构问题。`
+- Think slowly and from several angles before writing.
+- Use plain academic language: understandable, professional, restrained, and conceptually accurate.
+- Do not exaggerate. Do not create new terms for decorative effect. Do not use novelty claims before proof.
+- Use professional academic vocabulary, but keep sentence relations clear.
+- Vary sentence movement according to reasoning need: long sentences unfold complex relations, causes, and layers; short sentences clarify a judgment, mark a turn, or close a paragraph.
+- Do not let consecutive long sentences make the paragraph breathless, and do not chop every thought into short commentary sentences.
+- Avoid "如何", "何以", and "为何" in headings or visible question-style framing unless the user explicitly asks for question-form titles.
+- In article body paragraphs, avoid subheading-like fragments, visible point lists, and enumerated mini-outline prose. Formal paper heading hierarchy remains required for full papers under `length-and-hierarchy-protocol.md`.
+- Use commas and periods as the normal punctuation base. Use quotation marks only for source titles, cited terms, or genuinely necessary concept labels; use colons and dashes sparingly.
+
+## Preferred Sentence Moves
+
+Use direct, natural academic movement instead of stock formulas:
+
+- Name the phenomenon, then explain the relation that produces it.
+- Define a concept by its boundary, object, and function.
+- Move from material to interpretation, then from interpretation to judgment.
+- Let contrast appear through verbs and evidence, not through `不是……而是……`.
+- Let a paragraph close with a measured claim, not a slogan.
 
 ## Anti-Shallow Rewrite Table
 
@@ -99,6 +111,10 @@ Before delivery, ask:
 - Does the rhythm follow the argument rather than a formula?
 - Are long sentences doing real conceptual or mechanistic work?
 - Are short sentences used for force, not laziness or quota-filling?
+- Does the prose contain mechanical "first/second/third/finally" progression where a natural paragraph movement would be better?
+- Does the prose use `不是……而是……` or `并非……而是……` to create fake depth?
+- Are quotation marks, colons, and dashes being used as AI-looking decoration?
+- Are "重构", "重建", "填补空白", or similar inflated claims actually justified?
 - Does any passage feel congested, flat, rushed, or slogan-like when read aloud?
 - Are concepts stable?
 - Is the language plain enough for understanding and weighted enough for scholarship?

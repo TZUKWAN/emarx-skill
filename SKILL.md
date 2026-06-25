@@ -51,7 +51,9 @@ Read these files when the corresponding task appears:
 13. Treat review and revision as substantive reconstruction, not surface polishing.
 14. Run bad-draft review before delivery. If the draft is merely compliant in length, headings, and references but still formulaic, repetitive, or under-argued, reject it and revise.
 15. For referenced papers, use `references/citation-protocol.md`: one literature item only once, one author only once, citations inserted at the exact sentence, sequential numbering, and GB/T 7714 reference list in citation order.
-16. When new user materials or feedback reveal stable preferences, update `references/user-research-profile.md` or run `scripts/update_user_profile.py`.
+16. Apply the user's daily prose constraints from `references/style-protocol.md`: do not manufacture concepts, do not use inflated novelty language, avoid quotation marks and colon-heavy AI-looking punctuation unless required by citation or title format, and avoid mechanical sequence words such as `首先` / `其次` / `再次` / `最后` in running prose.
+17. Do not rely on binary contrast formulas such as `不是……而是……` or `并非……而是……`. State the claim directly and let the evidence and mechanism carry the distinction.
+18. When new user materials or feedback reveal stable preferences, update `references/user-research-profile.md` or run `scripts/update_user_profile.py`.
 
 ## Script Tools
 
@@ -75,7 +77,7 @@ For a full paper:
 
 1. **Source intake.** Scan local workspace sources and identify the most relevant materials. If local material is insufficient or freshness matters, perform web verification with reliable sources.
 2. **Research brief.** Produce a brief with local-source findings, source gaps, concept candidates, real tensions, and fact risks.
-3. **Problem diagnosis.** State the paper's central problem in one non-obvious thesis. Prefer "不是 A，而是 B" only when it reveals a real shift, not as decoration.
+3. **Problem diagnosis.** State the paper's central problem in one non-obvious thesis. Avoid formulaic contrast patterns such as "不是 A，而是 B"; write the claim directly and make the distinction through concept boundaries, evidence, and mechanism analysis.
 4. **Argument permission.** Read `argument-depth-protocol.md`. Do not draft unless the thesis, tension, mechanism chain, literature position, and section obligations are strong enough.
 5. **Corpus pattern selection.** Read `distillation-evidence.md` and select title, abstract, introduction, structure, paragraph, and style patterns that fit this topic.
 6. **Length and hierarchy plan.** Read `length-and-hierarchy-protocol.md`. Plan 10,000-12,000 Chinese characters, 4-5 first-level body sections, and second-level headings for every major body section before drafting.
@@ -83,7 +85,7 @@ For a full paper:
 8. **Innovation analysis.** Separate topic, perspective, concept, mechanism, path, and expression innovation. Mark weak or fake innovation honestly.
 9. **Outline.** Build a structure whose first-level sections answer distinct theoretical questions and whose second-level headings perform distinct analytical functions.
 10. **Draft.** Write from the research brief and outline. Keep every paragraph tied to a theoretical action. Insert citations at the exact sentence where the source is used; do not pile citations at paragraph ends.
-11. **Style calibration.** Apply `style-protocol.md` and `writing-rhythm-protocol.md`: plain language, natural rhythm, clear judgment landing, no sloganized prose, no mechanical sentence-length control.
+11. **Style calibration.** Apply `style-protocol.md` and `writing-rhythm-protocol.md`: plain language, natural rhythm, clear judgment landing, no sloganized prose, no mechanical sentence-length control, no AI-looking contrast formulas, no mechanical enumerator prose.
 12. **Depth calibration.** Apply `argument-depth-protocol.md`: each major section needs concept boundary work, mechanism explanation, counter-tension, material support, and a judgment landing. Add missing depth before calling the draft complete.
 13. **Bad-draft review.** Apply `review-rubric.md` and run `scripts/bad_draft_audit.py` when possible. A formally compliant but formulaic draft must be rejected.
 14. **Revision.** Rewrite weak sections, not merely words.

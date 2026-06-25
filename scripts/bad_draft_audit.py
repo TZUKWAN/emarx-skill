@@ -45,6 +45,25 @@ SOURCE_LABEL_PATTERNS = [
     "已有研究",
 ]
 
+MECHANICAL_SEQUENCE_PATTERNS = [
+    "首先",
+    "其次",
+    "再次",
+    "最后",
+]
+
+BINARY_CONTRAST_PATTERNS = [
+    r"不是[^。！？；\n]{0,80}而是",
+    r"并非[^。！？；\n]{0,80}而是",
+    r"不在于[^。！？；\n]{0,80}而在于",
+]
+
+INFLATED_NOVELTY_PATTERNS = [
+    "重构",
+    "重建",
+    "填补空白",
+]
+
 
 def cn_len(text: str) -> int:
     return len(CN_RE.findall(text))
@@ -120,6 +139,21 @@ def audit(path: Path, terms: list[str]) -> dict:
     term_counts = {term: body.count(term) for term in terms}
     generic_counts = {term: body.count(term) for term in GENERIC_PATTERNS if body.count(term)}
     source_label_count = sum(body.count(pattern) for pattern in SOURCE_LABEL_PATTERNS)
+    mechanical_sequence_counts = {
+        term: body.count(term)
+        for term in MECHANICAL_SEQUENCE_PATTERNS
+        if body.count(term)
+    }
+    binary_contrast_counts = {
+        pattern: len(re.findall(pattern, body))
+        for pattern in BINARY_CONTRAST_PATTERNS
+        if re.findall(pattern, body)
+    }
+    inflated_novelty_counts = {
+        term: body.count(term)
+        for term in INFLATED_NOVELTY_PATTERNS
+        if body.count(term)
+    }
     sentence_stats = analyze_sentences(body)
     main_chars = cn_len(body)
 
@@ -142,6 +176,12 @@ def audit(path: Path, terms: list[str]) -> dict:
         risks.append("citations_as_source_labels")
     if generic_counts:
         risks.append("generic_academic_phrases")
+    if sum(mechanical_sequence_counts.values()) >= 4:
+        risks.append("mechanical_sequence_words")
+    if sum(binary_contrast_counts.values()) >= 2:
+        risks.append("formulaic_binary_contrasts")
+    if inflated_novelty_counts:
+        risks.append("inflated_novelty_language")
     bucket_pct = sentence_stats.get("bucket_pct", {})
     if bucket_pct.get("S", 0) + bucket_pct.get("M", 0) >= 70:
         risks.append("short_medium_heavy_expository_style")
@@ -161,6 +201,9 @@ def audit(path: Path, terms: list[str]) -> dict:
         "repeated_paragraph_openings": repeated_starts,
         "source_label_count": source_label_count,
         "generic_phrase_counts": generic_counts,
+        "mechanical_sequence_counts": mechanical_sequence_counts,
+        "binary_contrast_counts": binary_contrast_counts,
+        "inflated_novelty_counts": inflated_novelty_counts,
         "risks": risks,
         "ok": not risks,
     }

@@ -71,3 +71,9 @@ Append future user feedback here with date, topic, preference, and action taken.
 - Topic: 形式合规但思想空转
 - Feedback: v5 重写稿虽然补齐字数、二级标题、引用和 Word，但行文风格仍然很差，像规则套壳，缺少真正的学理推进。
 - Action: 新增 `argument-depth-protocol.md` 和 `scripts/bad_draft_audit.py`。后续完整论文必须先通过论证许可、文献消化和烂稿反审；形式合规不等于可交付。
+
+## Feedback 2026-06-25 17:05
+
+- Topic: 日常写作提示词与反机器腔语体
+- Feedback: 写作要谨慎思考、深入研究、多角度推进；语言要平实但有学术质感，逻辑严谨，层层递进；少用引号，不自造新词，不夸张；禁止机械使用“首先、其次、再次、最后”；禁止“重构、重建、填补空白”等夸张表达；禁止“不是……而是……”和“并非……而是……”等公式化对照；避免一眼像 AI 的冒号、破折号和过度标点；正文段落应自然展开，不用小标题和分点替代论证。
+- Action: 将该提示词转化为 `style-protocol.md` 的 Daily Prose Constraints，并加入坏稿审计和审稿清单。完整论文仍保留正式标题层级要求，但正文段落内部禁止机械分点和清单腔。

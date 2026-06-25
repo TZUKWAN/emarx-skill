@@ -113,9 +113,13 @@ Check:
 Check:
 
 - Is the style plain but scholarly?
+- Does the prose avoid self-invented concepts, exaggerated novelty claims, and decorative academic fog?
 - Does the prose rhythm serve the argument rather than a sentence-length formula?
 - Are long sentences doing real conceptual, relational, or mechanistic work?
 - Are short sentences used for judgment landing rather than mechanical variation?
+- Does the article body avoid mechanical sequence words such as "首先", "其次", "再次", and "最后" when they merely expose an outline?
+- Does it avoid binary contrast formulas such as "不是……而是……" and "并非……而是……"?
+- Are quotation marks, colons, dashes, and question-style headings used only when necessary?
 - Does any passage feel congested, flat, rushed, or slogan-like when read as prose?
 - Are slogans translated into mechanisms?
 - Is there a judgment landing in each paragraph?
