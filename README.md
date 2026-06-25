@@ -1,53 +1,59 @@
 # EMARX
 
-EMARX is a Codex skill for writing and refining Chinese 学理思辨论文 with mature theoretical style, strong structure, and explicit argumentative progression.
+EMARX 是一个面向 Codex 的中文学理思辨论文写作技能，核心目标是辅助完成成熟、稳健、逻辑清晰、学理性强的论文写作工作。
 
-It is optimized for topics in Marxist theory, ideological-political education, cultural memory, subjectivity, people-centered modernization, AI philosophy, technology critique, and adjacent humanities or social-science fields.
+它尤其适合马克思主义理论、思想政治教育、文化记忆、主体性、人民性、中国式现代化、人工智能哲学、技术批判以及相邻人文社科议题。
 
-## What It Does
+## 能做什么
 
-EMARX helps with:
+EMARX 可以辅助完成：
 
-- 论文选题 and problem consciousness
-- title generation
-- abstract writing
-- introduction design
-- outline architecture
-- section logic
-- body paragraph drafting
-- conclusion design
-- theoretical argumentation
-- mature academic style refinement
-- final self-audit
+- 论文选题与问题意识生成
+- 标题拟定与标题优化
+- 摘要写作
+- 引言设计
+- 论文提纲搭建
+- 章节结构安排
+- 正文段落写作思路
+- 结论设计
+- 概念辨析与理论阐释
+- 学理化、规范化、成熟化润色
+- 成稿前自检与问题诊断
 
-## Core Features
+## 核心能力
 
-- Full task routing for 选题、标题、摘要、引言、提纲、正文、润色、审稿
-- 16 title templates with use cases and failure conditions
-- abstract generator for 4-sentence, 5-sentence, long abstract, and no-abstract formats
-- introduction generator for policy-background, theoretical-gap, real-symptom, historical-event, and technology-risk entries
-- 16 structure archetypes for 学理思辨论文
-- 12 paragraph templates for concept analysis, contradiction analysis, policy translation, technology critique, and value reasoning
-- style controller for concept consistency, policy-academic coupling, tension visibility, connector density, and anti-hollowing revision
-- hard rules against fabricated citations, data, page numbers, policy quotes, and source-backed claims
+- 覆盖选题、标题、摘要、引言、提纲、正文、润色、审稿等完整论文写作流程
+- 内置 16 类标题模板，并标注适用场景与常见失败条件
+- 支持四句式、五句式、长摘要、无摘要改写等摘要生成模式
+- 支持政策背景型、理论缺口型、现实症候型、历史事件型、技术风险型引言
+- 内置 16 类学理思辨论文结构原型
+- 内置 12 类正文段落展开模板，覆盖概念分析、矛盾分析、政策转译、技术批判、价值论证等场景
+- 强化概念一致性、政策话语与学术话语耦合、问题张力、逻辑连接密度和反空泛表达
+- 明确禁止虚构引文、作者、期刊、页码、政策原文、统计数据和来源型事实
 
-## Installation
+## 安装方式
 
-Install from this repository with the Codex skill installer:
+使用 Codex skill installer 从本仓库安装：
 
 ```bash
 python ~/.codex/skills/.system/skill-installer/scripts/install-skill-from-github.py --repo TZUKWAN/emarx-skill --path . --name emarx
 ```
 
-After installation, restart Codex so the skill can be discovered.
+安装后重启 Codex，使技能被重新发现。
 
-You can then ask Codex to use `$emarx`, for example:
+之后可以这样调用：
 
 ```text
-Use $emarx to draft a Chinese theoretical essay topic, title, abstract, and three-level outline on generative AI and human subjectivity.
+使用 $emarx，围绕“生成式人工智能与人的主体性重构”设计一个学理思辨论文选题、标题、摘要和三级提纲。
 ```
 
-## Repository Layout
+也可以这样调用：
+
+```text
+使用 $emarx，把下面这段论文引言改得更有学理性、更成熟、更有问题意识。
+```
+
+## 仓库结构
 
 ```text
 .
@@ -59,34 +65,61 @@ Use $emarx to draft a Chinese theoretical essay topic, title, abstract, and thre
     └── distillation-evidence.md
 ```
 
-## Provenance
+## 来源与蒸馏说明
 
-This v2 skill was rebuilt on 2026-06-24 from full-text analysis of local PDF papers:
+EMARX v2 于 2026-06-24 基于本地论文材料进行全文分析后重建：
 
-- 359 PDF files found
-- 358 readable PDFs produced full-text extraction
-- 1 zero-byte PDF was excluded
-- extracted text covered 2,889 / 2,896 pages
-- extracted text size was 5,161,082 characters
-- Qwen generated 358 per-paper full-text structure profiles
-- Qwen generated 15 group syntheses
+- 共发现 359 个 PDF 文件
+- 358 个 PDF 可读并完成全文文本提取
+- 1 个零字节 PDF 被排除
+- 文本提取覆盖 2,889 / 2,896 页
+- 抽取文本总量为 5,161,082 个字符
+- 千问助手生成 358 份逐篇全文结构画像
+- 千问助手生成 15 份分组综合报告
 
-The bundled `references/distillation-evidence.md` records the derived patterns and source-anchor style evidence used to update EMARX.
+仓库中的 `references/distillation-evidence.md` 记录了用于升级 EMARX 的结构模式、表达规律和证据性摘要。
 
-## Important Limits
+## 使用边界
 
-EMARX generates academic-style writing patterns. It does not verify real-world facts by itself.
+EMARX 生成的是学术写作结构、论证路径和表达范式，本身不负责验证现实事实。
 
-Do not use EMARX to fabricate:
+不要用 EMARX 虚构：
 
-- citations
-- author names
-- journal metadata
-- page numbers
-- policy quotations
-- statistics
-- source-backed claims
+- 引文
+- 作者
+- 期刊信息
+- 页码
+- 政策原文
+- 统计数据
+- 需要来源支撑的事实判断
 
-When current policies, recent scholarship, laws, institutional facts, or real citations matter, verify them with reliable sources before asserting them.
+当论文涉及最新政策、近期研究、法律法规、机构事实、真实引文或统计数据时，必须另行使用可靠来源核验后再写入正文。
 
-Qwen-generated proportions or aggregate judgments in the evidence material should be treated as auxiliary observations unless independently recomputed.
+`references/distillation-evidence.md` 中由千问助手生成的比例、判断和归纳，应视为辅助观察；如需作为严格研究结论使用，需要重新计算或人工复核。
+
+## 推荐工作流
+
+1. 先让 EMARX 帮你明确研究对象、核心问题和理论张力。
+2. 再让 EMARX 生成多个题目方向，不要只接受第一个标题。
+3. 选定题目后生成摘要和三级提纲。
+4. 按章节逐段生成正文写作思路，而不是一次性生成整篇文章。
+5. 在成稿阶段使用 EMARX 做逻辑链、概念一致性、空泛表达和学理性审查。
+6. 对涉及真实来源的内容另行核验，避免出现虚构引文或事实错误。
+
+## 适用示例
+
+```text
+使用 $emarx，为“数字资本主义语境下劳动主体性的重构”生成 10 个论文题目，并说明每个题目的理论张力。
+```
+
+```text
+使用 $emarx，围绕“文化记忆与中华民族共同体意识”生成摘要、关键词和三级提纲。
+```
+
+```text
+使用 $emarx，检查下面这段正文是否存在概念滑移、论证跳跃和空泛表述，并给出修改版。
+```
+
+## 许可
+
+本仓库用于个人 Codex 技能管理与论文写作辅助。若公开传播或复用，请保留来源说明，并自行核验其中涉及的事实、引文和政策材料。
