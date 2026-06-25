@@ -43,3 +43,9 @@ This file stores durable user preferences and research direction. Update it only
 ## Updating Notes
 
 Append future user feedback here with date, topic, preference, and action taken.
+
+## Feedback 2026-06-25 13:42
+
+- Topic: 论文引用规范
+- Feedback: 引用必须一篇文献只引用一次，一个作者只引用一次；工作空间文献需要覆盖使用；引用随句插入为[X]，不能堆在段落末尾；文末按引用顺序使用GB/T 7714格式。
+- Action: 后续完整论文任务必须先做引用覆盖表和冲突检查，再写作、审稿和引用审计。

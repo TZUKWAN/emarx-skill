@@ -73,6 +73,19 @@ Check:
 - Are case claims too vague?
 - Does the paper mark source gaps honestly?
 
+## 5.5 Citation Discipline
+
+Check:
+
+- Does each literature item appear only once in the body?
+- Does each author appear only once?
+- Are citations placed after the exact sentence that uses the source?
+- Are citation numbers assigned by first-use order?
+- Does the reference list follow body citation order?
+- Is the reference list in GB/T 7714 numeric style?
+- Are references piled at paragraph ends?
+- Are all workspace literature sources either used once or listed as unusable with reasons?
+
 ## 6. Prose
 
 Check:
@@ -94,6 +107,7 @@ Use:
 概念问题:
 创新问题:
 证据/事实问题:
+引用/参考文献问题:
 语言问题:
 必须修改:
 可以优化:

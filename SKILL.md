@@ -1,6 +1,6 @@
 ---
 name: emarx
-description: "EMARX v4 research-oriented Chinese academic essay production system. Use when drafting, revising, deepening, reviewing, fact-checking, or delivering Chinese 学理思辨论文 with local-source-first research workflow, workspace source scanning, research brief construction, innovation analysis, scholarly but plain prose, Word/docx delivery, user research-profile iteration, Marxism, cultural communication, ideological-political education, AI philosophy, technology critique, subjectivity, cultural memory, and humanities/social-science theoretical writing."
+description: "EMARX v4 research-oriented Chinese academic essay production system. Use when drafting, revising, deepening, reviewing, fact-checking, citing, referencing, or delivering Chinese 学理思辨论文 with local-source-first research workflow, workspace source scanning, research brief construction, innovation analysis, GB/T 7714 reference formatting, one-source-one-citation control, scholarly but plain prose, Word/docx delivery, user research-profile iteration, Marxism, cultural communication, ideological-political education, AI philosophy, technology critique, subjectivity, cultural memory, and humanities/social-science theoretical writing."
 ---
 
 # EMARX
@@ -25,6 +25,7 @@ Read these files when the corresponding task appears:
 - `references/style-protocol.md`: plain but scholarly style, long/medium/short sentence rhythm, 大家风范 calibration.
 - `references/review-rubric.md`: anonymous-review style checks for problem consciousness, innovation, structure, evidence, prose.
 - `references/fact-check-protocol.md`: fact-risk categories, local/web verification policy, "do not invent" rules.
+- `references/citation-protocol.md`: citation placement, one-source-one-citation, one-author-one-citation, sequential numbering, GB/T 7714 reference list.
 - `references/user-research-profile.md`: user research direction, preferences, banned expressions, learned feedback.
 - `references/distillation-evidence.md`: corpus-derived title, abstract, introduction, structure, paragraph, and style patterns.
 
@@ -39,7 +40,8 @@ Read these files when the corresponding task appears:
 7. Use corpus-derived structures dynamically. Pick a structure because it fits the topic, not because it sounds neat.
 8. Write in plain, clear, academically weighted Chinese: long sentences for mechanism, medium sentences for transition, short sentences for judgment. Do not use obscure wording to fake depth.
 9. Treat review and revision as substantive reconstruction, not surface polishing.
-10. When new user materials or feedback reveal stable preferences, update `references/user-research-profile.md` or run `scripts/update_user_profile.py`.
+10. For referenced papers, use `references/citation-protocol.md`: one literature item only once, one author only once, citations inserted at the exact sentence, sequential numbering, and GB/T 7714 reference list in citation order.
+11. When new user materials or feedback reveal stable preferences, update `references/user-research-profile.md` or run `scripts/update_user_profile.py`.
 
 ## Script Tools
 
@@ -48,6 +50,7 @@ Use bundled scripts when helpful:
 ```bash
 python scripts/scan_workspace_sources.py --root <workspace> --output sources.json
 python scripts/build_research_brief.py --topic "论文题目" --sources sources.json --output research-brief.md
+python scripts/citation_audit.py --paper paper.md --output citation-audit.json
 python scripts/markdown_to_docx.py --input paper.md --output paper.docx
 python scripts/update_user_profile.py --profile references/user-research-profile.md --topic "主题" --feedback "用户反馈"
 ```
@@ -62,15 +65,16 @@ For a full paper:
 2. **Research brief.** Produce a brief with local-source findings, source gaps, concept candidates, real tensions, and fact risks.
 3. **Problem diagnosis.** State the paper's central problem in one non-obvious thesis. Prefer "不是 A，而是 B" only when it reveals a real shift, not as decoration.
 4. **Corpus pattern selection.** Read `distillation-evidence.md` and select title, abstract, introduction, structure, paragraph, and style patterns that fit this topic.
-5. **Innovation analysis.** Separate topic, perspective, concept, mechanism, path, and expression innovation. Mark weak or fake innovation honestly.
-6. **Outline.** Build a structure whose sections answer distinct theoretical questions.
-7. **Draft.** Write from the research brief and outline. Keep every paragraph tied to a theoretical action.
-8. **Style calibration.** Apply `style-protocol.md`: plain language, long-short rhythm, clear judgment landing, no sloganized prose.
-9. **Review.** Apply `review-rubric.md` like an anonymous reviewer.
-10. **Revision.** Rewrite weak sections, not merely words.
-11. **Fact check.** Apply `fact-check-protocol.md`; remove, verify, or mark unsupported factual claims.
-12. **Word delivery.** Create `.docx`, then verify the file exists and can be read.
-13. **Profile update.** If the user's materials or feedback imply durable preferences, update the profile.
+5. **Citation planning.** If references are required, read `citation-protocol.md`, build a coverage table, detect author/source conflicts, and plan exactly where each source will be cited.
+6. **Innovation analysis.** Separate topic, perspective, concept, mechanism, path, and expression innovation. Mark weak or fake innovation honestly.
+7. **Outline.** Build a structure whose sections answer distinct theoretical questions.
+8. **Draft.** Write from the research brief and outline. Keep every paragraph tied to a theoretical action. Insert citations at the exact sentence where the source is used; do not pile citations at paragraph ends.
+9. **Style calibration.** Apply `style-protocol.md`: plain language, long-short rhythm, clear judgment landing, no sloganized prose.
+10. **Review.** Apply `review-rubric.md` like an anonymous reviewer.
+11. **Revision.** Rewrite weak sections, not merely words.
+12. **Fact check and citation audit.** Apply `fact-check-protocol.md` and `citation-protocol.md`; remove, verify, or mark unsupported factual claims; audit citation numbering and GB/T 7714 order.
+13. **Word delivery.** Create `.docx`, then verify the file exists and can be read.
+14. **Profile update.** If the user's materials or feedback imply durable preferences, update the profile.
 
 ## Output Contract
 
@@ -80,6 +84,7 @@ For full-paper work, deliver:
 - brief thesis summary.
 - source basis and source gaps.
 - innovation assessment.
+- citation coverage and citation-conflict status when references are used.
 - fact-check status.
 - residual risks.
 

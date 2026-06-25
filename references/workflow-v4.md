@@ -91,6 +91,27 @@ Reject false innovation such as:
 - using policy vocabulary as if it were theoretical contribution;
 - claiming literature gaps without checking literature.
 
+## 4.5 Citation Planning
+
+Before drafting any referenced paper, read `citation-protocol.md`.
+
+Build a citation coverage table:
+
+```text
+source_id:
+file:
+first author:
+all visible authors:
+usable claim:
+target sentence/section:
+GB/T 7714 entry:
+status:
+```
+
+If the user requires all workspace literature, every usable literature source must be mapped to exactly one sentence. If two sources share an author, report the conflict because "all sources used" and "one author only once" cannot both be satisfied without relaxing one rule.
+
+Do not cite a source merely to satisfy coverage. Relevance remains mandatory.
+
 ## 5. Logic Framework
 
 Use a progression chain, not a topic list.
@@ -143,6 +164,7 @@ For full papers, produce:
 - Markdown working draft when useful;
 - Word `.docx` as final delivery;
 - fact-check list;
+- citation audit and GB/T 7714 reference list when references are used;
 - short delivery note.
 
 Do not claim Word delivery unless the file was actually created and verified.

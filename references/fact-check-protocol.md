@@ -17,7 +17,8 @@ Never fabricate:
 - exact dates;
 - institutional facts;
 - real cases;
-- scholar viewpoints attributed to named people.
+- scholar viewpoints attributed to named people;
+- GB/T 7714 reference metadata.
 
 ## Local First, Web When Needed
 
@@ -73,3 +74,16 @@ action:
 ```
 
 If no verification was performed, explicitly say so.
+
+## Reference Metadata Verification
+
+Before writing the reference list:
+
+- verify author names;
+- verify title;
+- verify document type marker such as `[J]`, `[M]`, `[D]`, `[N]`, `[EB/OL]`;
+- verify journal/book/publisher/institution;
+- verify year, volume, issue, and page range when available;
+- do not fill missing fields by guesswork.
+
+If metadata is missing, mark it outside the formal reference list and ask for source confirmation rather than inventing it.
