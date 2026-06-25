@@ -1,0 +1,184 @@
+# EMARX Wording And Expression Protocol
+
+Use this file when drafting, revising, or reviewing sentence-level expression in Chinese theoretical papers.
+
+## Core Problem
+
+Many weak drafts do not fail because every sentence is grammatically wrong. They fail because sentences start in the wrong place, make claims before naming objects, negate before establishing context, or use abstract nouns to hide an empty relation.
+
+Good academic expression should make the reader know:
+
+- what object is being discussed;
+- what relation is being clarified;
+- what evidence or theoretical basis supports the statement;
+- what judgment the paragraph has advanced.
+
+## Paragraph Opening
+
+The first sentence of a paragraph should orient the reader. It may open from:
+
+- object: name the concrete object, text, policy, case, concept, or relation;
+- field position: name the academic conversation or theoretical issue;
+- material: begin with a source, case, data point, or policy fact;
+- transition: connect the previous paragraph to the next analytical move;
+- concept boundary: clarify how a concept is used in this paper.
+
+Avoid opening a paragraph with a naked negation.
+
+Bad opening patterns:
+
+- `不是...`
+- `并非...`
+- `不能...`
+- `不应...`
+- `不要...`
+- `没有...`
+- `无需...`
+- `并不...`
+- `绝非...`
+
+These forms are sometimes valid after the object has been established. They are weak when they appear before the reader knows what is being corrected and why the correction matters.
+
+Instead of opening with negation, first name the object or relation:
+
+```text
+Weak: 不能把生成式人工智能简单理解为传播工具。
+Better: 生成式人工智能进入文化传播后，首先改变的是内容被组织和调用的方式。将其理解为普通传播工具，会遮蔽模型、平台和语料共同塑造意义的过程。
+```
+
+The second version still contains a correction, but the correction follows an object and a reason.
+
+## Sentence Method
+
+Use this default movement when a paragraph feels loose:
+
+```text
+object anchor -> relation clarification -> evidence/material -> interpretive judgment
+```
+
+Examples of sentence functions:
+
+- object anchor: name the thing under discussion;
+- relation clarification: explain how A affects B, belongs to B, differs from B, or generates B;
+- evidence/material: bring in literature, policy, case, text, data, or historical context;
+- interpretive judgment: state what the relation means for the paper's argument.
+
+Avoid paragraphs that only contain:
+
+- claim -> claim -> claim;
+- concept -> concept -> concept;
+- policy phrase -> slogan -> suggestion;
+- negation -> correction -> abstract conclusion.
+
+## Negation Discipline
+
+Negation is useful for concept boundary work, but it must not become the engine of prose.
+
+Use negation only when:
+
+- there is a real misconception to correct;
+- the positive claim follows quickly;
+- the sentence names the object under correction;
+- the paper has evidence or reasoning for the correction.
+
+Avoid:
+
+- paragraph opening by negation;
+- repeated `不是...而是...`;
+- negation that only creates dramatic contrast;
+- correcting a view that nobody in the paper has actually held.
+
+Better movement:
+
+```text
+先说明对象的实际运行方式，再指出旧理解的不足，最后给出本文的判断。
+```
+
+## Verb Choice
+
+Prefer verbs that show intellectual action.
+
+Use:
+
+- distinguishes;
+- clarifies;
+- explains;
+- reveals;
+- connects;
+- limits;
+- transforms;
+- supports;
+- weakens;
+- expands.
+
+In Chinese prose, prefer direct verbs:
+
+- `批判...` over `对...进行批判`;
+- `解释...` over `对...作出解释`;
+- `限制...` over `形成对...的限制`;
+- `支持...` over `为...提供支撑`.
+
+Avoid using `推动`, `促进`, `加强`, `优化`, `提升`, `赋能`, `打造`, and `构建` unless the sentence names the object, mechanism, and condition.
+
+## Subject And Object Clarity
+
+Every important sentence should have a clear subject and object.
+
+Weak signs:
+
+- the subject is an abstract container such as `这一问题`, `这种情况`, or `这一逻辑` without a nearby referent;
+- the verb is too general to show relation;
+- the object is missing, so the reader cannot tell what has changed;
+- the sentence ends with `重要意义`, `现实价值`, or `内在要求` without specifying the value object.
+
+Fix by naming:
+
+```text
+actor / mechanism / object / consequence
+```
+
+## Transition
+
+Transitions should explain why the next paragraph is necessary.
+
+Good transitions:
+
+- move from concept to material;
+- move from material to mechanism;
+- move from mechanism to governance implication;
+- move from literature limit to this paper's entry point.
+
+Avoid:
+
+- `因此` when no inference has been made;
+- `由此可见` when the paragraph only repeats a statement;
+- `与此同时` as a loose connector;
+- `值得注意的是` when the following sentence is not actually notable.
+
+## Title, Heading, And Body Distinction
+
+Formal first-level and second-level headings remain required for full papers. Body prose should not become a hidden outline.
+
+Avoid inside body paragraphs:
+
+- `第一...第二...第三...` as a substitute for reasoning;
+- colon-led mini titles;
+- semicolon stacks that merely list concepts;
+- paragraph endings that sound like policy bullet points.
+
+## Revision Checklist
+
+When revising, check:
+
+```text
+naked negative openings:
+paragraphs with no object anchor:
+paragraphs with only abstract concepts:
+sentences with unclear subject:
+generic verbs:
+unsupported transitions:
+claim-only paragraphs:
+paragraphs ending in slogans:
+```
+
+If a paragraph opens badly, do not only replace a word. Rebuild the paragraph from object, relation, material, and judgment.

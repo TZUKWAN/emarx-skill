@@ -148,6 +148,11 @@ Check:
 - Are short sentences used for judgment landing rather than mechanical variation?
 - Does the article body avoid mechanical sequence words such as "首先", "其次", "再次", and "最后" when they merely expose an outline?
 - Does it avoid binary contrast formulas such as "不是……而是……" and "并非……而是……"?
+- Does each paragraph open with an object, relation, material, field position, or necessary transition rather than a naked negation?
+- Are negations used only after the object under correction is clear?
+- Do important sentences have clear subjects, objects, and verbs?
+- Are generic verbs such as `推动`, `促进`, `加强`, `优化`, `提升`, and `赋能` supported by concrete object, mechanism, and condition?
+- Do transitions explain why the next move is necessary, rather than relying on loose connectors such as `因此`, `由此可见`, or `与此同时`?
 - Are quotation marks, colons, dashes, and question-style headings used only when necessary?
 - Does any passage feel congested, flat, rushed, or slogan-like when read as prose?
 - Are slogans translated into mechanisms?

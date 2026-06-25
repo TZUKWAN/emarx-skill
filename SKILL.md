@@ -28,6 +28,7 @@ Read these files when the corresponding task appears:
 - `references/argument-depth-protocol.md`: argument permission, literature digestion, paragraph argument units, and bad-draft rejection rules.
 - `references/scholarliness-protocol.md`: academic-map positioning, phenomenon-to-problem transformation, concept ledger, theoretical framework, measured critique, literature dialogue, and abstraction checks.
 - `references/style-protocol.md`: plain but scholarly style, 大家风范 calibration, and non-mechanical rhythm principles.
+- `references/wording-expression-protocol.md`: sentence-level expression, paragraph openings, negation discipline, verb choice, subject-object clarity, and transition methods.
 - `references/writing-rhythm-protocol.md`: qualitative writing rhythm, paragraph breathing, judgment landing, and rhythm-reading checks. Its corpus numbers are background evidence, not generation quotas.
 - `references/review-rubric.md`: anonymous-review style checks for problem consciousness, innovation, structure, evidence, prose, length, and hierarchy.
 - `references/fact-check-protocol.md`: fact-risk categories, local/web verification policy, "do not invent" rules.
@@ -55,7 +56,8 @@ Read these files when the corresponding task appears:
 16. For referenced papers, use `references/citation-protocol.md`: one literature item only once, one author only once, citations inserted at the exact sentence, sequential numbering, and GB/T 7714 reference list in citation order.
 17. Apply the user's daily prose constraints from `references/style-protocol.md`: do not manufacture concepts, do not use inflated novelty language, avoid quotation marks and colon-heavy AI-looking punctuation unless required by citation or title format, and avoid mechanical sequence words such as `首先` / `其次` / `再次` / `最后` in running prose.
 18. Do not rely on binary contrast formulas such as `不是……而是……` or `并非……而是……`. State the claim directly and let the evidence and mechanism carry the distinction.
-19. When new user materials or feedback reveal stable preferences, update `references/user-research-profile.md` or run `scripts/update_user_profile.py`.
+19. Do not open paragraphs with naked negation. Apply `references/wording-expression-protocol.md`: orient the reader with object, relation, material, or field position before correction, critique, or negation.
+20. When new user materials or feedback reveal stable preferences, update `references/user-research-profile.md` or run `scripts/update_user_profile.py`.
 
 ## Script Tools
 
@@ -89,7 +91,7 @@ For a full paper:
 9. **Innovation analysis.** Separate topic, perspective, concept, mechanism, path, and expression innovation. Mark weak or fake innovation honestly.
 10. **Outline.** Build a structure whose first-level sections answer distinct theoretical questions and whose second-level headings perform distinct analytical functions.
 11. **Draft.** Write from the research brief and outline. Keep every paragraph tied to a theoretical action. Insert citations at the exact sentence where the source is used; do not pile citations at paragraph ends.
-12. **Style calibration.** Apply `style-protocol.md` and `writing-rhythm-protocol.md`: plain language, natural rhythm, clear judgment landing, no sloganized prose, no mechanical sentence-length control, no AI-looking contrast formulas, no mechanical enumerator prose.
+12. **Style calibration.** Apply `style-protocol.md`, `wording-expression-protocol.md`, and `writing-rhythm-protocol.md`: plain language, natural rhythm, clear judgment landing, no sloganized prose, no mechanical sentence-length control, no naked negative openings, no AI-looking contrast formulas, no mechanical enumerator prose.
 13. **Scholarliness calibration.** Apply `scholarliness-protocol.md`: verify field position, concept boundary, literature dialogue, critical judgment, material-to-theory abstraction, title logic, and paragraph-level theoretical action.
 14. **Depth calibration.** Apply `argument-depth-protocol.md`: each major section needs concept boundary work, mechanism explanation, counter-tension, material support, and a judgment landing. Add missing depth before calling the draft complete.
 15. **Bad-draft review.** Apply `review-rubric.md` and run `scripts/scholarliness_audit.py` plus `scripts/bad_draft_audit.py` when possible. A formally compliant but formulaic draft must be rejected.

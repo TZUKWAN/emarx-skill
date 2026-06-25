@@ -64,6 +64,25 @@ INFLATED_NOVELTY_PATTERNS = [
     "填补空白",
 ]
 
+NAKED_NEGATIVE_OPENING_RE = re.compile(
+    r"^(不是|并非|不能|不应|不要|没有|无需|并不|绝非|非但|切忌|避免)"
+)
+
+LOOSE_TRANSITION_OPENING_RE = re.compile(
+    r"^(因此|由此可见|与此同时|值得注意的是|从这个意义上说|在这一意义上)"
+)
+
+GENERIC_VERB_PATTERNS = [
+    "推动",
+    "促进",
+    "加强",
+    "优化",
+    "提升",
+    "赋能",
+    "打造",
+    "构建",
+]
+
 
 def cn_len(text: str) -> int:
     return len(CN_RE.findall(text))
@@ -128,6 +147,24 @@ def paragraph_starts(body: str) -> list[str]:
     return starts
 
 
+def paragraph_opening_issues(body: str) -> dict:
+    naked_negative = []
+    loose_transition = []
+    for index, para in enumerate([item.strip() for item in re.split(r"\n\s*\n", body) if item.strip()], 1):
+        if para.startswith("#"):
+            continue
+        cleaned = re.sub(r"^[#\s]+", "", para)
+        first_sentence = re.split(r"[。！？!?；;]", cleaned, maxsplit=1)[0][:120]
+        if NAKED_NEGATIVE_OPENING_RE.match(first_sentence):
+            naked_negative.append({"paragraph": index, "opening": first_sentence})
+        if LOOSE_TRANSITION_OPENING_RE.match(first_sentence):
+            loose_transition.append({"paragraph": index, "opening": first_sentence})
+    return {
+        "naked_negative_openings": naked_negative,
+        "loose_transition_openings": loose_transition,
+    }
+
+
 def audit(path: Path, terms: list[str]) -> dict:
     text = path.read_text(encoding="utf-8-sig", errors="replace")
     body, refs = split_body_and_refs(text)
@@ -154,6 +191,12 @@ def audit(path: Path, terms: list[str]) -> dict:
         for term in INFLATED_NOVELTY_PATTERNS
         if body.count(term)
     }
+    generic_verb_counts = {
+        term: body.count(term)
+        for term in GENERIC_VERB_PATTERNS
+        if body.count(term)
+    }
+    opening_issues = paragraph_opening_issues(body)
     sentence_stats = analyze_sentences(body)
     main_chars = cn_len(body)
 
@@ -182,6 +225,12 @@ def audit(path: Path, terms: list[str]) -> dict:
         risks.append("formulaic_binary_contrasts")
     if inflated_novelty_counts:
         risks.append("inflated_novelty_language")
+    if opening_issues["naked_negative_openings"]:
+        risks.append("naked_negative_paragraph_openings")
+    if len(opening_issues["loose_transition_openings"]) >= 3:
+        risks.append("loose_transition_openings")
+    if sum(generic_verb_counts.values()) >= max(8, main_chars // 600):
+        risks.append("generic_verb_overuse")
     bucket_pct = sentence_stats.get("bucket_pct", {})
     if bucket_pct.get("S", 0) + bucket_pct.get("M", 0) >= 70:
         risks.append("short_medium_heavy_expository_style")
@@ -204,6 +253,8 @@ def audit(path: Path, terms: list[str]) -> dict:
         "mechanical_sequence_counts": mechanical_sequence_counts,
         "binary_contrast_counts": binary_contrast_counts,
         "inflated_novelty_counts": inflated_novelty_counts,
+        "generic_verb_counts": generic_verb_counts,
+        "opening_issues": opening_issues,
         "risks": risks,
         "ok": not risks,
     }
