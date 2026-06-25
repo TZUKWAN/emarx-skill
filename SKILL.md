@@ -25,7 +25,8 @@ Read these files when the corresponding task appears:
 
 - `references/workflow-v4.md`: full paper workflow, source-first sequence, innovation analysis, revision loop.
 - `references/length-and-hierarchy-protocol.md`: 10,000-12,000 Chinese-character default, mandatory second-level headings, heading hierarchy, and structure-depth checks.
-- `references/style-protocol.md`: plain but scholarly style, long/medium/short sentence rhythm, 大家风范 calibration.
+- `references/style-protocol.md`: plain but scholarly style, 大家风范 calibration, and non-mechanical rhythm principles.
+- `references/writing-rhythm-protocol.md`: qualitative writing rhythm, paragraph breathing, judgment landing, and rhythm-reading checks. Its corpus numbers are background evidence, not generation quotas.
 - `references/review-rubric.md`: anonymous-review style checks for problem consciousness, innovation, structure, evidence, prose, length, and hierarchy.
 - `references/fact-check-protocol.md`: fact-risk categories, local/web verification policy, "do not invent" rules.
 - `references/citation-protocol.md`: citation placement, one-source-one-citation, one-author-one-citation, sequential numbering, GB/T 7714 reference list.
@@ -43,7 +44,7 @@ Read these files when the corresponding task appears:
 7. A normal full paper must include second-level headings under the major body sections. The default hierarchy is `一、` for first-level headings and `（一）` / `（二）` for second-level headings. Use third-level headings only when a section contains multiple mechanisms, stages, subjects, or cases.
 8. Do not produce flat "机遇、挑战、路径" essays. Each section must answer a theoretical question and advance the central thesis.
 9. Use corpus-derived structures dynamically. Pick a structure because it fits the topic, not because it sounds neat.
-10. Write in plain, clear, academically weighted Chinese: long sentences for mechanism, medium sentences for transition, short sentences for judgment. Do not use obscure wording to fake depth.
+10. Write in plain, clear, academically weighted Chinese. Let rhythm serve reasoning: long sentences can unfold relations, medium sentences can carry transitions, and short sentences can land judgments. Do not enforce sentence-count or sentence-length quotas.
 11. Treat review and revision as substantive reconstruction, not surface polishing.
 12. For referenced papers, use `references/citation-protocol.md`: one literature item only once, one author only once, citations inserted at the exact sentence, sequential numbering, and GB/T 7714 reference list in citation order.
 13. When new user materials or feedback reveal stable preferences, update `references/user-research-profile.md` or run `scripts/update_user_profile.py`.
@@ -76,7 +77,7 @@ For a full paper:
 7. **Innovation analysis.** Separate topic, perspective, concept, mechanism, path, and expression innovation. Mark weak or fake innovation honestly.
 8. **Outline.** Build a structure whose first-level sections answer distinct theoretical questions and whose second-level headings perform distinct analytical functions.
 9. **Draft.** Write from the research brief and outline. Keep every paragraph tied to a theoretical action. Insert citations at the exact sentence where the source is used; do not pile citations at paragraph ends.
-10. **Style calibration.** Apply `style-protocol.md`: plain language, long-short rhythm, clear judgment landing, no sloganized prose.
+10. **Style calibration.** Apply `style-protocol.md` and `writing-rhythm-protocol.md`: plain language, natural rhythm, clear judgment landing, no sloganized prose, no mechanical sentence-length control.
 11. **Depth calibration.** Apply the v5 rule: each major section needs concept boundary work, mechanism explanation, counter-tension, material support, and a judgment landing. Add missing depth before calling the draft complete.
 12. **Review.** Apply `review-rubric.md` like an anonymous reviewer, including length and heading hierarchy.
 13. **Revision.** Rewrite weak sections, not merely words.

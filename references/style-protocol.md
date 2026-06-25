@@ -6,7 +6,7 @@ The prose should be easy to understand but not shallow. It should not use obscur
 
 ## Sentence Rhythm
 
-Use long, medium, and short sentences deliberately.
+Use long, medium, and short sentences deliberately, but never mechanically. Rhythm must serve the argument. It is not a quota system.
 
 ```text
 Long sentence: explain concept, relation, mechanism, or layered causality.
@@ -14,19 +14,21 @@ Medium sentence: transition, qualify, connect.
 Short sentence: land a judgment.
 ```
 
-Rules:
+Principles:
 
-1. Each natural paragraph should usually contain 3-5 sentences.
-2. Each paragraph should include at least one short judgment sentence.
-3. Do not stack more than two long sentences without a medium or short sentence.
-4. Do not use only short sentences; that becomes commentary.
-5. Do not use only long sentences; that becomes academic fog.
+1. Sentence length should follow the work each sentence performs.
+2. Long sentences are justified when they clarify relations, layers, causality, or mechanisms.
+3. Medium sentences are useful when the argument needs qualification, transition, or controlled progression.
+4. Short sentences should be used when a judgment needs to land. They should not be inserted just to satisfy rhythm.
+5. If a paragraph reads as congested, flat, rushed, or slogan-like, rewrite the sentence relations rather than mechanically adding or deleting sentences.
 
 Example rhythm:
 
 ```text
 生成式人工智能改变的并不只是中华文化国际传播的工具条件，更改变了文化意义被组织、被翻译、被分发和被接受的基本方式。问题由此变得复杂。文化不再只是被“推出去”，还要在异质语境中被重新解释。
 ```
+
+Read this example as a qualitative movement, not as a pattern to count: a complex relation is unfolded, the difficulty is named, and the judgment lands.
 
 ## Plain But Scholarly
 
@@ -94,7 +96,9 @@ Before delivery, ask:
 
 - Is any paragraph all generalities?
 - Does every paragraph end with a real judgment?
-- Are long sentences controlled?
-- Are short sentences used for force, not laziness?
+- Does the rhythm follow the argument rather than a formula?
+- Are long sentences doing real conceptual or mechanistic work?
+- Are short sentences used for force, not laziness or quota-filling?
+- Does any passage feel congested, flat, rushed, or slogan-like when read aloud?
 - Are concepts stable?
 - Is the language plain enough for understanding and weighted enough for scholarship?

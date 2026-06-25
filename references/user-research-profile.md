@@ -21,6 +21,7 @@ This file stores durable user preferences and research direction. Update it only
 - Plain and clear language.
 - Strong academic texture.
 - Long, medium, and short sentence rhythm.
+- Rhythm should be qualitative and argument-driven, not controlled by sentence-length quotas.
 - Mature, steady, "大家风范" voice.
 - Conceptually precise but not obscure.
 - Deep insight over formulaic completeness.
@@ -58,3 +59,9 @@ Append future user feedback here with date, topic, preference, and action taken.
 - Topic: 篇幅、标题层级与学理深度
 - Feedback: EMARX 生成论文没有二级标题，结构显得诡异；篇幅太短，完整论文应在 10,000-12,000 字之间；新增论文后需要重新分析全部论文的标题层级；行文仍需更深入、更有学理性。
 - Action: v5 增加 `length-and-hierarchy-protocol.md`，把 10,000-12,000 字、二级标题、结构深度校准和交付前标题层级报告写成硬规则。
+
+## Feedback 2026-06-25 15:05
+
+- Topic: 写作节奏
+- Feedback: 节奏比例可以作为语料分析结果，但不能作为技能硬性要求；节奏不是通过定量要求得出来的，不能让 EMARX 机械凑句长和交替比例。
+- Action: 新增 `writing-rhythm-protocol.md`，把全量节奏分析转化为质性原则：节奏服从论证需要，长句展开关系，中句承接推进，短句落定判断；比例只作为后台诊断证据，不进入生成配额。

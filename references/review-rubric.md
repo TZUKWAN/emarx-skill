@@ -95,7 +95,10 @@ Check:
 Check:
 
 - Is the style plain but scholarly?
-- Are long and short sentences balanced?
+- Does the prose rhythm serve the argument rather than a sentence-length formula?
+- Are long sentences doing real conceptual, relational, or mechanistic work?
+- Are short sentences used for judgment landing rather than mechanical variation?
+- Does any passage feel congested, flat, rushed, or slogan-like when read as prose?
 - Are slogans translated into mechanisms?
 - Is there a judgment landing in each paragraph?
 - Does the draft sound like a mature scholar, not a policy notice or online commentary?
@@ -114,6 +117,7 @@ Use:
 证据/事实问题:
 引用/参考文献问题:
 语言问题:
+节奏问题:
 必须修改:
 可以优化:
 建议重写段落:
