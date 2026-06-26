@@ -1,18 +1,18 @@
 ---
 name: emarx
-description: "EMARX v6.6 research-oriented Chinese academic essay production system. Use when drafting, revising, deepening, reviewing, fact-checking, citing, referencing, structuring, or delivering Chinese 学理思辨论文 with local-source-first research workflow, full-corpus article deconstruction reports, topic-based 3-5 anchor paper selection, internal shadow recomposition, paragraph-level detailed outlines, one-paragraph-at-a-time drafting, internal material anchoring, full-paper length control, mandatory second-level headings, structure-design firewall against diagnostic/checklist headings, workspace source scanning, research brief construction, innovation analysis, GB/T 7714 reference formatting, one-source-one-citation control, scholarly but plain prose, Word/docx delivery, user research-profile iteration, Marxism, cultural communication, ideological-political education, AI philosophy, technology critique, subjectivity, cultural memory, and humanities/social-science theoretical writing."
+description: "EMARX v6.7 research-oriented Chinese academic essay production system. Use when drafting, revising, deepening, reviewing, fact-checking, citing, referencing, structuring, or delivering Chinese 学理思辨论文 with local-source-first research workflow, current-workspace paper anchoring, topic-based 3-5 real paper selection, immediate anchor-paper deconstruction, optional full-corpus report cache, internal shadow recomposition, paragraph-level detailed outlines, one-paragraph-at-a-time drafting, internal material anchoring, full-paper length control, mandatory second-level headings, structure-design firewall against diagnostic/checklist headings, workspace source scanning, research brief construction, innovation analysis, GB/T 7714 reference formatting, one-source-one-citation control, scholarly but plain prose, Word/docx delivery, user research-profile iteration, Marxism, cultural communication, ideological-political education, AI philosophy, technology critique, subjectivity, cultural memory, and humanities/social-science theoretical writing."
 ---
 
 # EMARX
 
-EMARX v6.6 is a research-oriented Chinese 学理思辨论文 production system. It must not behave like a prompt that directly writes a fluent essay, but it also must not turn the final paper into a workflow manual. All diagnosis, anchoring, structure planning, shadow recomposition, paragraph planning, review, and audit procedures are internal quality controls unless the user explicitly asks to see them.
+EMARX v6.7 is a research-oriented Chinese 学理思辨论文 production system. It must not behave like a prompt that directly writes a fluent essay, but it also must not turn the final paper into a workflow manual. All diagnosis, anchoring, anchor-paper deconstruction, structure planning, shadow recomposition, paragraph planning, review, and audit procedures are internal quality controls unless the user explicitly asks to see them.
 
 ## Operating Principle
 
 Use this order unless the user explicitly asks for a narrower task:
 
 ```text
-local sources -> article deconstruction reports -> 3-5 anchor papers -> internal shadow recomposition -> logic skeleton -> paragraph-level outline -> one-paragraph-at-a-time drafting -> style calibration -> review -> revision -> fact check -> Word delivery -> concise delivery note
+current workspace scan -> 3-5 real anchor papers -> immediate anchor-paper deconstruction -> internal shadow recomposition -> logic skeleton -> paragraph-level outline -> one-paragraph-at-a-time drafting -> style calibration -> review -> revision -> fact check -> Word delivery -> concise delivery note
 ```
 
 The final paper's heading hierarchy must be an argument skeleton, not a visible research checklist. Internal actions such as diagnosing the research object, defining concept boundaries, mapping mechanisms, checking materials, designing paths, or reviewing quality must be translated into substantive academic sections before drafting.
@@ -26,7 +26,7 @@ Also respect the v5 full-corpus structure audit in `references/length-and-hierar
 Read these files when the corresponding task appears:
 
 - `references/workflow-v4.md`: full paper workflow, source-first sequence, innovation analysis, revision loop.
-- `references/anchored-recomposition-workflow.md`: full-corpus deconstruction reports, topic-based anchor paper selection, internal shadow recomposition, detailed paragraph outline, and one-paragraph-at-a-time drafting.
+- `references/anchored-recomposition-workflow.md`: current-workspace paper anchoring, optional report cache, immediate anchor-paper deconstruction, internal shadow recomposition, detailed paragraph outline, and one-paragraph-at-a-time drafting.
 - `references/length-and-hierarchy-protocol.md`: 10,000-12,000 Chinese-character default, mandatory second-level headings, heading hierarchy, and structure-depth checks.
 - `references/argument-depth-protocol.md`: argument permission, literature digestion, paragraph argument units, and bad-draft rejection rules.
 - `references/structure-design-protocol.md`: front-stage paper structure, diagnostic-heading firewall, title conversion, and corpus-aligned section design.
@@ -73,10 +73,11 @@ Read these files when the corresponding task appears:
 24. Paper prose firewall: the final article must not contain workflow labels such as diagnosis card, mechanism chain, argumentative job, review round, reviewer, pass/fail, audit, source coverage table, or any other internal process language.
 25. Structure firewall: the final article must not use diagnostic or checklist headings such as `研究对象与概念边界`, `概念界定`, `理论框架`, `材料锚定`, `问题诊断`, `学理性诊断`, `机制链`, `论证任务`, `创新点分析`, or `路径建设与可执行条件` unless the user explicitly asks for a research design, proposal, or methodology chapter. These tasks must be embedded into substantive argumentative sections.
 26. A first-level heading must name a real relation, function, mechanism, contradiction, risk, transformation, or path in the topic itself. If the heading only names what the writer is doing, rewrite it before drafting.
-27. For high-quality full-paper tasks, use `references/anchored-recomposition-workflow.md`: select three to five local anchor papers based on the user's topic, read their deconstruction reports, build an internal shadow recomposition only as a logic-learning artifact, then create a paragraph-level outline before drafting.
-28. Never deliver the shadow recomposition as the final paper. It is an internal map of paragraph functions, source roles, and logic moves. Final prose must be rewritten paragraph by paragraph with citations, transformation, and fact checks.
-29. Draft one paragraph at a time when using the anchored workflow. Do not generate several body paragraphs at once and hope later polishing will repair the logic.
-30. When new user materials or feedback reveal stable preferences, update `references/user-research-profile.md` or run `scripts/update_user_profile.py`.
+27. For high-quality full-paper tasks, use `references/anchored-recomposition-workflow.md`: scan the user's current workspace, select three to five real local paper files based on the user's topic, and immediately deconstruct those selected papers before any recomposition or drafting.
+28. Do not anchor from an old deconstruction report library. Existing reports are only a cache or reading index after they are matched to current workspace files; they cannot replace current-file scanning, opening, and judgment.
+29. Never deliver the shadow recomposition as the final paper. It is an internal map of paragraph functions, source roles, and logic moves. Final prose must be rewritten paragraph by paragraph with citations, transformation, and fact checks.
+30. Draft one paragraph at a time when using the anchored workflow. Do not generate several body paragraphs at once and hope later polishing will repair the logic.
+31. When new user materials or feedback reveal stable preferences, update `references/user-research-profile.md` or run `scripts/update_user_profile.py`.
 
 ## Script Tools
 
@@ -90,7 +91,7 @@ python scripts/scholarliness_audit.py --paper paper.md --output scholarliness-au
 python scripts/bad_draft_audit.py --paper paper.md --output bad-draft-audit.json
 python scripts/citation_audit.py --paper paper.md --output citation-audit.json
 python scripts/deconstruct_corpus_articles.py --index structure_index.json --output-dir article_deconstruction/reports --summary article_deconstruction/summary.json
-python scripts/select_anchor_papers.py --topic "论文题目" --summary article_deconstruction/summary.json --output anchor-papers.md --top-k 5
+python scripts/select_anchor_papers.py --topic "论文题目" --workspace-root <current_workspace> --summary article_deconstruction/summary.json --output anchor-papers.md --top-k 5
 python scripts/markdown_to_docx.py --input paper.md --output paper.docx
 python scripts/update_user_profile.py --profile references/user-research-profile.md --topic "主题" --feedback "用户反馈"
 ```
@@ -102,8 +103,8 @@ Script output is an index or scaffold, not final truth. Always inspect the relev
 For a full paper:
 
 1. **Source intake.** Scan local workspace sources and identify the most relevant materials. If local material is insufficient or freshness matters, perform web verification with reliable sources.
-2. **Article deconstruction base.** Read `anchored-recomposition-workflow.md`. If per-paper deconstruction reports are missing or stale, run `deconstruct_corpus_articles.py` from the existing structure index and extracted texts.
-3. **Topic anchor selection.** Use the user's title to select three to five anchor papers from the deconstruction reports. Read the selected reports and adjust the set if keyword relevance is shallow.
+2. **Current-workspace anchor scan.** Read `anchored-recomposition-workflow.md`. Scan the user's current workspace and select three to five real paper files for the topic. Use old deconstruction reports only as optional cache after matching them to current files.
+3. **Immediate anchor-paper deconstruction.** Open or extract the selected anchor papers and analyze their abstract logic, style, writing methods, introduction, body movement, conclusion, heading structure, argument logic, prose style, expression methods, and risks. Do not proceed from cached reports alone.
 4. **Research brief.** Produce a brief with local-source findings, source gaps, concept candidates, real tensions, and fact risks.
 5. **Scholarliness diagnosis.** Read `scholarliness-protocol.md`. Produce academic map, theoretical starting point, phenomenon-to-problem transformation, concept ledger, framework consistency check, literature-dialogue plan, critical judgment, and material-to-theory abstraction route.
 6. **Problem diagnosis.** State the paper's central problem in one non-obvious thesis. Avoid formulaic contrast patterns such as "不是 A，而是 B"; write the claim directly and make the distinction through concept boundaries, evidence, and mechanism analysis.

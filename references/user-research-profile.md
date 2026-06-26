@@ -120,6 +120,12 @@ Append future user feedback here with date, topic, preference, and action taken.
 - Feedback: 用户要求对工作空间所有文章逐篇生成详细拆解报告，分析摘要逻辑、风格、写作手法、引言、主体、结论、行文逻辑、文风、论证逻辑和注意问题。用户同时提出新的生产工作流：根据题目先在工作空间锚定三五篇论文，拆解并重组其逻辑，形成新文章的详细大纲和逻辑骨架，再严格按大纲一段一段写，不能一次写几段后再泛泛修改。
 - Action: v6.6 增加 `scripts/deconstruct_corpus_articles.py`、`scripts/select_anchor_papers.py` 和 `references/anchored-recomposition-workflow.md`；生成 `D:\BAOXUE\.codex\emarx\article_deconstruction_v1\reports` 下 450 份逐篇拆解报告及 `summary.json`；把“3-5篇锚定、内部影子重组、逻辑骨架、段落级大纲、逐段写作”写入 EMARX 完整论文流程。影子重组只允许作为内部逻辑学习稿，不能作为最终论文交付。
 
+## Feedback 2026-06-26 15:55
+
+- Topic: 当前工作空间真实论文锚定优先
+- Feedback: 用户纠正 v6.6 的关键偏差：不是从已生成的拆解报告中锚定论文，而是在用户实际使用 EMARX 时，从当次工作空间中的论文去锚定。锚定后再分析拆解这些论文的逻辑、文风、写作手法、论证方式，然后继续后续影子重组、大纲和逐段写作。
+- Action: v6.7 将 `anchored-recomposition-workflow.md` 和 `SKILL.md` 改为当前工作空间优先；`select_anchor_papers.py` 新增 `--workspace-root` 主入口，直接扫描当前工作空间真实论文文件，`summary.json` 只作为可选缓存；入口提示和 README 同步删除“从拆解报告锚定”的表述。
+
 ## Feedback 2026-06-26 10:04
 
 - Topic: 避免装逼式结构重构

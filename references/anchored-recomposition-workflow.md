@@ -7,14 +7,28 @@ Use this file when the user wants EMARX to write a full paper by first learning 
 The workflow is:
 
 ```text
-full-corpus deconstruction -> topic-based anchor selection -> shadow recomposition -> logic deconstruction -> detailed outline -> one-paragraph-at-a-time drafting -> paragraph review -> whole-paper revision
+current workspace scan -> topic-based anchor selection from real papers -> immediate anchor-paper deconstruction -> shadow recomposition -> logic deconstruction -> detailed outline -> one-paragraph-at-a-time drafting -> paragraph review -> whole-paper revision
 ```
 
 This is designed to solve the failure where EMARX writes a generic paper from abstract rules. The paper should grow out of a few concrete local models, but it must not become a copied patchwork.
 
-## Full-Corpus Deconstruction
+## Current Workspace First
 
-If `article_deconstruction_v1/summary.json` and per-paper reports are missing or stale, run:
+Anchor papers must be selected from the user's current workspace at the time of use. Do not start from an old deconstruction report library. A report library may help as a cache, but it cannot replace scanning, opening, and judging the real files that are currently available to the user.
+
+Minimum current-workspace actions:
+
+- scan the current workspace for PDF, Word, Markdown, TXT, HTML, and other readable papers;
+- rank candidate papers against the user's topic;
+- verify that selected anchors are real current files;
+- open or extract the selected anchor papers;
+- deconstruct the selected papers' abstract, introduction, body, conclusion, style, writing methods, and argument logic before drafting.
+
+Old reports are allowed only when they match a current workspace file path and are treated as cache. If a cached report exists, still reopen the original file or extracted text for the selected anchors when the writing decision depends on the source.
+
+## Optional Cache: Full-Corpus Deconstruction
+
+If the current workspace has an existing structure index and extracted texts, a report cache can be built or refreshed:
 
 ```bash
 python scripts/deconstruct_corpus_articles.py \
@@ -34,16 +48,17 @@ Each report should record:
 - usable patterns;
 - risks to avoid.
 
-Treat these reports as a reading index. When a specific claim matters, reopen the original source or extracted text.
+Treat these reports as a reading index and acceleration layer only. They are not the source of anchoring.
 
 ## Topic-Based Anchor Selection
 
-For a new user topic, select three to five anchor papers before drafting:
+For a new user topic, select three to five anchor papers from the current workspace before drafting:
 
 ```bash
 python scripts/select_anchor_papers.py \
   --topic "<user topic>" \
-  --summary <article_deconstruction_dir>/summary.json \
+  --workspace-root <current_workspace> \
+  --summary <optional_article_deconstruction_cache.json> \
   --output <anchor_report.md> \
   --top-k 5
 ```
@@ -56,7 +71,33 @@ The anchor set should usually include:
 - one paper for material/case/policy context;
 - one paper for path or conclusion style.
 
-Do not select anchors only by keyword overlap. After script selection, read the reports and adjust if a paper is formally relevant but substantively weak.
+Do not select anchors only by keyword overlap. After script selection, open the selected current workspace files, read the abstract/introduction/body/conclusion or their extracted text, and adjust if a paper is formally relevant but substantively weak.
+
+## Immediate Anchor-Paper Deconstruction
+
+After selecting the three to five anchors, deconstruct those anchors for the current topic. Do not skip this step just because a report cache exists.
+
+For each selected anchor paper, produce an internal note:
+
+```text
+file:
+why selected:
+abstract logic:
+abstract style and writing methods:
+introduction logic:
+body section movement:
+conclusion movement:
+heading structure:
+argument logic:
+prose style:
+expression methods:
+usable structure moves:
+usable paragraph moves:
+what must not be copied:
+what must be transformed for the user's topic:
+```
+
+Only after this immediate deconstruction can the workflow move to shadow recomposition.
 
 ## Shadow Recomposition
 
@@ -75,7 +116,7 @@ The shadow recomposition should be a paragraph-function map, not a polished arti
 
 ```text
 paragraph_id:
-source paper/report:
+source paper:
 borrowed function:
 borrowed material:
 why it fits the user topic:
