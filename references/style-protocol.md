@@ -1,124 +1,142 @@
-# EMARX Style Protocol
+# EMARX 语体协议
 
-Target style: 平实、清楚、稳健、有分寸、有判断、有学术质感、有大家风范.
+目标语体：平实、清楚、稳健、有分寸、有判断、有学术质感、有大家风范。
 
-The prose should be easy to understand but not shallow. It should not use obscure terminology to simulate depth.
+文字应易于理解但不浅薄，不应以晦涩术语模拟深度。
 
-## Sentence Rhythm
+## 句子节奏
 
-Use long, medium, and short sentences deliberately, but never mechanically. Rhythm must serve the argument. It is not a quota system.
+长、中、短句有意识地搭配，但不机械。节奏必须服务论证，不是配额系统。
 
 ```text
-Long sentence: explain concept, relation, mechanism, or layered causality.
-Medium sentence: transition, qualify, connect.
-Short sentence: land a judgment.
+长句：解释概念、关系、机制或层叠因果。
+中句：过渡、限定、连接。
+短句：落定判断。
 ```
 
-Principles:
+原则：
 
-1. Sentence length should follow the work each sentence performs.
-2. Long sentences are justified when they clarify relations, layers, causality, or mechanisms.
-3. Medium sentences are useful when the argument needs qualification, transition, or controlled progression.
-4. Short sentences should be used when a judgment needs to land. They should not be inserted just to satisfy rhythm.
-5. If a paragraph reads as congested, flat, rushed, or slogan-like, rewrite the sentence relations rather than mechanically adding or deleting sentences.
+1. 句长由每句话承担的工作决定。
+2. 长句只有在澄清关系、层次、因果或机制时才成立。
+3. 中句在论证需要限定、过渡或受控推进时有用。
+4. 短句应在判断需要落定时使用，不要为了节奏而插入。
+5. 若段落读起来拥堵、平板、仓促或口号化，应重写句子关系，而不是机械增删句子。
 
-Read rhythm as qualitative movement, not as a pattern to count: a complex relation is unfolded, the difficulty is named, and the judgment lands. Do not copy stock contrast formulas to simulate rhythm.
+把节奏读作质性运动，而非可计数的模式：复杂关系被展开，困难被点名，判断落定。不要用套式对照句模拟节奏。
 
-## Plain But Scholarly
+## 平实而有学理
 
-Plain language means:
+平实语言意味着：
 
-- concepts are clear;
-- claims have subjects and objects;
-- mechanisms are visible;
-- the reader can follow the progression.
+- 概念清楚；
+- 论断有主语和宾语；
+- 机制可见；
+- 读者能跟随推进。
 
-Plain language does not mean:
+平实语言不意味着：
 
-- common-sense summary;
-- policy slogan;
-- casual commentary;
-- shallow simplification.
+- 常识总结；
+- 政策口号；
+- 随意评论；
+- 浅层简化。
 
 ## 大家风范
 
-Produce authority through steadiness, not ornament.
+权威感来自稳健，而非修饰。
 
-Use:
+应做到：
 
-- clear concept boundaries;
-- measured judgment;
-- layered transition;
-- restrained but firm conclusion;
-- exact verbs.
+- 概念边界清晰；
+- 判断有分寸；
+- 过渡有层次；
+- 结论克制而坚定；
+- 动词精确。
 
-Avoid:
+避免：
 
-- excessive parallel slogans;
-- empty grand words;
-- decorative classical phrases;
-- dense abstract nouns with no mechanism;
-- "具有重要意义" without naming the value object.
-- inflated novelty verbs such as "重构", "重建", and "填补空白" unless the paper has already proved the historical or theoretical scale of that claim;
-- casual concept invention;
-- quote-mark decoration;
-- colon-heavy, dash-heavy, or list-like punctuation that makes the prose look generated;
-- mechanical sequencing words used only to simulate structure, especially empty "首先", "其次", "再次", and "最后" lists;
-- formulaic binary contrast patterns such as "不是……而是……" and "并非……而是……" used to create fake depth.
+- 过度平行口号；
+- 空洞大词；
+- 装饰性文言；
+- 无机制的密集抽象名词；
+- 未指明价值对象的“具有重要意义”；
+- 未经证明就使用“重构”“重建”“填补空白”等夸张动词；
+- 随意造概念；
+- 引号装饰；
+- 冒号、破折号或清单式标点使文字看起来像生成文本；
+- 仅为模拟结构而使用机械序列词，尤其空的“首先”“其次”“再次”“最后”罗列；
+- 用“不是……而是……”“并非……而是……”制造虚假深度。
 
-## Daily Prose Constraints
+## 日常表达约束
 
-The user's current default writing prompt adds a stricter prose target. Apply it to article drafting and revision:
+当前默认写作目标更严格。起草和改稿时应用：
 
-- Abstracts and final article prose should be author-invisible. Do not narrate what `本文`, `笔者`, `本研究`, or `文章` does.
-- Do not write `本文认为`, `本文的核心观点是`, `本文将`, `文章认为`, or similar self-explanatory meta-discourse. State the academic claim directly.
-- Do not insert literature with `有研究指出`, `已有研究认为`, or `相关研究指出`. Literature must be digested into the paper's own concept, mechanism, problem, or limitation.
-- Think slowly and from several angles before writing.
-- Use plain academic language: understandable, professional, restrained, and conceptually accurate.
-- Do not exaggerate. Do not create new terms for decorative effect. Do not use novelty claims before proof.
-- Use professional academic vocabulary, but keep sentence relations clear.
-- Vary sentence movement according to reasoning need: long sentences unfold complex relations, causes, and layers; short sentences clarify a judgment, mark a turn, or close a paragraph.
-- Do not let consecutive long sentences make the paragraph breathless, and do not chop every thought into short commentary sentences.
-- Avoid "如何", "何以", and "为何" in headings or visible question-style framing unless the user explicitly asks for question-form titles.
-- In article body paragraphs, avoid subheading-like fragments and enumerated mini-outline prose that replaces reasoning. Sequence words such as `一方面...另一方面...` or `首先...其次...` are acceptable when they organize genuine analytical steps. Formal paper heading hierarchy remains required for full papers under `length-and-hierarchy-protocol.md`.
-- Use commas and periods as the normal punctuation base. Use quotation marks only for source titles, cited terms, or genuinely necessary concept labels; use colons and dashes sparingly.
-- Avoid colon-led explanatory turns inside body prose, especially `问题在于：`, `核心观点是：`, `关键在于：`, and other mini-title structures.
+- 摘要和正文作者隐身。不要叙述“本文”“笔者”“本研究”或“文章”做什么。
+- 不要写“本文认为”“本文的核心观点是”“本文将”“文章认为”等自我说明式元话语。直接陈述学术论断。
+- 不要用“有研究指出”“已有研究认为”“相关研究指出”插入文献。文献必须先消化为论文自己的概念、机制、问题或限制。
+- 写作前慢思考、多角度推敲。
+- 使用平实学术语言：可理解、专业、克制、概念准确。
+- 不夸张。不为装饰效果造新词。未证明前不用新奇论断。
+- 使用专业学术词汇，但保持句子关系清晰。
+- 根据推理需要变化句子运动：长句展开复杂关系、原因和层次；短句澄清判断、标记转折或收束段落。
+- 不要让连续长句使段落喘不过气，也不要把每个想法都切成短评论句。
+- 标题或可见标题式框架中避免“如何”“何以”“为何”等疑问式表达，除非用户明确要求疑问式标题。
+- 正文段落中避免用小标题式碎片和枚举式迷你提纲取代推理。“一方面……另一方面……”或“首先……其次……”在组织真实分析步骤时可以使用。完整论文仍需 `length-and-hierarchy-protocol.md` 规定的正式标题层级。
+- 以逗号、句号为正常标点基础。引号仅用于来源标题、引用术语或确有必要标注的概念；冒号、破折号少用。
+- 避免正文中的冒号解释转折，尤其“问题在于：”“核心观点是：”“关键在于：”等迷你标题结构。
 
-## Preferred Sentence Moves
+## 优先句子运动
 
-Use direct, natural academic movement instead of stock formulas:
+用直接、自然的学术运动替代套式：
 
-- Name the phenomenon, then explain the relation that produces it.
-- Define a concept by its boundary, object, and function.
-- Move from material to interpretation, then from interpretation to judgment.
-- Let contrast appear through verbs and evidence, not through `不是……而是……`.
-- Let a paragraph close with a measured claim, not a slogan.
+- 先点名现象，再解释产生它的关系。
+- 通过边界、对象和功能来定义概念。
+- 从材料到解释，再从解释到判断。
+- 让对照通过动词和证据呈现，而非“不是……而是……”。
+- 让段落以有分寸的论断收束，而非口号。
 
-## Anti-Shallow Rewrite Table
+## 反浅薄改写表
 
-| Weak phrase | Rewrite by specifying |
+| 弱表达 | 改写方向 |
 |---|---|
-| 提高效率 | Which process, whose labor, what bottleneck, what quality risk |
-| 扩大影响 | Which audience, what reception mechanism, what meaning depth |
-| 加强建设 | Which institution, platform, corpus, subject, or governance mechanism |
-| 优化路径 | Which path, matched to which prior problem |
-| 增强认同 | Which identity, through what narrative and emotional mechanism |
-| 推动传播 | Changes in production, translation, distribution, reception, or feedback |
-| 赋能发展 | Empowering what subject, through what mechanism, under what constraint |
+| 提高效率 | 哪个流程、谁的劳动、什么瓶颈、什么质量风险 |
+| 扩大影响 | 哪个受众、什么接受机制、什么意义深度 |
+| 加强建设 | 哪个机构、平台、语料、主体或治理机制 |
+| 优化路径 | 哪条路径、对应前面哪个问题 |
+| 增强认同 | 哪种认同、通过什么叙事与情感机制 |
+| 推动传播 | 生产、翻译、分发、接受或反馈哪个环节发生变化 |
+| 赋能发展 | 赋能什么主体、通过什么机制、在什么约束下 |
 
-## Final Style Check
+## 正向语体示范
 
-Before delivery, ask:
+### 示范一：对象-关系-机制-判断
 
-- Is any paragraph all generalities?
-- Does every paragraph end with a real judgment?
-- Does the rhythm follow the argument rather than a formula?
-- Are long sentences doing real conceptual or mechanistic work?
-- Are short sentences used for force, not laziness or quota-filling?
-- Does the prose use "first/second/third/finally" or "一方面/另一方面" as empty scaffolding, or do these sequence words organize real analytical steps?
-- Does the prose use `不是……而是……` or `并非……而是……` to create fake depth?
-- Are quotation marks, colons, and dashes being used as AI-looking decoration?
-- Are "重构", "重建", "填补空白", or similar inflated claims actually justified?
-- Does any passage feel congested, flat, rushed, or slogan-like when read aloud?
-- Are concepts stable?
-- Is the language plain enough for understanding and weighted enough for scholarship?
+> 生成式人工智能以预训练模型和提示工程重构了内容生产。它不是简单地加快写作速度，而是把文化传播从“人工创作-受众接收”的线性结构，转变为“模型生成-用户提示-平台分发”的循环结构。在这一结构中，意义的起点不再只是创作者意图，也包括训练语料的统计分布和平台算法的优化目标。因此，文化内容在跨语境流动中更容易获得规模，也更难保持语义厚度。
+
+### 示范二：文献消化
+
+> 文化记忆理论把传统视为被社会框架不断重构的对象，而非静态遗产[1]。这一视角提示，中华文化国际传播中的“传统”不能仅被理解为等待输出的符号库存，而应被视为在当代媒介环境中被持续选择、编码和再阐释的过程。
+
+### 示范三：路径回归机制
+
+> 要回应语义稀释的风险，就不能只在传播端增加内容数量，而需要回到模型训练的前端。训练语料不仅决定生成文本的语言形式，也决定了文化概念被调用时的默认语境。当高质量、语境完整的中文文化语料进入训练基础，模型输出才更可能在跨语言转换中保留意义的层次。这意味着语料治理不是技术后勤，而是文化解释权争夺的前置环节。
+
+### 示范四：结论提升
+
+> 生成式人工智能语境下的中华文化国际传播，核心问题不是技术是否可用，而是意义解释权如何在跨语境流动中被分配。技术扩散放大了传播规模，也在概率优化中压缩了文化理解的深度。只有在语料治理、平台反馈与解释主体之间形成协同，文化意义才能在流动中保持可辨识的厚度。
+
+## 最终风格检查
+
+交付前自问：
+
+- 是否有段落全是泛泛而谈？
+- 每个段落是否以真实判断收尾？
+- 节奏是否跟随论证而非套式？
+- 长句是否在做真正的概念或机制工作？
+- 短句是否用于力量，而非懒惰或凑数？
+- “第一/第二/第三/最后”或“一方面/另一方面”是空脚手架，还是组织真实分析步骤？
+- 是否用“不是……而是……”或“并非……而是……”制造虚假深度？
+- 引号、冒号、破折号是否被当作 AI 式装饰？
+- “重构”“重建”“填补空白”等夸张主张是否已被证明？
+- 朗读时是否有拥堵、平板、仓促或口号化之处？
+- 概念是否稳定？
+- 语言是否既平实可懂，又有学术分量？

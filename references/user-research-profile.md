@@ -151,3 +151,9 @@ Append future user feedback here with date, topic, preference, and action taken.
 - Topic: 摘要主语、论文自我说明、综述插入和说明书腔
 - Feedback: 用户指出 EMARX 生成稿仍然带有“本文”“笔者”“本研究”“本文认为”“本文的核心观点是”等主语化和自我说明表达；摘要应采用无作者主语、第三人称报道式写法，直接呈现对象、问题、关系和判断。正文中“有研究指出”“已有研究认为”等句式会把论文写成综述插入块，不能作为标准论文表达。标点上也要避免冒号小标题腔、装饰性引号和一眼像 AI 的说明句。
 - Action: v6.8 新增 `scripts/distill_language_expression.py`，对 450 篇可读论文重跑语言表达蒸馏，生成 `references/language-expression-distillation-v68.md`；在 `SKILL.md`、`style-protocol.md`、`wording-expression-protocol.md`、`review-rubric.md`、`bad_draft_audit.py` 和入口提示中加入硬规则：摘要作者隐身，正文去论文元话语，文献先消化再引用，标点服务论证而非制造说明书腔。
+
+## Feedback 2026-06-26 17:20（刘总 v6.9 反馈）
+
+- Topic: 生成机制转向与中文化技能本体
+- Feedback: 刘总指出 EMARX 当前仍偏“事后检测”和“规则拦截”，真正应做的是在最开始写的时候就让技能生成正确的论文语言，而不是等写坏之后再检测。同时，$SKILL.md$ 主体大量使用英文，服务的是中文学理论文，技能本体也应主要用中文写，否则削弱语感传导，也容易让后续 agent 继续用外部化、说明式、流程式语言理解中文论文写作。具体要求包括：把 SKILL.md 主体改成中文；新增或重写正向生成协议，规定摘要、引言、主体段、文献、路径、结论的生成方式；摘要采用“对象进入 -> 问题关系 -> 机制判断 -> 风险或价值 -> 路径指向”结构；每段生成前先确定对象、关系、材料、判断和承接/引出，但这些信息不能写入正文；段落按“对象锚定 -> 关系展开 -> 材料或文献进入 -> 机制解释 -> 判断落点”生成；把“反综述”改为正向文献消化方法；$bad_draft_audit.py$ 降级为最后兜底；README 和 agents/openai.yaml 也改为中文，并把“先写正确”放在“检测风险”前面。
+- Action: v6.9 将 SKILL.md 主体改为中文，新增 $references/generative-writing-protocol.md$ 作为核心正向生成规则，重写 $wording-expression-protocol.md$ 和 $style-protocol.md$ 为中文并加强正向示范，更新 $agents/openai.yaml$ 和 README.md，明确审稿和审计是兜底，主流程是生成协议、段落大纲、逐段生成和即时小修。完成后同步到 GitHub 仓库 TZUKWAN/emarx-skill。

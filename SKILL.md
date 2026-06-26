@@ -1,91 +1,109 @@
 ---
 name: emarx
-description: "EMARX v6.8 research-oriented Chinese academic essay production system. Use when drafting, revising, deepening, reviewing, fact-checking, citing, referencing, structuring, or delivering Chinese 学理思辨论文 with local-source-first research workflow, current-workspace paper anchoring, topic-based 3-5 real paper selection, immediate anchor-paper deconstruction, optional full-corpus report cache, internal shadow recomposition, paragraph-level detailed outlines, one-paragraph-at-a-time drafting, author-invisible abstract voice, no self-narrating paper meta-discourse, no detached `有研究指出` review inserts, punctuation restraint, internal material anchoring, full-paper length control, mandatory second-level headings, structure-design firewall against diagnostic/checklist headings, workspace source scanning, research brief construction, innovation analysis, GB/T 7714 reference formatting, one-source-one-citation control, scholarly but plain prose, Word/docx delivery, user research-profile iteration, Marxism, cultural communication, ideological-political education, AI philosophy, technology critique, subjectivity, cultural memory, and humanities/social-science theoretical writing."
+description: "EMARX v6.9 研究型中文学理思辨论文生产技能。用于中文学术论文的构思、结构、写作、审稿、修改、引用、事实核查与 Word 交付。核心流程：先读用户当前工作空间真实论文，锚定三至五篇相关论文并即时拆解，形成内部影子重组、逻辑骨架与段落级大纲，再按大纲逐段生成中文论文。强调生成前协议、无主语摘要、文献消化式写作、段落级对象-关系-材料-机制-判断运动、结构防火墙、大家风范语体、GB/T 7714 引用与 Word 输出。适用领域包括马克思主义理论、思想政治教育、中华文化与国际传播、文化记忆、人工智能哲学、技术批判、主体性研究和人文社科理论写作。"
 ---
 
 # EMARX
 
-EMARX v6.8 is a research-oriented Chinese 学理思辨论文 production system. It must not behave like a prompt that directly writes a fluent essay, but it also must not turn the final paper into a workflow manual. All diagnosis, anchoring, anchor-paper deconstruction, structure planning, shadow recomposition, paragraph planning, review, and audit procedures are internal quality controls unless the user explicitly asks to see them.
+EMARX v6.9 是面向中文学理思辨论文的研究型生产技能。它不是普通写作提示词，也不是论文流程管理器。诊断、锚定、拆解、影子重组、审稿、审计等动作都是后台质量控制，不得写入论文正文或标题。
 
-## Operating Principle
+v6.9 的核心转向是：从“坏稿审计驱动”转向“正确论文语言生成驱动”。规则不再主要靠后期拦截，而要在落笔之前就规定论文语言、段落运动、摘要写法和文献进入方式。
 
-Use this order unless the user explicitly asks for a narrower task:
+## 核心工作原则
+
+默认顺序如下，除非用户明确要求只完成其中某一步：
 
 ```text
-current workspace scan -> 3-5 real anchor papers -> immediate anchor-paper deconstruction -> internal shadow recomposition -> logic skeleton -> paragraph-level outline -> one-paragraph-at-a-time drafting -> style calibration -> review -> revision -> fact check -> Word delivery -> concise delivery note
+工作空间扫描 -> 锚定三至五篇真实论文 -> 即时拆解锚定论文 -> 内部影子重组 -> 逻辑骨架 -> 段落级大纲 -> 按生成协议逐段写作 -> 即时小修 -> 风格校准 -> 审稿 -> 改稿 -> 事实核查 -> Word 交付 -> 简要交付说明
 ```
 
-The final paper's heading hierarchy must be an argument skeleton, not a visible research checklist. Internal actions such as diagnosing the research object, defining concept boundaries, mapping mechanisms, checking materials, designing paths, or reviewing quality must be translated into substantive academic sections before drafting.
+前台论文的标题层级必须是论证骨架，不能暴露后台流程。研究对象诊断、概念边界、机制梳理、材料锚定、路径设计等内部工作必须转化为实质性论文章节。
 
-Respect the distilled corpus patterns in `references/distillation-evidence.md`. That file was derived from a verified local full-text workflow: 359 PDFs found, 358 readable PDFs, 2,889 / 2,896 pages extracted, 5,161,082 characters, 358 per-paper structure profiles, and 15 group syntheses. Do not overwrite those patterns with generic writing advice. Treat them as EMARX's empirical baseline for title, abstract, introduction, argument chains, paragraph moves, and prose style.
+## 生成前协议优先
 
-Also respect the v5 full-corpus structure audit in `references/length-and-hierarchy-protocol.md`. That audit re-scanned the expanded workspace on 2026-06-25: 452 PDFs found, 450 readable, 1 empty file, 1 malformed PDF, 3,700 extracted pages, and 7,783,902 extracted characters. It showed that second-level headings and 10,000+ character scale are normal in the user's corpus. A full paper without second-level headings is a review failure.
+写作之前，必须先读 `references/generative-writing-protocol.md`。该文件规定：
 
-## Required Reference Routing
+- 摘要按“对象进入 -> 问题关系 -> 机制判断 -> 风险或价值 -> 路径指向”生成，禁止“本文说明 -> 本文认为 -> 本文从几个方面分析 -> 本文提出路径”。
+- 正文段落按“对象锚定 -> 关系展开 -> 材料或文献进入 -> 机制解释 -> 判断落点”生成，禁止“本文认为 -> 有研究指出 -> 因此应该”。
+- 每段落笔前先在内部确认：本段对象、关系、材料、判断、如何承接上一段、如何引出下一段；这些信息不得写入正文。
+- 文献必须消化为概念来源、机制来源、问题来源或限制来源，再以 `[X]` 随句引用。
+- 路径段必须对应已论证的机制，不能写成行动手册。
+- 结论回到理论判断，不得复述结构。
 
-Read these files when the corresponding task appears:
+生成协议是质量控制的第一道关口。`bad_draft_audit.py` 等脚本只作为最后兜底。
 
-- `references/workflow-v4.md`: full paper workflow, source-first sequence, innovation analysis, revision loop.
-- `references/anchored-recomposition-workflow.md`: current-workspace paper anchoring, optional report cache, immediate anchor-paper deconstruction, internal shadow recomposition, detailed paragraph outline, and one-paragraph-at-a-time drafting.
-- `references/length-and-hierarchy-protocol.md`: 10,000-12,000 Chinese-character default, mandatory second-level headings, heading hierarchy, and structure-depth checks.
-- `references/argument-depth-protocol.md`: argument permission, literature digestion, paragraph argument units, and bad-draft rejection rules.
-- `references/structure-design-protocol.md`: front-stage paper structure, diagnostic-heading firewall, title conversion, and corpus-aligned section design.
-- `references/scholarliness-protocol.md`: academic-map positioning, phenomenon-to-problem transformation, concept ledger, theoretical framework, measured critique, literature dialogue, and abstraction checks.
-- `references/style-protocol.md`: plain but scholarly style, 大家风范 calibration, and non-mechanical rhythm principles.
-- `references/wording-expression-protocol.md`: sentence-level expression, paragraph openings, negation discipline, verb choice, subject-object clarity, and transition methods.
-- `references/language-expression-distillation-v68.md`: full-corpus language-expression evidence, author-invisible abstract voice, anti-meta-discourse rules, anti-review-insert rules, and punctuation restraint.
-- `references/material-anchoring-protocol.md`: section-level and evidence-paragraph anchoring, internal diagnosis card, claim-to-source mapping, and plain-language structure discipline.
-- `references/paragraph-moves-protocol.md`: corpus-derived paragraph functions and section rhythms; distinguishes topic-setting, mechanism, evidence, boundary, transition, and judgment paragraphs.
-- `references/writing-rhythm-protocol.md`: qualitative writing rhythm, paragraph breathing, judgment landing, and rhythm-reading checks. Its corpus numbers are background evidence, not generation quotas.
-- `references/review-rubric.md`: anonymous-review style checks for problem consciousness, innovation, structure, evidence, prose, length, and hierarchy.
-- `references/fact-check-protocol.md`: fact-risk categories, local/web verification policy, "do not invent" rules.
-- `references/citation-protocol.md`: citation placement, one-source-one-citation, one-author-one-citation, sequential numbering, GB/T 7714 reference list.
-- `references/user-research-profile.md`: user research direction, preferences, banned expressions, learned feedback.
-- `references/distillation-evidence.md`: corpus-derived title, abstract, introduction, structure, paragraph, and style patterns.
-- `references/nuwa-distill/README.md` and `references/nuwa-distill/research/*.md`: corpus-derived argument, citation, paragraph, concept, and failure-pattern findings from the workspace papers. Use these to avoid review-like output and source-parade structures.
-- `references/review-agent-protocol.md`: when and how to run the four-agent review team before delivery.
-- `references/review-agents/*.md`: role prompts for ScholarlyReviewer, LogicReviewer, ProseReviewer, and FormatReviewer.
+## 必须遵守的语料规律
 
-## Hard Rules
+尊重 `references/distillation-evidence.md` 中的真实论文规律。该文件来自已验证的本地全文流程：359 个 PDF、358 个可读、2,889 / 2,896 页提取、5,161,082 字符、358 份逐篇结构画像、15 份分组综合。不要用通用写作建议覆盖这些真实样本规律。
 
-1. Address full-paper work as a research workflow, not direct generation.
-2. Search local workspace materials before web search. Use web only when local materials are absent, outdated, or the task requires current facts, policies, laws, data, or recent scholarship.
-3. Do not fabricate citations, authors, journals, page numbers, publication metadata, policy quotations, statistics, cases, or source-backed claims.
-4. For full-paper tasks, default to creating a `.docx` Word document unless the user explicitly asks for chat text or Markdown only.
-5. Do not draft before producing an internal research diagnosis: core problem, research object, concept ledger, theoretical tension, mechanism chain, source support, innovation claim, fact-risk list, length plan, and heading plan. Do not paste this diagnosis into the paper.
-6. Do not draft until `references/argument-depth-protocol.md` grants argument permission: the paper must have a non-obvious thesis, a real tension, a mechanism chain, and section-level argumentative obligations.
-7. Build the diagnosis card from `references/material-anchoring-protocol.md` as an internal planning artifact. Show it to the user only when the user asks for planning, when the central claim is uncertain, or when drafting would otherwise be risky.
-8. Every major body section must have at least one concrete anchor from a local source, case, policy, dataset, platform mechanism, or empirical finding. Paragraphs that float on abstract concepts are bad-draft failures.
-9. Do not draft until `references/scholarliness-protocol.md` has produced the academic map, phenomenon-to-problem transformation, concept ledger, framework consistency check, literature-dialogue plan, critical judgment, and material-to-theory abstraction route.
-10. Do not use citations as support labels. A source must be digested before citation: what problem it answers, what concept it contributes, what limit it has, and how this paper uses it.
-11. **Do not structure the paper around a source coverage table. The argument selects sources; sources do not select the argument.** A paper that moves from one workspace source to the next is a review, not a thesis.
-12. A normal full paper must target 10,000-12,000 Chinese characters in the main text unless the user explicitly asks for a shorter or longer work. Do not deliver 2,000-5,000 character chat essays as full papers.
-13. A normal full paper must include second-level headings under the major body sections. The default hierarchy is `一、` for first-level headings and `（一）` / `（二）` for second-level headings. Use third-level headings only when a section contains multiple mechanisms, stages, subjects, or cases.
-14. Do not produce flat "机遇、挑战、路径" essays. Each section must answer a theoretical question and advance the central thesis.
-15. Use corpus-derived structures dynamically. Pick a structure because it fits the topic, not because it sounds neat.
-16. Write in plain, clear, academically weighted Chinese. Let rhythm serve reasoning: long sentences can unfold relations, medium sentences can carry transitions, and short sentences can land judgments. Do not enforce sentence-count or sentence-length quotas.
-17. Treat review and revision as substantive reconstruction, not surface polishing.
-18. Run bad-draft review before delivery. If the draft is merely compliant in length, headings, and references but still formulaic, repetitive, or under-argued, reject it and revise.
-19. Use the four-reviewer protocol in `references/review-agent-protocol.md` when the user asks for deep review, when internal audits flag serious risks, or when the draft is being prepared for high-stakes delivery. Do not force multi-round review by default, and never let review-report language enter the paper itself.
-20. For referenced papers, use `references/citation-protocol.md`: one literature item only once, one author only once, citations inserted at the exact sentence, sequential numbering, and GB/T 7714 reference list in citation order.
-21. Apply the user's daily prose constraints from `references/style-protocol.md`: do not manufacture concepts, do not use inflated novelty language, avoid quotation marks and colon-heavy AI-looking punctuation unless required by citation or title format, and avoid mechanical sequence words such as `首先` / `其次` / `再次` / `最后` in running prose.
-22. Do not rely on binary contrast formulas such as `不是……而是……` or `并非……而是……`. State the claim directly and let the evidence and mechanism carry the distinction.
-23. Do not open paragraphs with naked negation. Apply `references/wording-expression-protocol.md`: orient the reader with object, relation, material, or field position before correction, critique, or negation.
-24. Paper prose firewall: the final article must not contain workflow labels such as diagnosis card, mechanism chain, argumentative job, review round, reviewer, pass/fail, audit, source coverage table, or any other internal process language.
-25. Structure firewall: the final article must not use diagnostic or checklist headings such as `研究对象与概念边界`, `概念界定`, `理论框架`, `材料锚定`, `问题诊断`, `学理性诊断`, `机制链`, `论证任务`, `创新点分析`, or `路径建设与可执行条件` unless the user explicitly asks for a research design, proposal, or methodology chapter. These tasks must be embedded into substantive argumentative sections.
-26. A first-level heading must name a real relation, function, mechanism, contradiction, risk, transformation, or path in the topic itself. If the heading only names what the writer is doing, rewrite it before drafting.
-27. For high-quality full-paper tasks, use `references/anchored-recomposition-workflow.md`: scan the user's current workspace, select three to five real local paper files based on the user's topic, and immediately deconstruct those selected papers before any recomposition or drafting.
-28. Do not anchor from an old deconstruction report library. Existing reports are only a cache or reading index after they are matched to current workspace files; they cannot replace current-file scanning, opening, and judgment.
-29. Never deliver the shadow recomposition as the final paper. It is an internal map of paragraph functions, source roles, and logic moves. Final prose must be rewritten paragraph by paragraph with citations, transformation, and fact checks.
-30. Draft one paragraph at a time when using the anchored workflow. Do not generate several body paragraphs at once and hope later polishing will repair the logic.
-31. Apply `references/language-expression-distillation-v68.md`: abstracts must be author-invisible by default. Do not write `本文`, `笔者`, `本研究`, `本文认为`, `本文的核心观点`, `文章认为`, or `文章指出` in abstracts or final paper prose unless quoting a source title or source text.
-32. Do not insert literature with detached review formulas such as `有研究指出`, `已有研究认为`, `相关研究指出`, or `学者认为`. Digest literature into the paper's own concept, mechanism, problem, or limitation before citing it.
-33. Avoid colon-led mini titles, decorative quotation marks, and dash-heavy AI-looking sentence turns in body prose. Use ordinary sentence movement unless punctuation is structurally necessary.
-34. When new user materials or feedback reveal stable preferences, update `references/user-research-profile.md` or run `scripts/update_user_profile.py`.
+同时尊重 v5 全量结构复核：`references/length-and-hierarchy-protocol.md` 记录 2026-06-25 对 452 个 PDF、450 个可读、3,700 页、7,783,902 字符的分析。正文 10,000-12,000 字、主体必须有二级标题，是语料支持的硬规则。
 
-## Script Tools
+## 参考文件路由
 
-Use bundled scripts when helpful:
+按任务读取对应文件：
+
+- `references/generative-writing-protocol.md`：v6.9 核心，摘要、段落、文献、路径、结论的正向生成规则。
+- `references/workflow-v4.md`：完整论文流程、资料优先顺序、创新分析、改稿循环。
+- `references/anchored-recomposition-workflow.md`：当前工作空间论文锚定、影子重组、段落级大纲、逐段写作。
+- `references/length-and-hierarchy-protocol.md`：10,000-12,000 字默认、二级标题、标题层级与结构深度。
+- `references/argument-depth-protocol.md`：论证许可、文献消化、段落论证单元、烂稿拒稿规则。
+- `references/structure-design-protocol.md`：前台论文结构、诊断性标题防火墙、标题转换、语料对齐的章节设计。
+- `references/scholarliness-protocol.md`：学术地图、现象问题化、概念台账、理论框架、温和批判、文献对话、理论抽象。
+- `references/style-protocol.md`：平实学体、大家风范、非机械节奏。
+- `references/wording-expression-protocol.md`：句级表达、段首规则、否定纪律、动词选择、主宾清晰、过渡方法。
+- `references/language-expression-distillation-v68.md`：全量语言表达语料、无主语摘要、反元话语、反综述插入、标点克制。
+- `references/material-anchoring-protocol.md`：章节与证据段锚定、内部诊断卡、论断-来源映射、平实结构。
+- `references/paragraph-moves-protocol.md`：语料驱动的段落功能与章节节奏。
+- `references/writing-rhythm-protocol.md`：质性写作节奏、段落呼吸、判断落点。
+- `references/review-rubric.md`：匿名审稿式检查，但审稿是兜底。
+- `references/fact-check-protocol.md`：事实风险类别、本地/网络核验、禁止虚构。
+- `references/citation-protocol.md`：引用位置、一文献一引、一作者一引、顺序编号、GB/T 7714 文末列表。
+- `references/user-research-profile.md`：用户研究方向、偏好、禁用表达、已学习反馈。
+- `references/distillation-evidence.md`：语料提炼的标题、摘要、引言、结构、段落、文风规律。
+- `references/nuwa-distill/README.md` 及 `references/nuwa-distill/research/*.md`：语料驱动的论证、引用、段落、概念与失败模式。
+- `references/review-agent-protocol.md`：四审稿人团队何时运行。
+- `references/review-agents/*.md`：ScholarlyReviewer、LogicReviewer、ProseReviewer、FormatReviewer 的角色提示。
+
+## 硬规则
+
+1. 把完整论文当作研究生产流程，不是直接生成聊天文本。
+2. 先搜本地工作空间资料，再考虑网络检索。仅在本地资料不足、过时或需要最新政策、数据、法规、文献和事实时使用网络。
+3. 不虚构引文、作者、期刊、页码、政策原文、统计数据、案例或来源支撑的判断。
+4. 完整论文默认输出 `.docx` Word 文档，除非用户明确要求聊天文本或 Markdown。
+5. 正式起草前完成内部研究诊断：核心问题、研究对象、概念台账、理论张力、机制链、来源支撑、创新主张、事实风险、篇幅计划、标题计划。诊断不写入正文。
+6. 必须通过 `references/argument-depth-protocol.md` 的论证许可：论文必须有非显而易见的论点、真实张力、机制链与章节论证义务。
+7. 诊断卡按 `references/material-anchoring-protocol.md` 作为内部规划文件。仅在用户要求规划、核心论断不确定或起草风险较大时展示。
+8. 每个正文主体章节必须至少有一个来自本地来源、案例、政策、数据集、平台机制或经验发现的具体锚点。浮在抽象概念上的段落是坏稿。
+9. 必须通过 `references/scholarliness-protocol.md` 的学理诊断：学术地图、现象问题化、概念台账、框架一致性、文献对话计划、批判判断、材料-理论抽象路径。
+10. 引用不是支撑标签。来源必须先消化：它回答什么问题、贡献什么概念、有何局限、本文如何使用它。
+11. **不能围绕来源覆盖表组织论文。论证选择来源，而不是来源选择论证。** 从一篇工作空间论文移到下一篇的写法是综述，不是论文。
+12. 正常完整论文正文默认 10,000-12,000 字，除非用户明确要求更短或更长。不要把 2,000-5,000 字的聊天文本当完整论文交付。
+13. 正常完整论文正文主体必须有二级标题。默认一级标题用“一、”，二级标题用“（一）”“（二）”。仅在章节包含多个机制、阶段、主体或案例时使用三级标题。
+14. 不写扁平的“机遇、挑战、路径”论文。每个章节必须回答一个理论问题并推进中心论点。
+15. 动态使用语料结构。选择某种结构是因为适合题目，而不是因为它听起来整齐。
+16. 用平实、清楚、稳健、有分寸、有判断、有学术质感、有大家风范的中文写作。节奏服务推理：长句展开关系，中句承接限定，短句落定判断。不强制句数、句长或交替比例。
+17. 审稿和改稿是实质性重构，不是表面润色。
+18. 交付前运行坏稿审稿。如果稿件仅在长度、标题、引用上合规却仍像套壳、重复或论证薄弱，应拒稿并重写。
+19. 仅在用户要求深度审稿、内部审计发现严重风险或稿件用于高 stakes 交付时，使用 `references/review-agent-protocol.md` 的四审稿人协议。不默认强制多轮审稿，且审稿报告语言不得进入正文。
+20. 引用遵循 `references/citation-protocol.md`：一篇文献只引一次、一个作者只引一次、引用紧随使用它的句子、顺序编号、文末按引用顺序以 GB/T 7714 格式排列。
+21. 日常表达约束来自 `references/style-protocol.md`：不硬造概念、不使用夸张新奇语言、非必要不用引号和冒号式 AI 标点、避免机械序列词如“首先/其次/再次/最后”。
+22. 不依赖“不是……而是……”“并非……而是……”等二元对照公式。直接陈述论断，让证据和机制承担区分。
+23. 段首不裸否定。按 `references/wording-expression-protocol.md`：先以对象、关系、材料或学术位置定位读者，再进入限定、批判或判断。
+24. 论文语言防火墙：最终文章不得包含诊断卡、机制链、论证任务、审稿轮次、审稿人、通过/不通过、审计、来源覆盖表或其他内部流程语言。
+25. 结构防火墙：最终文章不得使用“研究对象与概念边界”“概念界定”“理论框架”“材料锚定”“问题诊断”“学理性诊断”“机制链”“论证任务”“创新点分析”“路径建设与可执行条件”等诊断性或清单式标题，除非用户明确要求研究设计、方法章节或教学大纲。这些工作必须嵌入实质性论证章节。
+26. 一级标题必须命名题目内部的真实关系、功能、机制、矛盾、风险、转化或路径。如果标题只是在说作者要做什么，就先重写再起草。
+27. 高质量完整论文任务使用 `references/anchored-recomposition-workflow.md`：扫描用户当前工作空间，根据题目选择三至五篇真实本地论文，在任何重组或起草前即时拆解这些论文。
+28. 不要从旧拆解报告库锚定。旧报告仅在匹配到当前工作空间文件后作为缓存或阅读索引，不能替代当前文件的扫描、打开与判断。
+29. 不要把影子重组稿当最终论文。它只是段落功能、来源角色与逻辑运动的内部地图。最终正文必须逐段重写，带引用、转化与事实核查。
+30. 使用锚定工作流时逐段起草。不要一次生成多段再指望后期润色修复逻辑。
+31. 应用 `references/language-expression-distillation-v68.md`：摘要默认作者隐身。摘要和正文中不要写“本文”“笔者”“本研究”“本文认为”“本文的核心观点”“文章认为”“文章指出”，除非在引用来源标题或原文。
+32. 不要用“有研究指出”“已有研究认为”“相关研究指出”“学者认为”等句式 detached 地插入文献。先把文献消化进论文自己的概念、机制、问题或限制，再引用。
+33. 避免正文中的冒号小标题、装饰性引号和破折号式 AI 腔。仅在结构上必要时使用标点。
+34. 当新资料或反馈揭示稳定偏好时，更新 `references/user-research-profile.md` 或运行 `scripts/update_user_profile.py`。
+
+## 脚本工具
+
+按需使用自带脚本：
 
 ```bash
 python scripts/scan_workspace_sources.py --root <workspace> --output sources.json
@@ -101,65 +119,63 @@ python scripts/markdown_to_docx.py --input paper.md --output paper.docx
 python scripts/update_user_profile.py --profile references/user-research-profile.md --topic "主题" --feedback "用户反馈"
 ```
 
-Script output is an index or scaffold, not final truth. Always inspect the relevant source files or verify claims before asserting factual conclusions.
+脚本输出只是索引或脚手架，不等于最终事实。作出事实性结论前必须检查相关来源文件或核验主张。
 
-## Full-Paper Protocol
+## 完整论文流程
 
-For a full paper:
+1. **资料摄入。** 扫描本地工作空间来源，识别最相关材料。本地材料不足或需要最新信息时进行网络核验。
+2. **当前工作空间锚定扫描。** 读取 `anchored-recomposition-workflow.md`。扫描用户当前工作空间并选择三至五篇真实论文。旧拆解报告仅在匹配当前文件后作为可选缓存。
+3. **即时拆解锚定论文。** 打开或提取所选论文，分析其摘要逻辑、风格、写作手法、引言、正文运动、结论、标题结构、论证逻辑、文风、表达方法与风险。不要仅从缓存报告出发。
+4. **研究简报。** 产出本地来源发现、来源缺口、概念候选、真实张力与事实风险。
+5. **学理诊断。** 读取 `scholarliness-protocol.md`。产出学术地图、理论起点、现象问题化、概念台账、框架一致性检查、文献对话计划、批判判断、材料-理论抽象路径。
+6. **问题诊断。** 用一句非显而易见的论点陈述论文中心问题。避免“不是 A，而是 B”的套式；直接写出论断，通过概念边界、证据和机制分析完成区分。
+7. **论证许可。** 读取 `argument-depth-protocol.md`。在论点、张力、机制链、文献位置和章节义务足够强之前不起草。
+8. **内部影子重组。** 如需要，从锚定论文创建段落功能图，保留来源标记。不要把它当最终正文交付。
+9. **逻辑骨架。** 把影子重组和用户题目分解为中心论点、一级运动、二级运动与段落序列。
+10. **内部材料锚定说明。** 读取 `material-anchoring-protocol.md`。在内部用中心论断、非显而易见性、机制链、来源-论断映射和每章论证义务建立诊断卡。仅在用户要求规划或核心论断需要确认时展示。
+11. **语料模式选择。** 读取 `distillation-evidence.md` 和所选论文拆解报告；选择适合本题的标题、摘要、引言、结构、段落和风格模式。
+12. **篇幅与标题层级计划。** 读取 `length-and-hierarchy-protocol.md`。计划 10,000-12,000 字、4-5 个一级主体章节、每个主要主体章节都有二级标题。
+13. **结构设计。** 读取 `structure-design-protocol.md`。把内部诊断转化为前台论文结构。拒绝把研究工作流程当标题。
+14. **引用与文献消化。** 如需引用，读取 `citation-protocol.md`、`argument-depth-protocol.md` 和 `scholarliness-protocol.md`；建立覆盖表，检测作者/来源冲突，说明每份来源如何被消化进论证。
+15. **创新分析。** 区分选题、视角、概念、机制、路径和表达创新。如实标记薄弱或虚假创新。
+16. **段落级大纲。** 为每个段落建立详细大纲：功能、目标论断、来源锚点、材料、概念、转入、转出、风格参考、事实/引用风险、完成标准。
+17. **逐段起草。** 按段落级大纲一段一段写。每段写完后检查论断、来源使用、转化、过渡、引用、节奏和判断落点，再进入下一段。优先遵守 `generative-writing-protocol.md` 的段落运动与文献消化规则。
+18. **风格与段落运动校准。** 应用 `style-protocol.md`、`wording-expression-protocol.md`、`language-expression-distillation-v68.md`、`material-anchoring-protocol.md`、`paragraph-moves-protocol.md` 和 `writing-rhythm-protocol.md`：平实语言、自然节奏、作者隐身摘要、清晰判断落点、无论文元话语、无 detached 综述插入、无口号化、无机械句长控制、无裸否定段首、无 AI 式对照套式。
+19. **学理校准。** 应用 `scholarliness-protocol.md`：核验领域位置、概念边界、文献对话、批判判断、材料-理论抽象、标题逻辑和段落级理论动作。
+20. **深度校准。** 应用 `argument-depth-protocol.md`：每个主要章节都需要概念边界工作、机制解释、反张力、材料支撑和判断落点。在称之为完成前补足缺失的深度。
+21. **结构防火墙复核。** 起草后再次应用 `structure-design-protocol.md`。删除或重写每个诊断/清单式标题，确保概念边界工作嵌入实质性章节而非孤立成章。
+22. **坏稿审稿。** 应用 `review-rubric.md` 并尽可能运行 `scripts/scholarliness_audit.py` 和 `scripts/bad_draft_audit.py`。形式合规但套壳的稿件必须拒稿。
+23. **定向审稿。** 如需要，把 `references/review-agent-protocol.md` 作为内部审稿清单或审稿轮次。报告保存在论文之外。修改薄弱章节，而非只改字词。
+24. **事实核查与引用审计。** 应用 `fact-check-protocol.md` 和 `citation-protocol.md`；删除、核验或标记无来源的事实主张；审计引用编号与 GB/T 7714 顺序。
+25. **论文语言防火墙。** 从文章中删除所有内部流程词汇、清单式措辞、审稿标签、诊断标题和指令式句子。
+26. **Word 交付。** 创建 `.docx`，然后核验文件存在且可读。
+27. **画像更新。** 如用户材料或反馈意味着持久偏好，更新画像。
 
-1. **Source intake.** Scan local workspace sources and identify the most relevant materials. If local material is insufficient or freshness matters, perform web verification with reliable sources.
-2. **Current-workspace anchor scan.** Read `anchored-recomposition-workflow.md`. Scan the user's current workspace and select three to five real paper files for the topic. Use old deconstruction reports only as optional cache after matching them to current files.
-3. **Immediate anchor-paper deconstruction.** Open or extract the selected anchor papers and analyze their abstract logic, style, writing methods, introduction, body movement, conclusion, heading structure, argument logic, prose style, expression methods, and risks. Do not proceed from cached reports alone.
-4. **Research brief.** Produce a brief with local-source findings, source gaps, concept candidates, real tensions, and fact risks.
-5. **Scholarliness diagnosis.** Read `scholarliness-protocol.md`. Produce academic map, theoretical starting point, phenomenon-to-problem transformation, concept ledger, framework consistency check, literature-dialogue plan, critical judgment, and material-to-theory abstraction route.
-6. **Problem diagnosis.** State the paper's central problem in one non-obvious thesis. Avoid formulaic contrast patterns such as "不是 A，而是 B"; write the claim directly and make the distinction through concept boundaries, evidence, and mechanism analysis.
-7. **Argument permission.** Read `argument-depth-protocol.md`. Do not draft unless the thesis, tension, mechanism chain, literature position, and section obligations are strong enough.
-8. **Internal shadow recomposition.** If useful, create a shadow recomposition from the anchor papers as a paragraph-function map only. Keep source marks. Do not deliver it as final prose.
-9. **Logic skeleton.** Deconstruct the shadow recomposition and user topic into a central thesis, first-level movement, second-level movement, and paragraph sequence.
-10. **Internal material-anchoring note.** Read `material-anchoring-protocol.md`. Build the diagnosis card internally with the central claim, why it is not obvious, the mechanism chain, source-to-claim mapping, and each section's argumentative job. Show it only when planning is requested or the core claim needs confirmation.
-11. **Corpus pattern selection.** Read `distillation-evidence.md` and selected article reports; choose title, abstract, introduction, structure, paragraph, and style patterns that fit this topic.
-12. **Length and hierarchy plan.** Read `length-and-hierarchy-protocol.md`. Plan 10,000-12,000 Chinese characters, 4-5 first-level body sections, and second-level headings for every major body section before drafting.
-13. **Structure design.** Read `structure-design-protocol.md`. Convert internal diagnosis into a front-stage paper structure. Reject headings that name research workflow rather than the topic's substantive relations.
-14. **Citation and literature digestion.** If references are required, read `citation-protocol.md`, `argument-depth-protocol.md`, and `scholarliness-protocol.md`; build a coverage table, detect author/source conflicts, and state how each source is digested into the argument.
-15. **Innovation analysis.** Separate topic, perspective, concept, mechanism, path, and expression innovation. Mark weak or fake innovation honestly.
-16. **Paragraph-level outline.** Build a detailed outline for every paragraph: function, target claim, source anchor, material, concepts, transition in, transition out, style reference, fact/citation risk, and completion standard.
-17. **One-paragraph drafting.** Draft one paragraph at a time from the paragraph-level outline. After each paragraph, check claim, source use, transformation, transition, citation, rhythm, and judgment landing before moving on.
-18. **Style and paragraph-move calibration.** Apply `style-protocol.md`, `wording-expression-protocol.md`, `language-expression-distillation-v68.md`, `material-anchoring-protocol.md`, `paragraph-moves-protocol.md`, and `writing-rhythm-protocol.md`: plain language, natural rhythm, author-invisible abstract, clear judgment landing, no self-narrating paper meta-discourse, no detached review-insert formulas, no sloganized prose, no mechanical sentence-length control, no naked negative openings, no AI-looking contrast formulas, sequence words allowed when they organize real analytical steps.
-19. **Scholarliness calibration.** Apply `scholarliness-protocol.md`: verify field position, concept boundary, literature dialogue, critical judgment, material-to-theory abstraction, title logic, and paragraph-level theoretical action.
-20. **Depth calibration.** Apply `argument-depth-protocol.md`: each major section needs concept boundary work, mechanism explanation, counter-tension, material support, and a judgment landing. Add missing depth before calling the draft complete.
-21. **Structure firewall review.** Apply `structure-design-protocol.md` again after drafting. Remove or rewrite every diagnostic/checklist heading, and ensure concept boundary work is embedded in substantive sections rather than isolated as a workflow chapter.
-22. **Bad-draft review.** Apply `review-rubric.md` and run `scripts/scholarliness_audit.py` plus `scripts/bad_draft_audit.py` when possible. A formally compliant but formulaic draft must be rejected.
-23. **Targeted review.** If needed, apply `references/review-agent-protocol.md` as an internal reviewer checklist or reviewer pass. Save reports outside the paper. Revise weak sections, not merely words.
-24. **Fact check and citation audit.** Apply `fact-check-protocol.md` and `citation-protocol.md`; remove, verify, or mark unsupported factual claims; audit citation numbering and GB/T 7714 order.
-25. **Paper-prose firewall.** Remove all internal workflow vocabulary, checklist phrasing, review labels, diagnostic headings, and instruction-like sentences from the article.
-26. **Word delivery.** Create `.docx`, then verify the file exists and can be read.
-27. **Profile update.** If the user's materials or feedback imply durable preferences, update the profile.
+## 交付约定
 
-## Output Contract
+完整论文交付：
 
-For full-paper work, deliver:
+- `.docx` 文件路径；
+- 正文字数；
+- 标题层级摘要；
+- 简要论点摘要；
+- 来源基础与来源缺口；
+- 创新评估；
+- 简要内部质量摘要（仅在交付说明中，不在论文中）；
+- 引用覆盖与引用冲突状态（使用引用时）；
+- 坏稿审计状态；
+- 事实核查状态；
+- 残余风险。
 
-- `.docx` file path.
-- main-text character count.
-- heading hierarchy summary.
-- brief thesis summary.
-- source basis and source gaps.
-- innovation assessment.
-- brief internal-quality summary, only in the delivery note, not in the paper.
-- citation coverage and citation-conflict status when references are used.
-- bad-draft audit status.
-- fact-check status.
-- residual risks.
+规划性任务只交付研究简报、结构、创新分析、篇幅/标题层级计划和下一步动作，不假装已经写成论文。
 
-For planning-only work, deliver the research brief, structure, innovation analysis, length/hierarchy plan, and next actions without pretending a paper has been written.
+## 风格目标
 
-## Style Target
+目标语体：平实、清楚、稳健、有分寸、有判断、有学术质感、有大家风范。
 
-The target voice is: 平实、清楚、稳健、有分寸、有判断、有学术质感、有大家风范.
+避免两个极端：
 
-Avoid both extremes:
+- 晦涩学术迷雾：只有密集名词而无判断。
+- 普通评论：清楚但浅薄的常识。
 
-- ornate academic fog: dense nouns with no judgment.
-- ordinary commentary: clear but shallow common sense.
-
-The ideal paragraph makes a complex point understandable without flattening it. Long sentences should carry relationships and mechanisms; short sentences should land the thought.
+理想段落让复杂论点可被理解而不被扁平化。长句承载关系与机制，短句落定思想。

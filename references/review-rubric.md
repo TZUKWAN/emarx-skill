@@ -1,198 +1,205 @@
-# EMARX Review Rubric
+# EMARX 审稿清单
 
-Use this like an anonymous reviewer. Be strict, but revise constructively.
+本文件用于交付前的匿名审稿式检查。审稿是兜底手段，不是主要质量控制方式。主要质量控制来自 `generative-writing-protocol.md` 规定的生成前协议、段落级大纲和逐段即时自检。只有在生成协议已被执行但仍不放心，或用户明确要求深度审稿时，才系统使用本清单。
 
-## 1. Problem Consciousness
+## 审稿定位
 
-Check:
+- 审稿发生在生成协议执行之后。
+- 审稿发现的问题应通过重写论点、段落或结构来解决，而不是仅在词句层面修补。
+- 审稿报告语言不得进入论文正文。
+- 若审稿发现稿件只是形式上合规，应退回生成阶段重新写作，而不是通过修修补补交付。
 
-- Does the paper answer a real problem?
-- Is the problem more than a broad topic?
-- Has the phenomenon been transformed into a theoretical problem?
-- Is the paper located in a discipline, subfield, or theoretical conversation?
-- Is there a tension, contradiction, gap, or mechanism to explain?
-- Does the introduction end with what the paper will prove?
+## 1. 问题意识
 
-Failure signs:
+检查：
 
-- "This topic is important" but no problem.
-- "Opportunities, challenges, paths" without a central thesis.
-- Policy context replaces theoretical question.
+- 论文是否回答了一个真实问题？
+- 问题是否超越了宽泛话题？
+- 现象是否被转化为理论问题？
+- 论文是否定位于某一学科、子领域或理论对话？
+- 是否存在张力、矛盾、缺口或需要解释的机制？
+- 引言是否以论文将要证明的内容收尾？
 
-## 2. Concept Discipline
+失败信号：
 
-Check:
+- “这个话题很重要”，但没有问题；
+- “机遇、挑战、路径”而没有中心论点；
+- 政策语境取代理论问题。
 
-- Are core concepts defined once?
-- Are adjacent concepts distinguished?
-- Does each core concept have a boundary, object, function, and misuse risk?
-- Does the paper avoid concept drift?
-- Are concepts used as analytical tools rather than decorations?
+## 2. 概念纪律
 
-Common risks from the distilled corpus:
+检查：
 
-- mixing 集体记忆 / 文化记忆 / 历史记忆;
-- using policy phrases as theory;
-- using "主体性" without naming the subject and relation.
+- 核心概念是否只定义一次？
+- 相近概念是否被区分？
+- 每个核心概念是否有边界、对象、功能和误用风险？
+- 论文是否避免概念漂移？
+- 概念是否作为分析工具而非装饰使用？
 
-## 3. Innovation
+来自语料的常见风险：
 
-Score each:
+- 混淆集体记忆 / 文化记忆 / 历史记忆；
+- 把政策用语当理论；
+- 使用“主体性”却不点名主体和关系。
+
+## 3. 创新
+
+逐项评分：
 
 ```text
-选题创新:
-视角创新:
-概念创新:
-机制创新:
-路径创新:
-表达创新:
+选题创新：
+视角创新：
+概念创新：
+机制创新：
+路径创新：
+表达创新：
 ```
 
-Reject:
+拒稿：
 
-- novelty that is only a new buzzword;
-- "first to study" claims without literature verification;
-- paths that repeat the problem in positive language.
+- 只是把新词当创新；
+- 未经文献核验就声称“首次研究”；
+- 路径用正面语言重复问题。
 
-## 3.5 Argument Depth
+## 3.5 论证深度
 
-Check:
+检查：
 
-- Is there a non-obvious thesis?
-- Does the paper have a real theoretical tension?
-- Does each section transform the thesis rather than repeat it?
-- Are sources digested into the argument?
-- Do paragraphs perform argumentative actions rather than explain headings?
-- Does the paper move from material to interpretation and then to a transferable theoretical judgment?
-- Does the conclusion return to theory rather than only summarizing paths?
+- 是否有非显而易见的论点？
+- 论文是否有真实的理论张力？
+- 每个章节是否转化论点而非重复论点？
+- 来源是否被消化进论证？
+- 段落是否执行论证动作而非解释标题？
+- 论文是否从材料走向解释，再走向可迁移的理论判断？
+- 结论是否回归理论而非仅总结路径？
 
-Failure signs:
+失败信号：
 
-- formal compliance with length, headings, and citations but no insight;
-- repeated abstract terms standing in for analysis;
-- "某研究指出" used as citation decoration;
-- every section could be predicted from the title;
-- conclusion repeats the path list without theoretical return.
+- 长度、标题、引用合规但无洞见；
+- 抽象术语重复替代分析；
+- “某研究指出”只是引用装饰；
+- 每个章节都能从标题预测；
+- 结论重复路径列表而没有理论回归。
 
-## 4. Structure
+## 4. 结构
 
-Check:
+检查：
 
-- Does each heading advance the argument?
-- Are first-level sections distinct?
-- Are second-level sections not repetitive?
-- Does every major body section contain second-level headings?
-- Does the main text reach 10,000-12,000 Chinese characters unless the user explicitly requested a different length?
-- Does the path section answer prior challenges one by one?
-- Is the conclusion a theoretical return rather than a summary list?
-- Do first-level headings present substantive relations, functions, mechanisms, risks, transformations, or paths rather than internal workflow labels?
-- Is concept boundary work embedded in the introduction or substantive analysis instead of exposed as a standalone diagnostic chapter?
-- Do path headings sound like scholarly responses to proved mechanisms rather than a work plan or instruction list?
+- 每个标题是否推进论证？
+- 一级章节是否相互区分？
+- 二级章节是否不重复？
+- 每个主要正文章节是否包含二级标题？
+- 正文是否达到 10,000-12,000 字，除非用户明确要求其他长度？
+- 路径段是否逐一回应前文证明的挑战？
+- 结论是否为理论回归而非总结列表？
+- 一级标题是否呈现题目内部实质关系、功能、机制、风险、转化或路径，而非内部流程标签？
+- 概念边界工作是否嵌入引言或实质性分析，而非作为独立诊断章节？
+- 路径标题是否像对已证机制的学术回应，而非工作计划或指令清单？
 
-Corpus-derived reminder: EMARX should dynamically select structures from `distillation-evidence.md`, including theory-problem-path, problem-mechanism-path, concept-function-path, carrier-function-path, symbol-identity-value-practice, and technology risk governance chains.
+语料提醒：EMARX 应动态选择 `distillation-evidence.md` 中的结构，包括理论-问题-路径、问题-机制-路径、概念-功能-路径、载体-功能-路径、符号-认同-价值-实践、技术风险治理链等。
 
-v5 structure reminder: the expanded 452-PDF audit showed that second-level headings and 10,000+ character scale are normal in the user's corpus. A full paper without second-level headings is a failed draft, not a stylistic variant.
+v5 结构提醒：452 个 PDF 的复核显示，二级标题和 10,000 字以上篇幅在用户语料中是常态。没有二级标题的完整论文是失败稿，不是风格变体。
 
-v6.5 structure firewall: reject diagnostic/checklist headings such as `研究对象与概念边界`, `概念界定`, `理论框架`, `问题诊断`, `创新点分析`, `机制链`, `材料锚定`, or `路径建设与可执行条件`. These are internal research actions, not front-stage paper sections.
+v6.5 结构防火墙：拒绝“研究对象与概念边界”“概念界定”“理论框架”“问题诊断”“创新点分析”“机制链”“材料锚定”“路径建设与可执行条件”等诊断/清单式标题。这些是内部研究动作，不是前台论文章节。
 
-## 5. Evidence And Facts
+## 5. 证据与事实
 
-Check:
+检查：
 
-- Which claims are supported by local sources?
-- Which facts need web verification?
-- Are there invented citations, names, dates, data, or page numbers?
-- Are case claims too vague?
-- Does the paper mark source gaps honestly?
-- Are materials used to force the argument forward, or merely placed after claims?
+- 哪些论断有本地来源支撑？
+- 哪些事实需要网络核验？
+- 是否存在虚构引文、人名、日期、数据或页码？
+- 案例论断是否过于模糊？
+- 论文是否如实标记来源缺口？
+- 材料是被用来推动论证，还是仅仅放在论断之后？
 
-## 5.25 Scholarliness
+## 5.25 学理性
 
-Apply `scholarliness-protocol.md`.
+应用 `scholarliness-protocol.md`。
 
-Check:
+检查：
 
-- academic map: field, subfield, theory conversation, and entry point;
-- problem extraction: phenomenon transformed into a theoretical problem;
-- framework construction: theory, object, and section logic are mutually supporting;
-- concept ledger: concepts have boundaries and stable functions;
-- literature dialogue: sources are organized by problem rather than listed by author;
-- measured critique: prior research limits are identified without exaggerated novelty claims;
-- abstraction: material analysis produces a transferable mechanism, relation, or concept clarification;
-- title and heading logic: headings form an argumentative chain.
+- 学术地图：领域、子领域、理论对话和入口；
+- 问题提炼：现象转化为理论问题；
+- 框架建构：理论、对象与章节逻辑相互支撑；
+- 概念台账：概念有边界且功能稳定；
+- 文献对话：来源按问题组织，而非按作者罗列；
+- 温和批判：指出前人研究局限，但不夸大创新；
+- 理论抽象：材料分析产生可迁移的机制、关系或概念澄清；
+- 标题逻辑：标题形成论证链。
 
-Failure signs:
+失败信号：
 
-- smooth prose with no theoretical coordinate;
-- concept names without concept work;
-- literature used only as evidence labels;
-- materials summarized but not abstracted;
-- conclusion repeats suggestions without theoretical return.
+- 文字流畅但无理论坐标；
+- 有概念名称无概念工作；
+- 文献仅当证据标签；
+- 材料被总结但未被抽象；
+- 结论重复建议而无理论回归。
 
-## 5.5 Citation Discipline
+## 5.5 引用纪律
 
-Check:
+检查：
 
-- Does each literature item appear only once in the body?
-- Does each author appear only once?
-- Are citations placed after the exact sentence that uses the source?
-- Are citation numbers assigned by first-use order?
-- Does the reference list follow body citation order?
-- Is the reference list in GB/T 7714 numeric style?
-- Are references piled at paragraph ends?
-- Are all workspace literature sources either used once or listed as unusable with reasons?
+- 每篇文献正文中只出现一次？
+- 每位作者只出现一次？
+- 引用是否紧随使用它的句子？
+- 引用编号是否按首次使用顺序？
+- 参考文献列表是否按正文引用顺序？
+- 参考文献是否采用 GB/T 7714 数字格式？
+- 引用是否堆在段落末尾？
+- 所有工作空间文献是否被使用一次，或被注明不可用原因？
 
-## 6. Prose
+## 6. 语言
 
-Check:
+检查：
 
-- Is the style plain but scholarly?
-- Does the abstract use an author-invisible, object-facing reporting voice rather than `本文`, `笔者`, `本研究`, `文章`, or author self-description?
-- Does the body avoid paper meta-discourse such as `本文认为`, `本文的核心观点是`, `文章认为`, `文章指出`, and `本文将`?
-- Are sources digested into the argument instead of being inserted through detached review formulas such as `有研究指出`, `已有研究认为`, `相关研究指出`, or `学者认为`?
-- Does the prose avoid self-invented concepts, exaggerated novelty claims, and decorative academic fog?
-- Does the prose rhythm serve the argument rather than a sentence-length formula?
-- Are long sentences doing real conceptual, relational, or mechanistic work?
-- Are short sentences used for judgment landing rather than mechanical variation?
-- Does the article body avoid mechanical sequence words such as "首先", "其次", "再次", and "最后" when they merely expose an outline?
-- Does it avoid binary contrast formulas such as "不是……而是……" and "并非……而是……"?
-- Does each paragraph open with an object, relation, material, field position, or necessary transition rather than a naked negation?
-- Are negations used only after the object under correction is clear?
-- Do important sentences have clear subjects, objects, and verbs?
-- Are generic verbs such as `推动`, `促进`, `加强`, `优化`, `提升`, and `赋能` supported by concrete object, mechanism, and condition?
-- Do path or governance sections avoid instructional manual voice, especially repeated `应`, `应当`, `需要`, `必须`, and `建议` sentences?
-- Do transitions explain why the next move is necessary, rather than relying on loose connectors such as `因此`, `由此可见`, or `与此同时`?
-- Are quotation marks, colons, dashes, and question-style headings used only when necessary?
-- Does the prose avoid colon-led mini titles such as `问题在于：`, `关键在于：`, `核心观点是：`, and `具体而言：` when they expose an assistant-like explanatory habit?
-- Does any passage feel congested, flat, rushed, or slogan-like when read as prose?
-- Are slogans translated into mechanisms?
-- Is there a judgment landing in each paragraph?
-- Does the draft sound like a mature scholar, not a policy notice or online commentary?
+- 语体是否平实但有学术质感？
+- 摘要是否使用作者隐身、面向对象的报道式语态，而非“本文”“笔者”“本研究”“文章”或自我说明？
+- 正文是否避免“本文认为”“本文的核心观点是”“文章认为”“文章指出”“本文将”等论文元话语？
+- 来源是否被消化进论证，而非通过“有研究指出”“已有研究认为”“相关研究指出”“学者认为”等综述套式 detached 插入？
+- 文字是否避免自造概念、夸张创新论断和装饰性学术迷雾？
+- 节奏是否服务论证而非句长公式？
+- 长句是否在做真正的概念、关系或机制工作？
+- 短句是否用于判断落点而非机械变化？
+- 正文是否避免在仅暴露提纲时使用“首先”“其次”“再次”“最后”等机械序列词？
+- 是否避免“不是……而是……”“并非……而是……”等二元对照公式？
+- 每个段落是否以对象、关系、材料、学术位置或必要过渡开头，而非裸否定？
+- 否定是否只在被纠正对象清楚后才使用？
+- 重要句子是否有清晰主语、宾语和动词？
+- “推动”“促进”“加强”“优化”“提升”“赋能”等泛动词是否有具体对象、机制和条件支撑？
+- 路径或治理段落是否避免说明书腔，尤其避免连续以“应”“应当”“需要”“必须”“建议”开头？
+- 过渡是否解释下一步为何必要，而非仅依赖“因此”“由此可见”“与此同时”等松散连接？
+- 引号、冒号、破折号和疑问式标题是否仅在必要时使用？
+- 正文是否避免“问题在于：”“关键在于：”“核心观点是：”“具体而言：”等冒号小标题腔？
+- 朗读时是否有拥堵、平板、仓促或口号化之处？
+- 口号是否被转化为机制？
+- 每个段落是否有判断落点？
+- 文字听起来是否像成熟学者，而非政策通知或网络评论？
 
-Failure signs:
+失败信号：
 
-- abstract begins by announcing what the paper does instead of presenting the object, problem, relation, and conclusion;
-- body paragraphs repeatedly say what `本文` or `文章` will do;
-- literature appears as a pasted review block rather than as a transformed part of the paper's own reasoning;
-- punctuation creates a report/manual rhythm rather than a paper rhythm.
+- 摘要以宣布论文要做什么开头，而非呈现对象、问题、关系和结论；
+- 正文段落反复说“本文”或“文章”要做什么；
+- 文献像被贴进正文的综述块，而非论文自身推理的转化部分；
+- 标点制造出报告/说明书节奏，而非论文节奏。
 
-## Review Output
+## 审稿输出格式
 
-Use:
+需要输出审稿意见时使用：
 
 ```text
-总体判断:
-篇幅与标题层级:
-主要问题:
-结构问题:
-概念问题:
-创新问题:
-证据/事实问题:
-引用/参考文献问题:
-语言问题:
-节奏问题:
-烂稿风险:
-必须修改:
-可以优化:
-建议重写段落:
+总体判断：
+篇幅与标题层级：
+主要问题：
+结构问题：
+概念问题：
+创新问题：
+证据/事实问题：
+引用/参考文献问题：
+语言问题：
+节奏问题：
+烂稿风险：
+必须修改：
+可以优化：
+建议重写段落：
 ```

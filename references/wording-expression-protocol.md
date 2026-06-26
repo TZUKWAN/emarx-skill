@@ -1,338 +1,336 @@
-# EMARX Wording And Expression Protocol
+# EMARX 遣词造句与表述协议
 
-Use this file when drafting, revising, or reviewing sentence-level expression in Chinese theoretical papers.
+起草、修改或审稿中文学理论文句级表达时使用本文件。
 
-## Core Problem
+## 核心问题
 
-Many weak drafts do not fail because every sentence is grammatically wrong. They fail because sentences start in the wrong place, make claims before naming objects, negate before establishing context, or use abstract nouns to hide an empty relation.
+很多弱稿并非每句都有语法错误，而是句子起点不对：先下判断再点名对象、先否定再建立语境、用抽象名词掩盖空关系。
 
-The v6.8 full-corpus language distillation adds one more failure source: prose that talks about the paper instead of making the paper's claim. Phrases such as `本文认为`, `本文的核心观点是`, `本文将`, `文章认为`, and `有研究指出` often make EMARX sound like an assistant explaining an assignment or inserting a review paragraph. The target voice is object-facing and author-invisible.
+v6.8 全量语言蒸馏还暴露另一种失败：句子不是在论述对象，而是在解释论文自身。“本文认为”“本文的核心观点是”“本文将”“文章认为”“有研究指出”让 EMARX 听起来像助手在解释作业，或在正文里插入了一段综述。
 
-Good academic expression should make the reader know:
+好的学术表达应让读者知道：
 
-- what object is being discussed;
-- what relation is being clarified;
-- what evidence or theoretical basis supports the statement;
-- what judgment the paragraph has advanced.
+- 讨论的是什么对象；
+- 澄清的是什么关系；
+- 有什么证据或理论依据；
+- 段落推进了什么判断。
 
-## Paragraph Opening
+## 段落开头
 
-The first sentence of a paragraph should orient the reader. It may open from:
+段首应给读者定位。可以从以下位置进入：
 
-- object: name the concrete object, text, policy, case, concept, or relation;
-- field position: name the academic conversation or theoretical issue;
-- material: begin with a source, case, data point, or policy fact;
-- transition: connect the previous paragraph to the next analytical move;
-- concept boundary: clarify how a concept is used in this paper.
+- **对象**：点名具体对象、文本、政策、案例、概念或关系；
+- **学术位置**：点名学术争论或理论问题；
+- **材料**：以来源、案例、数据或政策事实开头；
+- **过渡**：连接上一段与下一段分析运动；
+- **概念边界**：澄清本文如何使用某个概念。
 
-Avoid opening a paragraph with a naked negation.
+禁止以裸否定开头。
 
-Bad opening patterns:
+弱段首：
 
-- `不是...`
-- `并非...`
-- `不能...`
-- `不应...`
-- `不要...`
-- `没有...`
-- `无需...`
-- `并不...`
-- `绝非...`
+- 不是……
+- 并非……
+- 不能……
+- 不应……
+- 不要……
+- 没有……
+- 无需……
+- 并不……
+- 绝非……
 
-These forms are sometimes valid after the object has been established. They are weak when they appear before the reader knows what is being corrected and why the correction matters.
+这些形式在对象建立后可用于概念边界，但在读者尚不知纠正对象时显得无力。
 
-Instead of opening with negation, first name the object or relation:
+与其以否定开头，不如先点名对象或关系：
 
 ```text
-Weak: 不能把生成式人工智能简单理解为传播工具。
-Better: 生成式人工智能进入文化传播后，首先改变的是内容被组织和调用的方式。将其理解为普通传播工具，会遮蔽模型、平台和语料共同塑造意义的过程。
+弱：不能把生成式人工智能简单理解为传播工具。
+强：生成式人工智能进入文化传播后，首先改变的是内容被组织和调用的方式。将其理解为普通传播工具，会遮蔽模型、平台和语料共同塑造意义的过程。
 ```
 
-The second version still contains a correction, but the correction follows an object and a reason.
+第二版仍包含纠正，但纠正跟在对象和理由之后。
 
-## Expression Failure Types
+## 表述失灵类型
 
-Avoid the whole family of expression failures below. They share the same root: the sentence asks the reader to accept a turn, judgment, or abstraction before the object and relation have been made clear.
+以下表述问题有共同根源：在对象和关系尚未清楚之前，就要求读者接受转折、判断或抽象。
 
-### 1. Empty Framing Opening
+### 1. 空泛起笔
 
-Weak openings:
+弱起笔：
 
-- `在……背景下`
-- `随着……的发展`
-- `当前`
-- `近年来`
-- `从……来看`
-- `在……语境下`
+- 在……背景下
+- 随着……的发展
+- 当前
+- 近年来
+- 从……来看
+- 在……语境下
 
-These openings are not automatically wrong, but they often delay the real object. Use them only when the sentence quickly names the concrete relation being analyzed.
+这些起笔并非绝对错误，但常常拖延真实对象。仅当句子迅速进入具体关系时才可使用。
 
-### 2. Suspended Pronoun Opening
+### 2. 悬空指代
 
-Weak openings:
+弱起笔：
 
-- `这种`
-- `这一`
-- `上述`
-- `这说明`
-- `这意味着`
+- 这种
+- 这一
+- 上述
+- 这说明
+- 这意味着
 
-These words require a nearby referent. Do not use them to open a new paragraph unless the previous paragraph has clearly prepared the object and the new paragraph immediately names what is being carried forward.
+这些词需要就近指代。不要用它开启新段落，除非上一段已清楚准备对象且新段立即点名承接内容。
 
-### 3. Premature Judgment
+### 3. 过早判断
 
-Weak openings:
+弱起笔：
 
-- `关键在于...`
-- `核心是...`
-- `根本上...`
-- `本质上...`
-- `必须...`
+- 关键在于……
+- 核心是……
+- 根本上……
+- 本质上……
+- 必须……
 
-Such openings often produce a conclusion before analysis. Use them after the paragraph has shown why the judgment is necessary.
+这类起笔常在分析前给出结论。应在段落已说明判断为何必要之后再使用。
 
-### 4. Concept Stack
+### 4. 概念堆叠
 
-Weak sentences pile several abstract terms together:
+弱句把几个抽象术语堆在一起：
 
 ```text
 主体性、解释关系、治理秩序和价值协同构成了智能传播的结构基础。
 ```
 
-This may sound academic, but it hides relations. Rewrite by explaining which term acts on which object through what mechanism.
+这听起来学术，但隐藏了关系。应改写为：哪个术语通过什么机制作用于哪个对象。
 
-### 5. Pseudo Transition
+### 5. 伪过渡
 
-Transitions are common in the corpus and are not automatically bad. They become weak when they make the passage look connected while the reasoning has not moved:
+过渡本身在语料中常见，并不坏。坏的是它让文章看起来连贯而推理并未移动：
 
-- `因此` used when no inference has been made;
-- `由此可见` used when the paragraph only repeats a statement;
-- `与此同时` used as a loose connector;
-- `值得注意的是` used when the following sentence is not actually notable;
-- `进一步看` used when no further analytical step follows.
+- “因此”用于并未推理之处；
+- “由此可见”用于仅重复陈述之处；
+- “与此同时”作为松散连接；
+- “值得注意的是”用于下文并无特别之处；
+- “进一步看”用于并无进一步分析之处。
 
-Use a transition only when it names the actual movement: concept to material, material to mechanism, mechanism to judgment, or literature limit to paper entry.
+仅当过渡词点名真实运动时才使用：概念到材料、材料到机制、机制到判断、文献局限到本文入口。
 
-### 6. Claim-Only Paragraph
+### 6. 只有断言的段落
 
-A paragraph fails when every sentence asserts and no sentence proves, distinguishes, exemplifies, or interprets. A paragraph needs an argumentative action, not just a topic.
+段落若每句都在断言而没有证明、区分、举例或解释，就是失败的。段落需要论证动作，而非只有话题。
 
-### 7. Slogan Ending
+### 7. 口号化结尾
 
-Avoid paragraph endings that only sound positive:
+避免仅以听起来正面收束：
 
-- `具有重要意义`
-- `提供有力支撑`
-- `形成强大合力`
-- `开辟新路径`
-- `提升传播效能`
+- 具有重要意义
+- 提供有力支撑
+- 形成强大合力
+- 开辟新路径
+- 提升传播效能
 
-End with what has been clarified, not with how important the issue is.
+结尾应落在已澄清的内容上，而不是问题有多重要。
 
-### 8. Instructional Manual Voice
+### 8. 说明书腔
 
-Path and governance sections often become weak when they sound like a work plan. Watch for repeated use of `应`, `应当`, `需要`, `必须`, `建议`, and similar modal verbs.
+路径和治理段落容易变成工作说明。注意反复使用“应”“应当”“需要”“必须”“建议”等情态动词。
 
-These words are not banned. They become a problem when the paragraph only tells actors what to do and no longer explains why that action follows from the paper's analysis.
+这些词并非禁用，问题在于段落只剩对行动者发号施令，而不再解释该行动如何从论文分析中推出。
 
-Better path writing should move:
-
-```text
-diagnosed mechanism -> condition that must change -> actor and action -> why this action answers the mechanism
-```
-
-Avoid:
-
-- consecutive sentences beginning with `应...`;
-- paragraphs made of institutional tasks;
-- action lists without theoretical return;
-- treating the path section as an implementation manual rather than the conclusion of the argument.
-
-## Sentence Method
-
-Use this default movement when a paragraph feels loose:
+好的路径写作应这样运动：
 
 ```text
-object anchor -> relation clarification -> evidence/material -> interpretive judgment
+已诊断的机制 -> 必须改变的条件 -> 行动者与行动 -> 该行动如何回应机制
 ```
 
-Do not use this movement:
+避免：
+
+- 连续以“应……”开头的句子；
+- 由机构任务组成的段落；
+- 没有理论回归的行动清单；
+- 把路径段当作实施手册。
+
+## 句子方法
+
+段落松散时，使用默认运动：
 
 ```text
-paper self-description -> claim announcement -> source parade -> suggestion
+对象锚定 -> 关系澄清 -> 证据/材料 -> 解释性判断
 ```
 
-Examples of sentence functions:
-
-- object anchor: name the thing under discussion;
-- relation clarification: explain how A affects B, belongs to B, differs from B, or generates B;
-- evidence/material: bring in literature, policy, case, text, data, or historical context;
-- interpretive judgment: state what the relation means for the paper's argument.
-
-Avoid paragraphs that only contain:
-
-- claim -> claim -> claim;
-- concept -> concept -> concept;
-- policy phrase -> slogan -> suggestion;
-- negation -> correction -> abstract conclusion.
-- `本文认为` -> `有研究指出` -> `因此应当`.
-
-## Author-Invisible Abstract And Body Voice
-
-Abstracts should normally have no visible author subject. They should describe the research object directly through third-person compressed academic prose.
-
-Avoid:
-
-- `本文认为...`
-- `本文的核心观点是...`
-- `本文从...展开分析`
-- `笔者认为...`
-- `本研究旨在...`
-- `文章认为...`
-
-Better movement:
+不要使用这种运动：
 
 ```text
-research object -> problem relation -> mechanism/logic -> value or path
+论文自我说明 -> 论断宣告 -> 来源罗列 -> 建议
 ```
 
-The same rule applies to body prose. If a sentence starts by explaining what the paper will do, rewrite it as a sentence about the object.
+句子功能示例：
 
-## Literature Entry Without Review Inserts
+- 对象锚定：点名讨论对象；
+- 关系澄清：解释 A 如何影响 B、属于 B、区别于 B 或生成 B；
+- 证据/材料：引入文献、政策、案例、文本、数据或历史语境；
+- 解释性判断：说明该关系对论文论证意味着什么。
 
-Avoid body paragraphs that introduce literature as detached review:
+避免段落只包含：
 
-- `有研究指出...`
-- `已有研究认为...`
-- `相关研究指出...`
-- `学者认为...`
+- 论断 -> 论断 -> 论断；
+- 概念 -> 概念 -> 概念；
+- 政策用语 -> 口号 -> 建议；
+- 否定 -> 纠正 -> 抽象结论；
+- “本文认为” -> “有研究指出” -> “因此应当”。
 
-When literature is needed, digest it into one of four functions:
+## 无主语摘要与正文语态
 
-- concept source;
-- mechanism source;
-- problem source;
-- limitation source.
+摘要通常不应出现可见作者主语，应以第三人称压缩学术语态直接描述对象。
 
-The sentence should still belong to the paper's own argument. Citation marks can follow the sentence, but the prose should not read like a literature-review paragraph pasted into the body.
+禁用：
 
-## Negation Discipline
+- 本文认为……
+- 本文的核心观点是……
+- 本文从……展开分析
+- 笔者认为……
+- 本研究旨在……
+- 文章认为……
 
-Negation is useful for concept boundary work, but it must not become the engine of prose.
-
-Use negation only when:
-
-- there is a real misconception to correct;
-- the positive claim follows quickly;
-- the sentence names the object under correction;
-- the paper has evidence or reasoning for the correction.
-
-Avoid:
-
-- paragraph opening by negation;
-- repeated `不是...而是...`;
-- negation that only creates dramatic contrast;
-- correcting a view that nobody in the paper has actually held.
-
-Better movement:
+更好运动：
 
 ```text
-先说明对象的实际运行方式，再指出旧理解的不足，最后给出本文的判断。
+研究对象 -> 问题关系 -> 机制/逻辑 -> 价值或路径
 ```
 
-## Verb Choice
+正文同样适用此规则。若句子以解释论文要做什么开头，请改写为关于对象的句子。
 
-Prefer verbs that show intellectual action.
+## 文献进入：消化而非综述
 
-Use:
+避免把文献作为 detached 综述引入正文：
 
-- distinguishes;
-- clarifies;
-- explains;
-- reveals;
-- connects;
-- limits;
-- transforms;
-- supports;
-- weakens;
-- expands.
+- 有研究指出……
+- 已有研究认为……
+- 相关研究指出……
+- 学者认为……
 
-In Chinese prose, prefer direct verbs:
+需要文献时，先把它消化为四种功能之一：
 
-- `批判...` over `对...进行批判`;
-- `解释...` over `对...作出解释`;
-- `限制...` over `形成对...的限制`;
-- `支持...` over `为...提供支撑`.
+- 概念来源；
+- 机制来源；
+- 问题来源；
+- 限制来源。
 
-Avoid using `推动`, `促进`, `加强`, `优化`, `提升`, `赋能`, `打造`, and `构建` unless the sentence names the object, mechanism, and condition.
+句子仍应属于论文自己的论证。引用标记可跟在句后，但文字读起来不能像在正文里贴了一段文献综述。
 
-## Subject And Object Clarity
+## 否定纪律
 
-Every important sentence should have a clear subject and object.
+否定对概念边界工作有用，但不能成为行文发动机。
 
-Weak signs:
+仅在以下情况使用否定：
 
-- the subject is an abstract container such as `这一问题`, `这种情况`, or `这一逻辑` without a nearby referent;
-- the verb is too general to show relation;
-- the object is missing, so the reader cannot tell what has changed;
-- the sentence ends with `重要意义`, `现实价值`, or `内在要求` without specifying the value object.
+- 存在真实误解需要纠正；
+- 正面论断紧随其后；
+- 句子点名了被纠正的对象；
+- 论文有证据或推理支持该纠正。
 
-Fix by naming:
+避免：
+
+- 段首以否定开头；
+- 反复使用“不是……而是……”；
+- 仅为制造戏剧对照的否定；
+- 纠正文中无人真正持有的观点。
+
+更好运动：
 
 ```text
-actor / mechanism / object / consequence
+先说明对象的实际运行方式，再指出旧理解的不足，最后给出本文判断。
 ```
 
-## Transition
+## 动词选择
 
-Transitions should explain why the next paragraph is necessary.
+优先使用能显示智识动作的动词：
 
-Good transitions:
+- 区分
+- 澄清
+- 解释
+- 揭示
+- 勾连
+- 限定
+- 转化
+- 支撑
+- 削弱
+- 拓展
 
-- move from concept to material;
-- move from material to mechanism;
-- move from mechanism to governance implication;
-- move from literature limit to this paper's entry point.
+中文表达中优先使用直接动词：
 
-The corpus regularly uses `因此`, `由此可见`, `与此同时`, `进一步看`, `在此基础上`, `换言之`, `这意味着`, `然而`, `但是`, `另一方面`. These are acceptable when they name a real movement. They are weak only when they disguise a non-movement as a movement.
+- “批判……”优于“对……进行批判”
+- “解释……”优于“对……作出解释”
+- “限制……”优于“形成对……的限制”
+- “支撑……”优于“为……提供支撑”
 
-Avoid:
+除非句子同时点名对象、机制和条件，否则慎用“推动”“促进”“加强”“优化”“提升”“赋能”“打造”“构建”。
 
-- `因此` when no inference has been made;
-- `由此可见` when the paragraph only repeats a statement;
-- `与此同时` as a loose connector;
-- `值得注意的是` when the following sentence is not actually notable.
+## 主宾清晰
 
-## Title, Heading, And Body Distinction
+每个重要句子都应有清晰主语和宾语。
 
-Formal first-level and second-level headings remain required for full papers. Body prose should not become a hidden outline.
+弱信号：
 
-Inside body paragraphs, sequence words such as `一方面...另一方面...`, `首先...其次...`, and `第一...第二...` are acceptable when they organize real analytical steps. Avoid them only when they replace reasoning with parallel slogans.
+- 主语是“这一问题”“这种情况”“这一逻辑”等抽象容器且缺少就近指代；
+- 动词过于笼统，无法显示关系；
+- 宾语缺失，读者看不出什么发生了变化；
+- 句尾以“重要意义”“现实价值”“内在要求”收束，却不指明价值对象。
 
-Also avoid:
-
-- colon-led mini titles;
-- semicolon stacks that merely list concepts;
-- paragraph endings that sound like policy bullet points.
-- `问题在于：`, `关键在于：`, `核心观点是：`, and similar colon-led prompt-answer structures inside prose.
-
-## Revision Checklist
-
-When revising, check:
+修复时点名：
 
 ```text
-naked negative openings:
-paragraphs with no object anchor:
-paragraphs with only abstract concepts:
-sentences with unclear subject:
-generic verbs:
-unsupported transitions:
-claim-only paragraphs:
-paragraphs ending in slogans:
-visible author subjects:
-paper meta-discourse:
-review-insert formulas:
-colon-led mini titles:
+行动者 / 机制 / 对象 / 后果
 ```
 
-If a paragraph opens badly, do not only replace a word. Rebuild the paragraph from object, relation, material, and judgment.
+## 过渡
+
+过渡应解释下一段为何必要。
+
+好的过渡：
+
+- 从概念到材料；
+- 从材料到机制；
+- 从机制到治理含义；
+- 从文献局限到本文入口。
+
+语料中常见“因此”“由此可见”“与此同时”“进一步看”“在此基础上”“换言之”“这意味着”“然而”“但是”“另一方面”。这些在点名真实运动时可以使用，仅在伪装非运动为运动时变弱。
+
+避免：
+
+- 没有推理时用“因此”；
+- 仅重复陈述时用“由此可见”；
+- 把“与此同时”当松散连接；
+- 下文并不特别时用“值得注意的是”。
+
+## 标题与正文区分
+
+正式一级、二级标题仍然需要。正文段落不应变成隐藏提纲。
+
+正文段落内部，“一方面……另一方面……”“首先……其次……”“第一……第二……”在组织真实分析步骤时可以使用。只有当它们用平行口号取代推理时才应避免。
+
+还应避免：
+
+- 冒号小标题；
+- 仅罗列概念的分号堆叠；
+- 结尾像政策要点的段落；
+- “问题在于：”“关键在于：”“核心观点是：”等冒号提示-回答结构。
+
+## 修改清单
+
+修改时检查：
+
+```text
+裸否定段首：
+无对象锚定的段落：
+只有抽象概念的段落：
+主语不清的句子：
+泛化动词：
+无支撑的过渡：
+只有断言的段落：
+口号化结尾：
+可见作者主语：
+论文元话语：
+综述插入套式：
+冒号小标题：
+```
+
+若段首不好，不要只换词。应从对象、关系、材料、判断重新搭建段落。
