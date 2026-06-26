@@ -16,7 +16,25 @@ Do not treat scholarliness as:
 
 A paper becomes scholarly when it knows its field, transforms a phenomenon into a theoretical problem, builds a framework that can carry the object, digests literature into judgment, and rises from material to transferable insight.
 
+## The Three Soul Questions of Scholarliness
+
+学理性最朴素的判断标准是三个灵魂拷问：
+
+1. **你的研究从哪来？** —— 学术脉络与问题缺口。论文必须交代它站立的学术传统、前人做到哪一步、哪里还没解决。不是政策摘要，也不是现象描述。
+2. **怎么一步步走？** —— 理论逻辑与机制推导。从核心理论出发，拆解出命题成立的具体机制，明确边界条件，再得出结论。每一步都要有可见的推理。
+3. **最后给这个领域留下了什么？** —— 理论贡献与可迁移洞见。不是搬运理论，而是发展理论：补充、修正、拓展或转译已有框架，让后来的研究者可以接着用。
+
+这三个问题必须能在论文中被直接回答。审稿人应该能在 5 分钟内找到对应的段落和句子。
+
 ## Five Practical Operations
+
+These five operations answer the three soul questions:
+
+| 灵魂拷问 | 对应操作 |
+|---|---|
+| 从哪来？ | Positioning + Problem Extraction + Literature Dialogue |
+| 怎么一步步走？ | Framework Construction + Critical Judgment + Argument Progression |
+| 留下什么？ | Theoretical Abstraction + Contribution Statement |
 
 ### 1. Positioning
 
@@ -84,6 +102,16 @@ After analyzing policy, literature, case, history, platform, text, or practice, 
 - What can later researchers reuse from this analysis?
 
 Failure sign: the paper ends by restating suggestions without theoretical return.
+
+### 6. Contribution Statement
+
+Before delivery, write one explicit contribution paragraph that answers:
+
+- Compared to the literature identified in the paper, what gap is filled?
+- What concept, mechanism, or boundary has been developed rather than merely applied?
+- What can later researchers take from this paper?
+
+The contribution statement must be concrete enough that a reader can disagree with it. Vague claims such as " enriching the theoretical research" or "providing practical enlightenment" are not contributions.
 
 ## Concept Work
 
@@ -196,17 +224,26 @@ Formal heading hierarchy remains required for full papers. Inside body paragraph
 Before delivery, write a short internal review:
 
 ```text
-academic map:
-theoretical starting point:
-phenomenon-to-problem transformation:
-concept ledger complete:
-framework self-consistency:
-literature dialogue:
-critical judgment:
-material-to-theory abstraction:
-language restraint:
-title and heading logic:
-remaining weak spots:
+灵魂拷问 1 — 从哪来？
+  academic map:
+  phenomenon-to-problem transformation:
+  literature dialogue:
+
+灵魂拷问 2 — 怎么一步步走？
+  theoretical starting point:
+  framework self-consistency:
+  critical judgment:
+  argument progression:
+  concept ledger complete:
+
+灵魂拷问 3 — 留下什么？
+  material-to-theory abstraction:
+  contribution statement:
+
+形式与表达
+  language restraint:
+  title and heading logic:
+  remaining weak spots:
 ```
 
 Reject the draft if it is only formal, smooth, and orderly. A qualified EMARX paper must show why the problem matters inside a field and what theoretical relation the paper has made clearer.

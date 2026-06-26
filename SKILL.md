@@ -61,7 +61,7 @@ Read these files when the corresponding task appears:
 16. Write in plain, clear, academically weighted Chinese. Let rhythm serve reasoning: long sentences can unfold relations, medium sentences can carry transitions, and short sentences can land judgments. Do not enforce sentence-count or sentence-length quotas.
 17. Treat review and revision as substantive reconstruction, not surface polishing.
 18. Run bad-draft review before delivery. If the draft is merely compliant in length, headings, and references but still formulaic, repetitive, or under-argued, reject it and revise.
-19. For full papers, run the four-agent review team described in `references/review-agent-protocol.md` before delivery: ScholarlyReviewer, LogicReviewer, ProseReviewer, FormatReviewer. Any dimension rated fail must be revised before Word delivery.
+19. For full papers, run the four-agent review team described in `references/review-agent-protocol.md` before delivery: ScholarlyReviewer, LogicReviewer, ProseReviewer, FormatReviewer. Any dimension rated fail must be revised before Word delivery. The auto-optimization loop requires a minimum of 3 review rounds and stops only when no fail remains and weak issues stop decreasing, or when the 5-round cap or user acceptance is reached.
 20. For referenced papers, use `references/citation-protocol.md`: one literature item only once, one author only once, citations inserted at the exact sentence, sequential numbering, and GB/T 7714 reference list in citation order.
 21. Apply the user's daily prose constraints from `references/style-protocol.md`: do not manufacture concepts, do not use inflated novelty language, avoid quotation marks and colon-heavy AI-looking punctuation unless required by citation or title format, and avoid mechanical sequence words such as `首先` / `其次` / `再次` / `最后` in running prose.
 22. Do not rely on binary contrast formulas such as `不是……而是……` or `并非……而是……`. State the claim directly and let the evidence and mechanism carry the distinction.
@@ -105,9 +105,9 @@ For a full paper:
 14. **Scholarliness calibration.** Apply `scholarliness-protocol.md`: verify field position, concept boundary, literature dialogue, critical judgment, material-to-theory abstraction, title logic, and paragraph-level theoretical action.
 15. **Depth calibration.** Apply `argument-depth-protocol.md`: each major section needs concept boundary work, mechanism explanation, counter-tension, material support, and a judgment landing. Add missing depth before calling the draft complete.
 16. **Bad-draft review.** Apply `review-rubric.md` and run `scripts/scholarliness_audit.py` plus `scripts/bad_draft_audit.py` when possible. A formally compliant but formulaic draft must be rejected.
-17. **Four-agent review.** Read `references/review-agent-protocol.md` and spawn ScholarlyReviewer, LogicReviewer, ProseReviewer, and FormatReviewer. Collect their reports, consolidate conflicts, and produce a revision plan.
-18. **Revision.** Rewrite weak sections, not merely words.
-19. **Re-review.** Re-run the relevant review agents on revised sections until no fail ratings remain or the user accepts residual risks.
+17. **Four-agent review (Round 1).** Read `references/review-agent-protocol.md` and spawn ScholarlyReviewer, LogicReviewer, ProseReviewer, and FormatReviewer. Collect their reports, consolidate conflicts, and produce a revision plan.
+18. **Revision and rounds 2–3.** Rewrite weak sections, not merely words. Save each version as `paper_vX_roundN.md`. Re-run the four review agents. Repeat for at least 3 rounds. Stop only when no fail remains and weak issues stop decreasing, or when the 5-round cap or user acceptance is reached.
+19. **Final review report.** Produce the consolidated review-and-revision summary required by `references/review-agent-protocol.md`.
 20. **Fact check and citation audit.** Apply `fact-check-protocol.md` and `citation-protocol.md`; remove, verify, or mark unsupported factual claims; audit citation numbering and GB/T 7714 order.
 21. **Word delivery.** Create `.docx`, then verify the file exists and can be read.
 22. **Profile update.** If the user's materials or feedback imply durable preferences, update the profile.
