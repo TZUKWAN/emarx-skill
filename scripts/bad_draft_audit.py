@@ -236,23 +236,51 @@ def paragraph_opening_issues(body: str) -> dict:
     }
 
 
+def paragraph_has_anchor(para: str) -> bool:
+    cleaned = re.sub(r"^[#\s]+", "", para)
+    if cn_len(cleaned) < 30:
+        return True  # skip very short fragments
+    if para.startswith("#"):
+        return True
+    has_citation = "[" in cleaned and "]" in cleaned
+    has_year = YEAR_RE.search(cleaned) is not None
+    has_number = NUMBER_RE.search(cleaned) is not None
+    has_quote = QUOTE_RE.search(cleaned) is not None
+    has_anchor_term = any(term in cleaned for term in ANCHOR_TERMS)
+    return has_citation or has_year or has_number or has_quote or has_anchor_term
+
+
 def floating_paragraphs(body: str) -> list[dict]:
+    paras = [item.strip() for item in re.split(r"\n\s*\n", body) if item.strip()]
     flagged = []
-    for index, para in enumerate([item.strip() for item in re.split(r"\n\s*\n", body) if item.strip()], 1):
+    run_start = None
+    run_openings = []
+    for index, para in enumerate(paras, 1):
         if para.startswith("#"):
             continue
-        cleaned = re.sub(r"^[#\s]+", "", para)
-        # Skip very short paragraphs (e.g., section labels)
-        if cn_len(cleaned) < 30:
-            continue
-        has_citation = "[" in cleaned and "]" in cleaned
-        has_year = YEAR_RE.search(cleaned) is not None
-        has_number = NUMBER_RE.search(cleaned) is not None
-        has_quote = QUOTE_RE.search(cleaned) is not None
-        has_anchor_term = any(term in cleaned for term in ANCHOR_TERMS)
-        if not (has_citation or has_year or has_number or has_quote or has_anchor_term):
+        if paragraph_has_anchor(para):
+            if run_start is not None and len(run_openings) >= 3:
+                flagged.append({
+                    "start_paragraph": run_start,
+                    "end_paragraph": index - 1,
+                    "count": len(run_openings),
+                    "openings": run_openings,
+                })
+            run_start = None
+            run_openings = []
+        else:
+            if run_start is None:
+                run_start = index
+            cleaned = re.sub(r"^[#\s]+", "", para)
             first_sentence = re.split(r"[。！？!?；;]", cleaned, maxsplit=1)[0][:120]
-            flagged.append({"paragraph": index, "opening": first_sentence})
+            run_openings.append(first_sentence)
+    if run_start is not None and len(run_openings) >= 3:
+        flagged.append({
+            "start_paragraph": run_start,
+            "end_paragraph": len(paras),
+            "count": len(run_openings),
+            "openings": run_openings,
+        })
     return flagged
 
 
@@ -311,30 +339,30 @@ def audit(path: Path, terms: list[str]) -> dict:
         risks.append("citations_as_source_labels")
     if generic_counts:
         risks.append("generic_academic_phrases")
-    if sum(mechanical_sequence_counts.values()) >= 4:
+    if sum(mechanical_sequence_counts.values()) >= 8:
         risks.append("mechanical_sequence_words")
-    if sum(binary_contrast_counts.values()) >= 2:
+    if sum(binary_contrast_counts.values()) >= 3:
         risks.append("formulaic_binary_contrasts")
     if inflated_novelty_counts:
         risks.append("inflated_novelty_language")
     if opening_issues["naked_negative_openings"]:
         risks.append("naked_negative_paragraph_openings")
-    if len(opening_issues["loose_transition_openings"]) >= 3:
+    if len(opening_issues["loose_transition_openings"]) >= 5:
         risks.append("loose_transition_openings")
-    if len(opening_issues["empty_framing_openings"]) >= 3:
+    if len(opening_issues["empty_framing_openings"]) >= 5:
         risks.append("empty_framing_openings")
-    if len(opening_issues["suspended_pronoun_openings"]) >= 3:
+    if len(opening_issues["suspended_pronoun_openings"]) >= 5:
         risks.append("suspended_pronoun_openings")
-    if len(opening_issues["premature_judgment_openings"]) >= 3:
+    if len(opening_issues["premature_judgment_openings"]) >= 5:
         risks.append("premature_judgment_openings")
     if opening_issues["slogan_endings"]:
         risks.append("slogan_paragraph_endings")
     if floating:
-        risks.append("floating_paragraphs")
-    if sum(generic_verb_counts.values()) >= max(8, main_chars // 600):
+        risks.append("floating_sections")
+    if sum(generic_verb_counts.values()) >= max(10, main_chars // 500):
         risks.append("generic_verb_overuse")
     bucket_pct = sentence_stats.get("bucket_pct", {})
-    if bucket_pct.get("S", 0) + bucket_pct.get("M", 0) >= 70:
+    if bucket_pct.get("S", 0) + bucket_pct.get("M", 0) >= 75:
         risks.append("short_medium_heavy_expository_style")
 
     return {

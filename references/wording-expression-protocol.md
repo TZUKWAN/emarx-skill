@@ -101,14 +101,13 @@ This may sound academic, but it hides relations. Rewrite by explaining which ter
 
 ### 5. Pseudo Transition
 
-Weak transitions make the passage look connected while the reasoning has not moved:
+Transitions are common in the corpus and are not automatically bad. They become weak when they make the passage look connected while the reasoning has not moved:
 
-- `因此`
-- `由此可见`
-- `与此同时`
-- `值得注意的是`
-- `进一步看`
-- `从这个意义上说`
+- `因此` used when no inference has been made;
+- `由此可见` used when the paragraph only repeats a statement;
+- `与此同时` used as a loose connector;
+- `值得注意的是` used when the following sentence is not actually notable;
+- `进一步看` used when no further analytical step follows.
 
 Use a transition only when it names the actual movement: concept to material, material to mechanism, mechanism to judgment, or literature limit to paper entry.
 
@@ -228,6 +227,8 @@ Good transitions:
 - move from mechanism to governance implication;
 - move from literature limit to this paper's entry point.
 
+The corpus regularly uses `因此`, `由此可见`, `与此同时`, `进一步看`, `在此基础上`, `换言之`, `这意味着`, `然而`, `但是`, `另一方面`. These are acceptable when they name a real movement. They are weak only when they disguise a non-movement as a movement.
+
 Avoid:
 
 - `因此` when no inference has been made;
@@ -239,9 +240,10 @@ Avoid:
 
 Formal first-level and second-level headings remain required for full papers. Body prose should not become a hidden outline.
 
-Avoid inside body paragraphs:
+Inside body paragraphs, sequence words such as `一方面...另一方面...`, `首先...其次...`, and `第一...第二...` are acceptable when they organize real analytical steps. Avoid them only when they replace reasoning with parallel slogans.
 
-- `第一...第二...第三...` as a substitute for reasoning;
+Also avoid:
+
 - colon-led mini titles;
 - semicolon stacks that merely list concepts;
 - paragraph endings that sound like policy bullet points.

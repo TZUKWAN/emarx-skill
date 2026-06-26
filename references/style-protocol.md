@@ -63,8 +63,8 @@ Avoid:
 - casual concept invention;
 - quote-mark decoration;
 - colon-heavy, dash-heavy, or list-like punctuation that makes the prose look generated;
-- mechanical sequencing words in running prose, especially "首先", "其次", "再次", and "最后";
-- formulaic binary contrast patterns such as "不是……而是……" and "并非……而是……".
+- mechanical sequencing words used only to simulate structure, especially empty "首先", "其次", "再次", and "最后" lists;
+- formulaic binary contrast patterns such as "不是……而是……" and "并非……而是……" used to create fake depth.
 
 ## Daily Prose Constraints
 
@@ -77,7 +77,7 @@ The user's current default writing prompt adds a stricter prose target. Apply it
 - Vary sentence movement according to reasoning need: long sentences unfold complex relations, causes, and layers; short sentences clarify a judgment, mark a turn, or close a paragraph.
 - Do not let consecutive long sentences make the paragraph breathless, and do not chop every thought into short commentary sentences.
 - Avoid "如何", "何以", and "为何" in headings or visible question-style framing unless the user explicitly asks for question-form titles.
-- In article body paragraphs, avoid subheading-like fragments, visible point lists, and enumerated mini-outline prose. Formal paper heading hierarchy remains required for full papers under `length-and-hierarchy-protocol.md`.
+- In article body paragraphs, avoid subheading-like fragments and enumerated mini-outline prose that replaces reasoning. Sequence words such as `一方面...另一方面...` or `首先...其次...` are acceptable when they organize genuine analytical steps. Formal paper heading hierarchy remains required for full papers under `length-and-hierarchy-protocol.md`.
 - Use commas and periods as the normal punctuation base. Use quotation marks only for source titles, cited terms, or genuinely necessary concept labels; use colons and dashes sparingly.
 
 ## Preferred Sentence Moves
@@ -111,7 +111,7 @@ Before delivery, ask:
 - Does the rhythm follow the argument rather than a formula?
 - Are long sentences doing real conceptual or mechanistic work?
 - Are short sentences used for force, not laziness or quota-filling?
-- Does the prose contain mechanical "first/second/third/finally" progression where a natural paragraph movement would be better?
+- Does the prose use "first/second/third/finally" or "一方面/另一方面" as empty scaffolding, or do these sequence words organize real analytical steps?
 - Does the prose use `不是……而是……` or `并非……而是……` to create fake depth?
 - Are quotation marks, colons, and dashes being used as AI-looking decoration?
 - Are "重构", "重建", "填补空白", or similar inflated claims actually justified?

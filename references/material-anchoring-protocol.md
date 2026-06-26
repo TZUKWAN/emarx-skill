@@ -4,7 +4,7 @@ This protocol stops EMARX from writing paragraphs that float on abstract concept
 
 ## Core Rule
 
-An argument paragraph without a concrete anchor is a bad paragraph. Do not keep it.
+A **section** without a concrete anchor is a bad section. An individual paragraph can be conceptual, but it must belong to a section that eventually lands on something concrete.
 
 A concrete anchor can be:
 
@@ -21,6 +21,19 @@ What does **not** count as an anchor:
 - saying "相关研究表明" without naming the study or its finding;
 - listing benefits or risks in general terms;
 - using policy slogans or common-sense observations.
+
+## Paragraph Functions and Anchors
+
+Different paragraphs do different work. See `references/paragraph-moves-protocol.md` for the full taxonomy. The anchor rule applies by function:
+
+- **Topic-setting paragraphs** name the object or problem. They may be conceptual.
+- **Mechanism paragraphs** explain how something works. They should connect to an anchor soon, but may first build the conceptual steps.
+- **Evidence paragraphs** must contain an anchor.
+- **Boundary paragraphs** often use conceptual distinctions, but should point to a case or source that motivates the boundary.
+- **Transition paragraphs** carry the argument forward; they do not need a new anchor if the surrounding paragraphs have one.
+- **Judgment paragraphs** return to the thesis; they may summarize the anchor already supplied.
+
+Do not require every paragraph to contain a case. Require that every argumentative cluster has at least one concrete anchor.
 
 ## Plain-Language Structure Rule
 
@@ -77,17 +90,25 @@ After scanning local sources, build a table:
 
 Every major body section must have at least one local source entry. A section that relies only on common knowledge or web search is under-sourced.
 
+## Section Anchor Check
+
+While drafting and revising, check each body section:
+
+1. Does the section contain at least one evidence paragraph with a concrete anchor?
+2. Are the conceptual paragraphs leading to or building on that anchor?
+3. Does the anchor appear before the section's judgment, not tacked on at the very end as decoration?
+4. If the anchor is removed, does the section collapse into empty abstraction?
+
+If the answer to (1) is no, add evidence or rewrite the section.
+If the answer to (4) is yes, the anchor is only decorative; rewrite.
+
 ## Paragraph Anchor Check
 
-While drafting and revising, check every body paragraph:
+For individual paragraphs, use paragraph-function labeling rather than a mechanical anchor test:
 
-1. Does it name a concrete object, case, policy, data point, or source?
-2. Does the anchor appear in the first half of the paragraph, not tacked on at the end?
-3. Does the paragraph use the anchor to make a judgment, or only to decorate a general claim?
-4. If the anchor is removed, does the paragraph collapse into empty abstraction?
-
-If the answer to (1) is no, rewrite the paragraph or delete it.
-If the answer to (4) is yes, the anchor is only decorative; rewrite.
+- Label the paragraph as topic-setting, mechanism, evidence, boundary, transition, or judgment.
+- Evidence paragraphs must name a concrete object, case, policy, data point, or source.
+- Other paragraphs should perform their function clearly and connect to evidence elsewhere in the section.
 
 ## What a Good Anchor Looks Like
 
@@ -117,7 +138,7 @@ Stronger:
 
 ## Bad-Draft Audit Implications
 
-`scripts/bad_draft_audit.py` flags paragraphs that appear to lack anchors. A flagged paragraph is not automatically wrong, but it must be reviewed. The model must either add an anchor or justify why the paragraph can remain abstract.
+`scripts/bad_draft_audit.py` flags sections where several consecutive paragraphs appear to lack anchors. A single conceptual paragraph is not automatically wrong. The model must either add an anchor nearby or justify why the paragraph can remain abstract because its function is topic-setting, mechanism, boundary, or transition.
 
 ## Interaction with Other Protocols
 
