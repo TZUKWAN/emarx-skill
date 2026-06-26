@@ -58,9 +58,9 @@ Avoid ornamental structural words unless the argument genuinely needs them:
 
 If the user has already used these terms in prior materials, they can stay. Do not invent them to impress.
 
-## Before Drafting: Interactive Diagnosis Card
+## Before Drafting: Internal Diagnosis Card
 
-For every full paper, produce a short diagnosis card and show it to the user before drafting. Wait for user confirmation or revision.
+For every full paper, produce a short diagnosis card as an internal planning artifact. Show it to the user only when the user asks for a plan, the central claim is uncertain, or the requested paper would be risky to draft without confirmation.
 
 The card must include:
 
@@ -78,6 +78,8 @@ known weak spots:
 ```
 
 Do **not** include a "local source coverage" list that mirrors the workspace file list. The diagnosis card is an argument plan, not a bibliography preview.
+
+Do **not** paste the diagnosis card into the paper. It belongs to preparation, not to the article's prose.
 
 ## Source-to-Argument Table
 

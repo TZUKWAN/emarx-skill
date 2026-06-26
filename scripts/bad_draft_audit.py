@@ -119,6 +119,32 @@ SLOGAN_ENDING_PATTERNS = [
     "内在要求",
 ]
 
+PROCESS_LEAK_PATTERNS = [
+    "诊断卡",
+    "机制链",
+    "论证任务",
+    "argumentative job",
+    "source coverage",
+    "coverage table",
+    "审稿轮次",
+    "review round",
+    "ScholarlyReviewer",
+    "LogicReviewer",
+    "ProseReviewer",
+    "FormatReviewer",
+    "pass/fail",
+    "audit",
+]
+
+INSTRUCTIONAL_MODAL_PATTERNS = [
+    "应",
+    "应当",
+    "需要",
+    "必须",
+    "不得",
+    "建议",
+]
+
 YEAR_RE = re.compile(r"(?:19|20)\d{2}")
 NUMBER_RE = re.compile(r"\d+(?:\.\d+)?%?|\d+\.\d+")
 QUOTE_RE = re.compile(r"[\u2018\u2019\u201c\u201d\"']")
@@ -351,6 +377,16 @@ def audit(path: Path, terms: list[str]) -> dict:
         for term in GENERIC_VERB_PATTERNS
         if body.count(term)
     }
+    process_leak_counts = {
+        term: body.count(term)
+        for term in PROCESS_LEAK_PATTERNS
+        if body.count(term)
+    }
+    instructional_modal_counts = {
+        term: body.count(term)
+        for term in INSTRUCTIONAL_MODAL_PATTERNS
+        if body.count(term)
+    }
     opening_issues = paragraph_opening_issues(body)
     review_like = review_like_patterns(body)
     floating = floating_paragraphs(body)
@@ -404,6 +440,10 @@ def audit(path: Path, terms: list[str]) -> dict:
         risks.append("empty_countermeasure_sentences")
     if sum(generic_verb_counts.values()) >= max(10, main_chars // 500):
         risks.append("generic_verb_overuse")
+    if process_leak_counts:
+        risks.append("internal_process_language_leak")
+    if sum(instructional_modal_counts.values()) >= max(18, main_chars // 550):
+        risks.append("instructional_modal_overuse")
     bucket_pct = sentence_stats.get("bucket_pct", {})
     if bucket_pct.get("S", 0) + bucket_pct.get("M", 0) >= 75:
         risks.append("short_medium_heavy_expository_style")
@@ -427,6 +467,8 @@ def audit(path: Path, terms: list[str]) -> dict:
         "binary_contrast_counts": binary_contrast_counts,
         "inflated_novelty_counts": inflated_novelty_counts,
         "generic_verb_counts": generic_verb_counts,
+        "process_leak_counts": process_leak_counts,
+        "instructional_modal_counts": instructional_modal_counts,
         "opening_issues": opening_issues,
         "review_like_patterns": review_like,
         "floating_paragraphs": floating,

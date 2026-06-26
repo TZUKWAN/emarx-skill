@@ -102,6 +102,12 @@ Append future user feedback here with date, topic, preference, and action taken.
 - Feedback: 用户强调问题不只是段首否定句，而是一整类类似的表述问题都要避免。需要系统处理空泛起笔、悬空指代、过早判断、概念堆叠、伪过渡、只有断言没有证明、口号化结尾等问题。
 - Action: 扩展 `wording-expression-protocol.md` 为表达失灵类型谱，并扩展 `bad_draft_audit.py`，新增 `empty_framing_openings`、`suspended_pronoun_openings`、`premature_judgment_openings`、`slogan_paragraph_endings` 等审计项。
 
+## Feedback 2026-06-26 14:20
+
+- Topic: 说明书腔与后台流程前台化
+- Feedback: 当前 EMARX 写出来越来越像说明书，不像论文。核心问题不是缺少规则，而是规则、诊断卡、材料锚定、审稿轮次和 agent 报告等后台流程过度前台化，压住了论文自己的思想运动。
+- Action: v6.4 将诊断卡、材料锚定、审稿 agent、多轮优化降为内部质量控制或按需展示；默认成文必须使用论文语体，不得把 diagnosis card、mechanism chain、argumentative job、review round、pass/fail、audit 等流程语言写入论文正文。
+
 ## Feedback 2026-06-26 10:04
 
 - Topic: 避免装逼式结构重构

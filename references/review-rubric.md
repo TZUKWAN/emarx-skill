@@ -152,6 +152,7 @@ Check:
 - Are negations used only after the object under correction is clear?
 - Do important sentences have clear subjects, objects, and verbs?
 - Are generic verbs such as `推动`, `促进`, `加强`, `优化`, `提升`, and `赋能` supported by concrete object, mechanism, and condition?
+- Do path or governance sections avoid instructional manual voice, especially repeated `应`, `应当`, `需要`, `必须`, and `建议` sentences?
 - Do transitions explain why the next move is necessary, rather than relying on loose connectors such as `因此`, `由此可见`, or `与此同时`?
 - Are quotation marks, colons, dashes, and question-style headings used only when necessary?
 - Does any passage feel congested, flat, rushed, or slogan-like when read as prose?

@@ -127,6 +127,25 @@ Avoid paragraph endings that only sound positive:
 
 End with what has been clarified, not with how important the issue is.
 
+### 8. Instructional Manual Voice
+
+Path and governance sections often become weak when they sound like a work plan. Watch for repeated use of `应`, `应当`, `需要`, `必须`, `建议`, and similar modal verbs.
+
+These words are not banned. They become a problem when the paragraph only tells actors what to do and no longer explains why that action follows from the paper's analysis.
+
+Better path writing should move:
+
+```text
+diagnosed mechanism -> condition that must change -> actor and action -> why this action answers the mechanism
+```
+
+Avoid:
+
+- consecutive sentences beginning with `应...`;
+- paragraphs made of institutional tasks;
+- action lists without theoretical return;
+- treating the path section as an implementation manual rather than the conclusion of the argument.
+
 ## Sentence Method
 
 Use this default movement when a paragraph feels loose:
