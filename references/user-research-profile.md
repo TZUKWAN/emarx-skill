@@ -114,6 +114,12 @@ Append future user feedback here with date, topic, preference, and action taken.
 - Feedback: 用户指出 v64 文稿虽然有篇幅和二级标题，但出现了 `研究对象与概念边界` 这种单独一级章，说明 EMARX 仍把内部研究诊断写成了论文结构。用户要求对照工作空间论文和画像报告，真实论文的结构应围绕论证对象、功能、机制、困境、路向等展开，而不是暴露研究流程。
 - Action: v6.5 增加 `structure-design-protocol.md`，在 `SKILL.md` 中加入结构防火墙，明确禁止 `研究对象与概念边界`、`概念界定`、`理论框架`、`问题诊断`、`创新点分析`、`路径建设与可执行条件` 等诊断/清单式标题进入正式论文；概念边界必须嵌入引言或具体论证段落；坏稿审计新增诊断标题泄漏与流程标题泄漏检测。
 
+## Feedback 2026-06-26 15:40
+
+- Topic: 全量文章拆解与锚定重组式写作工作流
+- Feedback: 用户要求对工作空间所有文章逐篇生成详细拆解报告，分析摘要逻辑、风格、写作手法、引言、主体、结论、行文逻辑、文风、论证逻辑和注意问题。用户同时提出新的生产工作流：根据题目先在工作空间锚定三五篇论文，拆解并重组其逻辑，形成新文章的详细大纲和逻辑骨架，再严格按大纲一段一段写，不能一次写几段后再泛泛修改。
+- Action: v6.6 增加 `scripts/deconstruct_corpus_articles.py`、`scripts/select_anchor_papers.py` 和 `references/anchored-recomposition-workflow.md`；生成 `D:\BAOXUE\.codex\emarx\article_deconstruction_v1\reports` 下 450 份逐篇拆解报告及 `summary.json`；把“3-5篇锚定、内部影子重组、逻辑骨架、段落级大纲、逐段写作”写入 EMARX 完整论文流程。影子重组只允许作为内部逻辑学习稿，不能作为最终论文交付。
+
 ## Feedback 2026-06-26 10:04
 
 - Topic: 避免装逼式结构重构
