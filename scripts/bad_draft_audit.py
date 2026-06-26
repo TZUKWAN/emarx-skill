@@ -105,6 +105,37 @@ SLOGAN_ENDING_PATTERNS = [
     "内在要求",
 ]
 
+YEAR_RE = re.compile(r"(?:19|20)\d{2}")
+NUMBER_RE = re.compile(r"\d+(?:\.\d+)?%?|\d+\.\d+")
+QUOTE_RE = re.compile(r"[\u2018\u2019\u201c\u201d\"']")
+ANCHOR_TERMS = [
+    "案例",
+    "实例",
+    "数据",
+    "统计",
+    "调查",
+    "问卷",
+    "访谈",
+    "实验",
+    "平台",
+    "算法",
+    "模型",
+    "产品",
+    "政策",
+    "法规",
+    "办法",
+    "报告",
+    "研究显示",
+    "研究表明",
+    "学者",
+    "提出",
+    "发现",
+    "指出",
+    "认为",
+    "观测",
+    "测量",
+]
+
 
 def cn_len(text: str) -> int:
     return len(CN_RE.findall(text))
@@ -205,6 +236,26 @@ def paragraph_opening_issues(body: str) -> dict:
     }
 
 
+def floating_paragraphs(body: str) -> list[dict]:
+    flagged = []
+    for index, para in enumerate([item.strip() for item in re.split(r"\n\s*\n", body) if item.strip()], 1):
+        if para.startswith("#"):
+            continue
+        cleaned = re.sub(r"^[#\s]+", "", para)
+        # Skip very short paragraphs (e.g., section labels)
+        if cn_len(cleaned) < 30:
+            continue
+        has_citation = "[" in cleaned and "]" in cleaned
+        has_year = YEAR_RE.search(cleaned) is not None
+        has_number = NUMBER_RE.search(cleaned) is not None
+        has_quote = QUOTE_RE.search(cleaned) is not None
+        has_anchor_term = any(term in cleaned for term in ANCHOR_TERMS)
+        if not (has_citation or has_year or has_number or has_quote or has_anchor_term):
+            first_sentence = re.split(r"[。！？!?；;]", cleaned, maxsplit=1)[0][:120]
+            flagged.append({"paragraph": index, "opening": first_sentence})
+    return flagged
+
+
 def audit(path: Path, terms: list[str]) -> dict:
     text = path.read_text(encoding="utf-8-sig", errors="replace")
     body, refs = split_body_and_refs(text)
@@ -237,6 +288,7 @@ def audit(path: Path, terms: list[str]) -> dict:
         if body.count(term)
     }
     opening_issues = paragraph_opening_issues(body)
+    floating = floating_paragraphs(body)
     sentence_stats = analyze_sentences(body)
     main_chars = cn_len(body)
 
@@ -248,7 +300,7 @@ def audit(path: Path, terms: list[str]) -> dict:
     repeated_terms = {
         term: count
         for term, count in term_counts.items()
-        if count >= max(12, main_chars // 250)
+        if count >= max(10, main_chars // 350)
     }
     if repeated_terms:
         risks.append("high_concept_repetition")
@@ -277,6 +329,8 @@ def audit(path: Path, terms: list[str]) -> dict:
         risks.append("premature_judgment_openings")
     if opening_issues["slogan_endings"]:
         risks.append("slogan_paragraph_endings")
+    if floating:
+        risks.append("floating_paragraphs")
     if sum(generic_verb_counts.values()) >= max(8, main_chars // 600):
         risks.append("generic_verb_overuse")
     bucket_pct = sentence_stats.get("bucket_pct", {})
@@ -303,6 +357,7 @@ def audit(path: Path, terms: list[str]) -> dict:
         "inflated_novelty_counts": inflated_novelty_counts,
         "generic_verb_counts": generic_verb_counts,
         "opening_issues": opening_issues,
+        "floating_paragraphs": floating,
         "risks": risks,
         "ok": not risks,
     }

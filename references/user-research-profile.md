@@ -72,6 +72,12 @@ Append future user feedback here with date, topic, preference, and action taken.
 - Feedback: v5 重写稿虽然补齐字数、二级标题、引用和 Word，但行文风格仍然很差，像规则套壳，缺少真正的学理推进。
 - Action: 新增 `argument-depth-protocol.md` 和 `scripts/bad_draft_audit.py`。后续完整论文必须先通过论证许可、文献消化和烂稿反审；形式合规不等于可交付。
 
+## Feedback 2026-06-25 16:40
+
+- Topic: EMARX 更新后重写论文
+- Feedback: 用户多次更新 EMARX 后要求根据最新版重新写论文；后续同类任务必须重新读取最新 SKILL.md 和相关协议，不得把上一版产物视为已满足最新标准。若最新版协议将旧稿标为负面例子，应另起新稿而不是在旧稿上表面修补。
+- Action: 后续 EMARX 完整论文任务默认执行最新版协议复读、论证许可和坏稿审计
+
 ## Feedback 2026-06-25 17:05
 
 - Topic: 日常写作提示词与反机器腔语体
@@ -95,3 +101,9 @@ Append future user feedback here with date, topic, preference, and action taken.
 - Topic: 表述失灵类型谱
 - Feedback: 用户强调问题不只是段首否定句，而是一整类类似的表述问题都要避免。需要系统处理空泛起笔、悬空指代、过早判断、概念堆叠、伪过渡、只有断言没有证明、口号化结尾等问题。
 - Action: 扩展 `wording-expression-protocol.md` 为表达失灵类型谱，并扩展 `bad_draft_audit.py`，新增 `empty_framing_openings`、`suspended_pronoun_openings`、`premature_judgment_openings`、`slogan_paragraph_endings` 等审计项。
+
+## Feedback 2026-06-26 10:04
+
+- Topic: 避免装逼式结构重构
+- Feedback: 用户认为第四点方案（把标题改成“机制—张力—治理响应”这类表达）显得“装逼”，希望保持平实学术风格；术语只在必要时才用，不要为了显得高深而硬造结构词。
+- Action: 新增 `material-anchoring-protocol.md` 时坚持使用平实语言；EMARX 重构标题/结构时优先使用领域常规表达（问题、对象、机制、风险、路径），避免堆砌“张力”“治理响应”“中介结构”等概念包装词；术语使用必须服务于论证，不能为了结构感而结构感。
