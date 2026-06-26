@@ -70,6 +70,9 @@ Avoid:
 
 The user's current default writing prompt adds a stricter prose target. Apply it to article drafting and revision:
 
+- Abstracts and final article prose should be author-invisible. Do not narrate what `本文`, `笔者`, `本研究`, or `文章` does.
+- Do not write `本文认为`, `本文的核心观点是`, `本文将`, `文章认为`, or similar self-explanatory meta-discourse. State the academic claim directly.
+- Do not insert literature with `有研究指出`, `已有研究认为`, or `相关研究指出`. Literature must be digested into the paper's own concept, mechanism, problem, or limitation.
 - Think slowly and from several angles before writing.
 - Use plain academic language: understandable, professional, restrained, and conceptually accurate.
 - Do not exaggerate. Do not create new terms for decorative effect. Do not use novelty claims before proof.
@@ -79,6 +82,7 @@ The user's current default writing prompt adds a stricter prose target. Apply it
 - Avoid "如何", "何以", and "为何" in headings or visible question-style framing unless the user explicitly asks for question-form titles.
 - In article body paragraphs, avoid subheading-like fragments and enumerated mini-outline prose that replaces reasoning. Sequence words such as `一方面...另一方面...` or `首先...其次...` are acceptable when they organize genuine analytical steps. Formal paper heading hierarchy remains required for full papers under `length-and-hierarchy-protocol.md`.
 - Use commas and periods as the normal punctuation base. Use quotation marks only for source titles, cited terms, or genuinely necessary concept labels; use colons and dashes sparingly.
+- Avoid colon-led explanatory turns inside body prose, especially `问题在于：`, `核心观点是：`, `关键在于：`, and other mini-title structures.
 
 ## Preferred Sentence Moves
 

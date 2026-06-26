@@ -147,6 +147,9 @@ Check:
 Check:
 
 - Is the style plain but scholarly?
+- Does the abstract use an author-invisible, object-facing reporting voice rather than `本文`, `笔者`, `本研究`, `文章`, or author self-description?
+- Does the body avoid paper meta-discourse such as `本文认为`, `本文的核心观点是`, `文章认为`, `文章指出`, and `本文将`?
+- Are sources digested into the argument instead of being inserted through detached review formulas such as `有研究指出`, `已有研究认为`, `相关研究指出`, or `学者认为`?
 - Does the prose avoid self-invented concepts, exaggerated novelty claims, and decorative academic fog?
 - Does the prose rhythm serve the argument rather than a sentence-length formula?
 - Are long sentences doing real conceptual, relational, or mechanistic work?
@@ -160,10 +163,18 @@ Check:
 - Do path or governance sections avoid instructional manual voice, especially repeated `应`, `应当`, `需要`, `必须`, and `建议` sentences?
 - Do transitions explain why the next move is necessary, rather than relying on loose connectors such as `因此`, `由此可见`, or `与此同时`?
 - Are quotation marks, colons, dashes, and question-style headings used only when necessary?
+- Does the prose avoid colon-led mini titles such as `问题在于：`, `关键在于：`, `核心观点是：`, and `具体而言：` when they expose an assistant-like explanatory habit?
 - Does any passage feel congested, flat, rushed, or slogan-like when read as prose?
 - Are slogans translated into mechanisms?
 - Is there a judgment landing in each paragraph?
 - Does the draft sound like a mature scholar, not a policy notice or online commentary?
+
+Failure signs:
+
+- abstract begins by announcing what the paper does instead of presenting the object, problem, relation, and conclusion;
+- body paragraphs repeatedly say what `本文` or `文章` will do;
+- literature appears as a pasted review block rather than as a transformed part of the paper's own reasoning;
+- punctuation creates a report/manual rhythm rather than a paper rhythm.
 
 ## Review Output
 

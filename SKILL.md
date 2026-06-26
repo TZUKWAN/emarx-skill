@@ -1,11 +1,11 @@
 ---
 name: emarx
-description: "EMARX v6.7 research-oriented Chinese academic essay production system. Use when drafting, revising, deepening, reviewing, fact-checking, citing, referencing, structuring, or delivering Chinese 学理思辨论文 with local-source-first research workflow, current-workspace paper anchoring, topic-based 3-5 real paper selection, immediate anchor-paper deconstruction, optional full-corpus report cache, internal shadow recomposition, paragraph-level detailed outlines, one-paragraph-at-a-time drafting, internal material anchoring, full-paper length control, mandatory second-level headings, structure-design firewall against diagnostic/checklist headings, workspace source scanning, research brief construction, innovation analysis, GB/T 7714 reference formatting, one-source-one-citation control, scholarly but plain prose, Word/docx delivery, user research-profile iteration, Marxism, cultural communication, ideological-political education, AI philosophy, technology critique, subjectivity, cultural memory, and humanities/social-science theoretical writing."
+description: "EMARX v6.8 research-oriented Chinese academic essay production system. Use when drafting, revising, deepening, reviewing, fact-checking, citing, referencing, structuring, or delivering Chinese 学理思辨论文 with local-source-first research workflow, current-workspace paper anchoring, topic-based 3-5 real paper selection, immediate anchor-paper deconstruction, optional full-corpus report cache, internal shadow recomposition, paragraph-level detailed outlines, one-paragraph-at-a-time drafting, author-invisible abstract voice, no self-narrating paper meta-discourse, no detached `有研究指出` review inserts, punctuation restraint, internal material anchoring, full-paper length control, mandatory second-level headings, structure-design firewall against diagnostic/checklist headings, workspace source scanning, research brief construction, innovation analysis, GB/T 7714 reference formatting, one-source-one-citation control, scholarly but plain prose, Word/docx delivery, user research-profile iteration, Marxism, cultural communication, ideological-political education, AI philosophy, technology critique, subjectivity, cultural memory, and humanities/social-science theoretical writing."
 ---
 
 # EMARX
 
-EMARX v6.7 is a research-oriented Chinese 学理思辨论文 production system. It must not behave like a prompt that directly writes a fluent essay, but it also must not turn the final paper into a workflow manual. All diagnosis, anchoring, anchor-paper deconstruction, structure planning, shadow recomposition, paragraph planning, review, and audit procedures are internal quality controls unless the user explicitly asks to see them.
+EMARX v6.8 is a research-oriented Chinese 学理思辨论文 production system. It must not behave like a prompt that directly writes a fluent essay, but it also must not turn the final paper into a workflow manual. All diagnosis, anchoring, anchor-paper deconstruction, structure planning, shadow recomposition, paragraph planning, review, and audit procedures are internal quality controls unless the user explicitly asks to see them.
 
 ## Operating Principle
 
@@ -33,6 +33,7 @@ Read these files when the corresponding task appears:
 - `references/scholarliness-protocol.md`: academic-map positioning, phenomenon-to-problem transformation, concept ledger, theoretical framework, measured critique, literature dialogue, and abstraction checks.
 - `references/style-protocol.md`: plain but scholarly style, 大家风范 calibration, and non-mechanical rhythm principles.
 - `references/wording-expression-protocol.md`: sentence-level expression, paragraph openings, negation discipline, verb choice, subject-object clarity, and transition methods.
+- `references/language-expression-distillation-v68.md`: full-corpus language-expression evidence, author-invisible abstract voice, anti-meta-discourse rules, anti-review-insert rules, and punctuation restraint.
 - `references/material-anchoring-protocol.md`: section-level and evidence-paragraph anchoring, internal diagnosis card, claim-to-source mapping, and plain-language structure discipline.
 - `references/paragraph-moves-protocol.md`: corpus-derived paragraph functions and section rhythms; distinguishes topic-setting, mechanism, evidence, boundary, transition, and judgment paragraphs.
 - `references/writing-rhythm-protocol.md`: qualitative writing rhythm, paragraph breathing, judgment landing, and rhythm-reading checks. Its corpus numbers are background evidence, not generation quotas.
@@ -77,7 +78,10 @@ Read these files when the corresponding task appears:
 28. Do not anchor from an old deconstruction report library. Existing reports are only a cache or reading index after they are matched to current workspace files; they cannot replace current-file scanning, opening, and judgment.
 29. Never deliver the shadow recomposition as the final paper. It is an internal map of paragraph functions, source roles, and logic moves. Final prose must be rewritten paragraph by paragraph with citations, transformation, and fact checks.
 30. Draft one paragraph at a time when using the anchored workflow. Do not generate several body paragraphs at once and hope later polishing will repair the logic.
-31. When new user materials or feedback reveal stable preferences, update `references/user-research-profile.md` or run `scripts/update_user_profile.py`.
+31. Apply `references/language-expression-distillation-v68.md`: abstracts must be author-invisible by default. Do not write `本文`, `笔者`, `本研究`, `本文认为`, `本文的核心观点`, `文章认为`, or `文章指出` in abstracts or final paper prose unless quoting a source title or source text.
+32. Do not insert literature with detached review formulas such as `有研究指出`, `已有研究认为`, `相关研究指出`, or `学者认为`. Digest literature into the paper's own concept, mechanism, problem, or limitation before citing it.
+33. Avoid colon-led mini titles, decorative quotation marks, and dash-heavy AI-looking sentence turns in body prose. Use ordinary sentence movement unless punctuation is structurally necessary.
+34. When new user materials or feedback reveal stable preferences, update `references/user-research-profile.md` or run `scripts/update_user_profile.py`.
 
 ## Script Tools
 
@@ -92,6 +96,7 @@ python scripts/bad_draft_audit.py --paper paper.md --output bad-draft-audit.json
 python scripts/citation_audit.py --paper paper.md --output citation-audit.json
 python scripts/deconstruct_corpus_articles.py --index structure_index.json --output-dir article_deconstruction/reports --summary article_deconstruction/summary.json
 python scripts/select_anchor_papers.py --topic "论文题目" --workspace-root <current_workspace> --summary article_deconstruction/summary.json --output anchor-papers.md --top-k 5
+python scripts/distill_language_expression.py --index structure_index.json --output-json language-expression-distillation.json --output-md language-expression-distillation.md
 python scripts/markdown_to_docx.py --input paper.md --output paper.docx
 python scripts/update_user_profile.py --profile references/user-research-profile.md --topic "主题" --feedback "用户反馈"
 ```
@@ -119,7 +124,7 @@ For a full paper:
 15. **Innovation analysis.** Separate topic, perspective, concept, mechanism, path, and expression innovation. Mark weak or fake innovation honestly.
 16. **Paragraph-level outline.** Build a detailed outline for every paragraph: function, target claim, source anchor, material, concepts, transition in, transition out, style reference, fact/citation risk, and completion standard.
 17. **One-paragraph drafting.** Draft one paragraph at a time from the paragraph-level outline. After each paragraph, check claim, source use, transformation, transition, citation, rhythm, and judgment landing before moving on.
-18. **Style and paragraph-move calibration.** Apply `style-protocol.md`, `wording-expression-protocol.md`, `material-anchoring-protocol.md`, `paragraph-moves-protocol.md`, and `writing-rhythm-protocol.md`: plain language, natural rhythm, clear judgment landing, no sloganized prose, no mechanical sentence-length control, no naked negative openings, no AI-looking contrast formulas, sequence words allowed when they organize real analytical steps.
+18. **Style and paragraph-move calibration.** Apply `style-protocol.md`, `wording-expression-protocol.md`, `language-expression-distillation-v68.md`, `material-anchoring-protocol.md`, `paragraph-moves-protocol.md`, and `writing-rhythm-protocol.md`: plain language, natural rhythm, author-invisible abstract, clear judgment landing, no self-narrating paper meta-discourse, no detached review-insert formulas, no sloganized prose, no mechanical sentence-length control, no naked negative openings, no AI-looking contrast formulas, sequence words allowed when they organize real analytical steps.
 19. **Scholarliness calibration.** Apply `scholarliness-protocol.md`: verify field position, concept boundary, literature dialogue, critical judgment, material-to-theory abstraction, title logic, and paragraph-level theoretical action.
 20. **Depth calibration.** Apply `argument-depth-protocol.md`: each major section needs concept boundary work, mechanism explanation, counter-tension, material support, and a judgment landing. Add missing depth before calling the draft complete.
 21. **Structure firewall review.** Apply `structure-design-protocol.md` again after drafting. Remove or rewrite every diagnostic/checklist heading, and ensure concept boundary work is embedded in substantive sections rather than isolated as a workflow chapter.

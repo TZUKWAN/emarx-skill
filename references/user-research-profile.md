@@ -145,3 +145,9 @@ Append future user feedback here with date, topic, preference, and action taken.
   - 在 `SKILL.md` 中增加硬规则：禁止按来源覆盖表组织论文结构。
   - 扩展 `bad_draft_audit.py`，新增 `review_like_source_parade`、`policy_pile_openings`、`empty_countermeasure_sentences` 检测。
   - 在 `user-research-profile.md` 中记录：EMARX 默认输出必须避免综述化，诊断卡和论证许可要优先确认核心论点而非来源覆盖。
+
+## Feedback 2026-06-27 10:20
+
+- Topic: 摘要主语、论文自我说明、综述插入和说明书腔
+- Feedback: 用户指出 EMARX 生成稿仍然带有“本文”“笔者”“本研究”“本文认为”“本文的核心观点是”等主语化和自我说明表达；摘要应采用无作者主语、第三人称报道式写法，直接呈现对象、问题、关系和判断。正文中“有研究指出”“已有研究认为”等句式会把论文写成综述插入块，不能作为标准论文表达。标点上也要避免冒号小标题腔、装饰性引号和一眼像 AI 的说明句。
+- Action: v6.8 新增 `scripts/distill_language_expression.py`，对 450 篇可读论文重跑语言表达蒸馏，生成 `references/language-expression-distillation-v68.md`；在 `SKILL.md`、`style-protocol.md`、`wording-expression-protocol.md`、`review-rubric.md`、`bad_draft_audit.py` 和入口提示中加入硬规则：摘要作者隐身，正文去论文元话语，文献先消化再引用，标点服务论证而非制造说明书腔。

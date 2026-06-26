@@ -6,6 +6,8 @@ Use this file when drafting, revising, or reviewing sentence-level expression in
 
 Many weak drafts do not fail because every sentence is grammatically wrong. They fail because sentences start in the wrong place, make claims before naming objects, negate before establishing context, or use abstract nouns to hide an empty relation.
 
+The v6.8 full-corpus language distillation adds one more failure source: prose that talks about the paper instead of making the paper's claim. Phrases such as `本文认为`, `本文的核心观点是`, `本文将`, `文章认为`, and `有研究指出` often make EMARX sound like an assistant explaining an assignment or inserting a review paragraph. The target voice is object-facing and author-invisible.
+
 Good academic expression should make the reader know:
 
 - what object is being discussed;
@@ -154,6 +156,12 @@ Use this default movement when a paragraph feels loose:
 object anchor -> relation clarification -> evidence/material -> interpretive judgment
 ```
 
+Do not use this movement:
+
+```text
+paper self-description -> claim announcement -> source parade -> suggestion
+```
+
 Examples of sentence functions:
 
 - object anchor: name the thing under discussion;
@@ -167,6 +175,46 @@ Avoid paragraphs that only contain:
 - concept -> concept -> concept;
 - policy phrase -> slogan -> suggestion;
 - negation -> correction -> abstract conclusion.
+- `本文认为` -> `有研究指出` -> `因此应当`.
+
+## Author-Invisible Abstract And Body Voice
+
+Abstracts should normally have no visible author subject. They should describe the research object directly through third-person compressed academic prose.
+
+Avoid:
+
+- `本文认为...`
+- `本文的核心观点是...`
+- `本文从...展开分析`
+- `笔者认为...`
+- `本研究旨在...`
+- `文章认为...`
+
+Better movement:
+
+```text
+research object -> problem relation -> mechanism/logic -> value or path
+```
+
+The same rule applies to body prose. If a sentence starts by explaining what the paper will do, rewrite it as a sentence about the object.
+
+## Literature Entry Without Review Inserts
+
+Avoid body paragraphs that introduce literature as detached review:
+
+- `有研究指出...`
+- `已有研究认为...`
+- `相关研究指出...`
+- `学者认为...`
+
+When literature is needed, digest it into one of four functions:
+
+- concept source;
+- mechanism source;
+- problem source;
+- limitation source.
+
+The sentence should still belong to the paper's own argument. Citation marks can follow the sentence, but the prose should not read like a literature-review paragraph pasted into the body.
 
 ## Negation Discipline
 
@@ -266,6 +314,7 @@ Also avoid:
 - colon-led mini titles;
 - semicolon stacks that merely list concepts;
 - paragraph endings that sound like policy bullet points.
+- `问题在于：`, `关键在于：`, `核心观点是：`, and similar colon-led prompt-answer structures inside prose.
 
 ## Revision Checklist
 
@@ -280,6 +329,10 @@ generic verbs:
 unsupported transitions:
 claim-only paragraphs:
 paragraphs ending in slogans:
+visible author subjects:
+paper meta-discourse:
+review-insert formulas:
+colon-led mini titles:
 ```
 
 If a paragraph opens badly, do not only replace a word. Rebuild the paragraph from object, relation, material, and judgment.

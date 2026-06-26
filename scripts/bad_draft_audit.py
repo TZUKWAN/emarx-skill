@@ -139,6 +139,57 @@ PROCESS_LEAK_PATTERNS = [
     "audit",
 ]
 
+AUTHOR_VISIBLE_PATTERNS = [
+    "本文",
+    "笔者",
+    "本研究",
+    "本论文",
+    "本文认为",
+    "本文指出",
+    "笔者认为",
+    "文章认为",
+    "文章指出",
+]
+
+PAPER_META_DISCOURSE_PATTERNS = [
+    "本文的核心观点",
+    "核心观点是",
+    "本文认为",
+    "本文指出",
+    "本文旨在",
+    "本文试图",
+    "本文将",
+    "本文从",
+    "本文通过",
+    "文章认为",
+    "文章指出",
+    "文章通过",
+]
+
+REVIEW_INSERT_PATTERNS = [
+    "有研究指出",
+    "有研究认为",
+    "相关研究指出",
+    "相关研究认为",
+    "已有研究指出",
+    "已有研究认为",
+    "学者指出",
+    "学者认为",
+]
+
+COLON_MINI_TITLE_PATTERNS = [
+    "问题在于：",
+    "问题在于:",
+    "关键在于：",
+    "关键在于:",
+    "核心观点是：",
+    "核心观点是:",
+    "具体而言：",
+    "具体而言:",
+    "换言之：",
+    "换言之:",
+]
+
 DIAGNOSTIC_HEADING_PATTERNS = [
     "研究对象与概念边界",
     "概念界定",
@@ -224,6 +275,19 @@ def split_body_and_refs(text: str) -> tuple[str, str]:
     if not match:
         return text, ""
     return text[: match.start()], text[match.start() :]
+
+
+def detect_abstract(text: str) -> str:
+    match = re.search(
+        r"[［\[]?摘要[］\]]?\s*[:：]?\s*(.{80,1200}?)(?=[［\[]?关键词|关键字|Abstract|中图分类号|##|#|一、|1[.．、]|$)",
+        text[:5000],
+        re.S,
+    )
+    return match.group(1).strip() if match else ""
+
+
+def count_patterns(text: str, patterns: list[str]) -> dict[str, int]:
+    return {pattern: text.count(pattern) for pattern in patterns if text.count(pattern)}
 
 
 def extract_heading_titles(text: str) -> list[dict]:
@@ -476,6 +540,13 @@ def audit(path: Path, terms: list[str]) -> dict:
         for term in PROCESS_LEAK_PATTERNS
         if body.count(term)
     }
+    abstract = detect_abstract(text)
+    abstract_author_visible_counts = count_patterns(abstract, AUTHOR_VISIBLE_PATTERNS)
+    body_author_visible_counts = count_patterns(body, AUTHOR_VISIBLE_PATTERNS)
+    paper_meta_discourse_counts = count_patterns(body, PAPER_META_DISCOURSE_PATTERNS)
+    review_insert_counts = count_patterns(body, REVIEW_INSERT_PATTERNS)
+    colon_mini_title_counts = count_patterns(body, COLON_MINI_TITLE_PATTERNS)
+    colon_count = body.count("：") + body.count(":")
     instructional_modal_counts = {
         term: body.count(term)
         for term in INSTRUCTIONAL_MODAL_PATTERNS
@@ -536,6 +607,18 @@ def audit(path: Path, terms: list[str]) -> dict:
         risks.append("generic_verb_overuse")
     if process_leak_counts:
         risks.append("internal_process_language_leak")
+    if abstract_author_visible_counts:
+        risks.append("visible_author_subject_in_abstract")
+    if sum(body_author_visible_counts.values()) >= 2:
+        risks.append("visible_author_subject_in_body")
+    if paper_meta_discourse_counts:
+        risks.append("paper_meta_discourse")
+    if review_insert_counts:
+        risks.append("detached_review_insert_phrases")
+    if colon_mini_title_counts:
+        risks.append("colon_led_mini_titles")
+    if colon_count >= max(18, main_chars // 600):
+        risks.append("colon_punctuation_overuse")
     if structure_issues["diagnostic_heading_leaks"]:
         risks.append("diagnostic_heading_leak")
     if structure_issues["workflow_heading_leaks"]:
@@ -572,6 +655,12 @@ def audit(path: Path, terms: list[str]) -> dict:
         "inflated_novelty_counts": inflated_novelty_counts,
         "generic_verb_counts": generic_verb_counts,
         "process_leak_counts": process_leak_counts,
+        "abstract_author_visible_counts": abstract_author_visible_counts,
+        "body_author_visible_counts": body_author_visible_counts,
+        "paper_meta_discourse_counts": paper_meta_discourse_counts,
+        "review_insert_counts": review_insert_counts,
+        "colon_mini_title_counts": colon_mini_title_counts,
+        "colon_count": colon_count,
         "instructional_modal_counts": instructional_modal_counts,
         "structure_heading_issues": structure_issues,
         "opening_issues": opening_issues,
