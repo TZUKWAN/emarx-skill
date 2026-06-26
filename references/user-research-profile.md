@@ -107,3 +107,17 @@ Append future user feedback here with date, topic, preference, and action taken.
 - Topic: 避免装逼式结构重构
 - Feedback: 用户认为第四点方案（把标题改成“机制—张力—治理响应”这类表达）显得“装逼”，希望保持平实学术风格；术语只在必要时才用，不要为了显得高深而硬造结构词。
 - Action: 新增 `material-anchoring-protocol.md` 时坚持使用平实语言；EMARX 重构标题/结构时优先使用领域常规表达（问题、对象、机制、风险、路径），避免堆砌“张力”“治理响应”“中介结构”等概念包装词；术语使用必须服务于论证，不能为了结构感而结构感。
+
+## Feedback 2026-06-26 11:33
+
+- Topic: 生成稿像综述 / 用女娲蒸馏优化技能
+- Feedback: 用户指出 EMARX v6 生成的正文仍像“他妈的综述”，问题不是单篇论文没写好，而是技能本身默认产出综述式文本。要求用 `huashu-nuwa` 蒸馏技能对工作空间论文进行分析，并据此优化 EMARX。
+- Action:
+  - 用 huashu-nuwa 方法对工作空间 `D:/BAOXUE/.codex/pdf_text` 论文进行六维度蒸馏，写入 `references/nuwa-distill/research/`。
+  - 在 `citation-protocol.md` 中明确：默认不追求全文覆盖，引用必须服务于论证；政策文本必须问题化；案例需可核实；综述必须指向缺口；跨学科概念必须转译。
+  - 在 `material-anchoring-protocol.md` 中去掉“local source coverage”清单式表格，改为 source-to-argument 映射；增加“禁止按来源组织论文结构”的警告；增加语料驱动的锚点规则。
+  - 在 `argument-depth-protocol.md` 中增加反综述检查、来源论证比、语料驱动的论证规则（开头矛盾句、理论转译为可操作变量、案例回答机制问题、对策五要素、结论反身性检查）。
+  - 在 `paragraph-moves-protocol.md` 中要求段落走完“论断→机制→证据→回扣”，并增加语料驱动的段落规则。
+  - 在 `SKILL.md` 中增加硬规则：禁止按来源覆盖表组织论文结构。
+  - 扩展 `bad_draft_audit.py`，新增 `review_like_source_parade`、`policy_pile_openings`、`empty_countermeasure_sentences` 检测。
+  - 在 `user-research-profile.md` 中记录：EMARX 默认输出必须避免综述化，诊断卡和论证许可要优先确认核心论点而非来源覆盖。

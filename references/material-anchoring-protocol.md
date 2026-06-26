@@ -71,24 +71,39 @@ main research object:
 key concept and its boundary:
 real tension or counter-position:
 mechanism chain (2-4 steps):
-local source coverage:
-  - source file / citation / what it supplies
-  - source file / citation / what it supplies
 section plan with each section's argumentative job:
+  - section: central claim this section proves
+  - section: central claim this section proves
 known weak spots:
 ```
 
-Do not draft the full paper until the user has seen and approved this card.
+Do **not** include a "local source coverage" list that mirrors the workspace file list. The diagnosis card is an argument plan, not a bibliography preview.
 
-## Source Coverage Table
+## Source-to-Argument Table
 
-After scanning local sources, build a table:
+If sources are needed, build a small table that maps each candidate source to a claim, not to a section:
 
-| Section | Local Source | What It Provides | How the Paper Uses It |
+| Claim This Paper Makes | Source | What the Source Supplies | How It Is Used |
 |---|---|---|---|
 |  |  |  |  |
 
-Every major body section must have at least one local source entry. A section that relies only on common knowledge or web search is under-sourced.
+Rules:
+
+- Every source must attach to a paper claim, not to a topic area.
+- Do not assign one source per section by default.
+- A section may use zero, one, or multiple sources depending on its argumentative job.
+- If a source does not support a specific claim, leave it out.
+
+## Warning: Do Not Write a Review
+
+A paper structured around sources is a review, not a thesis. Watch for these signs:
+
+- each major section is named after a source or a school;
+- paragraphs begin with author names and end with citations;
+- the paper's flow is "A 指出… B 认为… C 区分了…";
+- removing the citations leaves a list of other people's claims rather than your own argument.
+
+If these signs appear, discard the outline and rebuild it around the paper's own claim structure.
 
 ## Section Anchor Check
 
@@ -109,6 +124,16 @@ For individual paragraphs, use paragraph-function labeling rather than a mechani
 - Label the paragraph as topic-setting, mechanism, evidence, boundary, transition, or judgment.
 - Evidence paragraphs must name a concrete object, case, policy, data point, or source.
 - Other paragraphs should perform their function clearly and connect to evidence elsewhere in the section.
+
+## Corpus-Driven Anchor Rules
+
+Based on the nuwa distillation of the workspace corpus:
+
+1. **Policy texts must be anchored as problems, not as conclusions.** A policy quotation is valid only when it is immediately followed by a research question, boundary condition, or concrete contradiction.
+2. **Theories must be anchored as operational variables.** After a theory is named, show the 2-4 observable dimensions or analytical layers it produces for this paper.
+3. **Cases must be anchored as mechanism tests.** Every case paragraph must state which link of the mechanism chain it supports and why removing it would weaken the claim.
+4. **Countermeasures must be anchored as executable actions.** Vague verbs such as "完善/加强/深化/优化/构建" are not anchors unless they specify who does what, to what, by what standard, and by when.
+5. **Data and platforms must be anchored with verifiable details.** Prefer named platforms, dates, access numbers, sample sizes, or research designs over slogan-like lists.
 
 ## What a Good Anchor Looks Like
 

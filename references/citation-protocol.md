@@ -4,7 +4,7 @@ Use this protocol whenever EMARX writes, revises, audits, or exports a paper wit
 
 ## Core Rules
 
-1. Use every user-provided workspace literature source exactly once when the user requires full-source coverage.
+1. **Coverage is not an argument.** Do not treat workspace literature as a checklist to be cited. Only cite a source when it performs a specific argumentative function for this paper.
 2. Cite one literature item only once in the body.
 3. Cite one author only once in the body and reference list.
 4. Insert the citation immediately after the sentence or clause that uses that source, like `……具体论断。[3]`
@@ -13,6 +13,30 @@ Use this protocol whenever EMARX writes, revises, audits, or exports a paper wit
 7. The reference list must follow the same order as first body citation.
 8. Format references using GB/T 7714 numeric style as far as verified metadata allows.
 9. Do not invent missing authors, titles, journals, years, issue numbers, pages, publishers, DOI, or URLs.
+
+## Argument-First Citation Principle
+
+A source is not a section topic. A source is not a paragraph topic. A source is material used to advance a claim.
+
+Before citing, answer:
+
+- What claim in this paper needs this source?
+- Does the source supply a concept, a mechanism, a case, a limitation, or a scholarly position?
+- If the citation were removed, would the paragraph's argument collapse?
+
+If the answer is no, do not cite the source just because it is in the workspace.
+
+Default behavior: select sources that genuinely support the argument. Full workspace coverage is an exception, not the default. If the user explicitly requires full coverage, still subordinate each source to a specific argumentative move; do not let the source list dictate the paper's structure.
+
+## Corpus-Driven Citation Rules
+
+Based on the nuwa distillation of the workspace corpus:
+
+1. **Policy texts must be problematized.** A policy quotation is valid only when it is turned into a research question, boundary condition, or concrete contradiction. Do not use policy texts as authoritative conclusions.
+2. **Every case or datum needs a verifiable detail.** Include at least one of: source institution, release date, platform name, sample size, access volume, or research design. Avoid "如……等" lists without evidence.
+3. **Literature review must end with a gap.** The last move of any review paragraph must state what existing research has not solved and how this paper addresses it.
+4. **Interdisciplinary concepts must be translated.** When importing concepts from outside the field, redefine them with this paper's object. Do not transport original disciplinary definitions unchanged.
+5. **Citations must not parade authors.** Avoid paragraphs that consist of "A 指出… B 认为… C 区分了…" sequences. Use sources to build your claim, not to summarize the field.
 
 ## Conflict Check
 

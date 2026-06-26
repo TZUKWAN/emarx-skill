@@ -45,6 +45,20 @@ SOURCE_LABEL_PATTERNS = [
     "已有研究",
 ]
 
+SOURCE_PARADE_RE = re.compile(
+    r"^[\u4e00-\u9fff]{2,4}(?:等|和[\u4e00-\u9fff]{2,4})?(?:指出|认为|提出|强调|分析|概括|区分|总结)"
+)
+
+POLICY_PILE_RE = re.compile(
+    r"^(党的|习近平|二十大|三中全会|全国宣传思想|《中共中央|《决定》|《办法》)"
+)
+
+EMPTY_COUNTER_PATTERNS = [
+    r"(?:完善|加强|深化|优化|构建|推动|提升).{0,15}(?:完善|加强|深化|优化|构建|推动|提升)",
+    r"以\s*.+?\s*为\s*(?:核心|重点|基点|支撑|驱动|抓手)",
+]
+EMPTY_COUNTER_RE = re.compile("|".join(EMPTY_COUNTER_PATTERNS))
+
 MECHANICAL_SEQUENCE_PATTERNS = [
     "首先",
     "其次",
@@ -236,6 +250,28 @@ def paragraph_opening_issues(body: str) -> dict:
     }
 
 
+def review_like_patterns(body: str) -> dict:
+    source_parade = []
+    policy_pile = []
+    empty_counter = []
+    for index, para in enumerate([item.strip() for item in re.split(r"\n\s*\n", body) if item.strip()], 1):
+        if para.startswith("#"):
+            continue
+        cleaned = re.sub(r"^[#\s]+", "", para)
+        first_sentence = re.split(r"[。！？!?；;]", cleaned, maxsplit=1)[0][:120]
+        if SOURCE_PARADE_RE.match(first_sentence) and "[" in first_sentence and "]" in first_sentence:
+            source_parade.append({"paragraph": index, "opening": first_sentence})
+        if POLICY_PILE_RE.match(first_sentence):
+            policy_pile.append({"paragraph": index, "opening": first_sentence})
+        if EMPTY_COUNTER_RE.search(cleaned):
+            empty_counter.append({"paragraph": index, "snippet": cleaned[:120]})
+    return {
+        "source_parade_paragraphs": source_parade,
+        "policy_pile_paragraphs": policy_pile,
+        "empty_countermeasure_sentences": empty_counter,
+    }
+
+
 def paragraph_has_anchor(para: str) -> bool:
     cleaned = re.sub(r"^[#\s]+", "", para)
     if cn_len(cleaned) < 30:
@@ -316,6 +352,7 @@ def audit(path: Path, terms: list[str]) -> dict:
         if body.count(term)
     }
     opening_issues = paragraph_opening_issues(body)
+    review_like = review_like_patterns(body)
     floating = floating_paragraphs(body)
     sentence_stats = analyze_sentences(body)
     main_chars = cn_len(body)
@@ -359,6 +396,12 @@ def audit(path: Path, terms: list[str]) -> dict:
         risks.append("slogan_paragraph_endings")
     if floating:
         risks.append("floating_sections")
+    if len(review_like["source_parade_paragraphs"]) >= 4:
+        risks.append("review_like_source_parade")
+    if len(review_like["policy_pile_paragraphs"]) >= 3:
+        risks.append("policy_pile_openings")
+    if len(review_like["empty_countermeasure_sentences"]) >= 5:
+        risks.append("empty_countermeasure_sentences")
     if sum(generic_verb_counts.values()) >= max(10, main_chars // 500):
         risks.append("generic_verb_overuse")
     bucket_pct = sentence_stats.get("bucket_pct", {})
@@ -385,6 +428,7 @@ def audit(path: Path, terms: list[str]) -> dict:
         "inflated_novelty_counts": inflated_novelty_counts,
         "generic_verb_counts": generic_verb_counts,
         "opening_issues": opening_issues,
+        "review_like_patterns": review_like,
         "floating_paragraphs": floating,
         "risks": risks,
         "ok": not risks,

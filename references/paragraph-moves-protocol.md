@@ -77,6 +77,8 @@ Typical content:
 - a concrete product, platform, or case;
 - a quotation or finding from a cited source.
 
+An evidence paragraph is not a source summary. Bring in only the part of the source that proves the claim, then immediately return to the paper's own analysis.
+
 Example from corpus style:
 
 > 2024 年，中国自主研发游戏在海外市场的实际销售收入达到 185.57 亿美元，同比增长 13.39%。《原神》《黑神话：悟空》等产品的海外热度，使数字游戏成为中华优秀传统文化走出去的重要载体。
@@ -133,9 +135,20 @@ When the items genuinely unpack a mechanism or compare distinct dimensions, sequ
 
 - a section made entirely of topic-setting paragraphs;
 - a section made entirely of evidence paragraphs with no mechanism or judgment;
+- evidence paragraphs that summarize a source instead of proving a claim;
 - repeating the same paragraph function three or more times in a row;
 - using a transition word when the reasoning has not moved;
 - ending a section with a list instead of a judgment.
+
+## Corpus-Driven Paragraph Rules
+
+Based on the nuwa distillation of the workspace corpus:
+
+1. **Each paragraph should move through claim → mechanism → evidence → return.** A paragraph that stops at evidence without returning to the claim is an unfinished argument unit.
+2. **The opening 150 characters of a section should name a concrete contradiction, gap, or paradox.** Do not open a major section with policy quotations or abstract topic announcements.
+3. **After a theory is introduced, give 2-4 observable dimensions within 200 characters.** The reader must see how the theory will be used before the case arrives.
+4. **A case must be followed by a mechanism-return sentence.** Use a sentence such as “这说明……”“可见……”“这意味着……” to pull the case back into the argument.
+5. **New concepts gain depth through boundary work, not repetition.** Use "表层 X，深层 Y" or "不是 X，而是 Y" sparingly and only when the boundary genuinely advances the claim.
 
 ## Practical Check
 
@@ -149,3 +162,5 @@ P4: judgment
 ```
 
 If the labels are all the same, revise the section. If the section lacks evidence paragraphs, add material. If it lacks mechanism or judgment paragraphs, add reasoning.
+
+If a section reads like a list of sources or concepts, discard the structure and rebuild it around a single claim.

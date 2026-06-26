@@ -37,6 +37,7 @@ Read these files when the corresponding task appears:
 - `references/citation-protocol.md`: citation placement, one-source-one-citation, one-author-one-citation, sequential numbering, GB/T 7714 reference list.
 - `references/user-research-profile.md`: user research direction, preferences, banned expressions, learned feedback.
 - `references/distillation-evidence.md`: corpus-derived title, abstract, introduction, structure, paragraph, and style patterns.
+- `references/nuwa-distill/README.md` and `references/nuwa-distill/research/*.md`: corpus-derived argument, citation, paragraph, concept, and failure-pattern findings from the workspace papers. Use these to avoid review-like output and source-parade structures.
 
 ## Hard Rules
 
@@ -46,22 +47,23 @@ Read these files when the corresponding task appears:
 4. For full-paper tasks, default to creating a `.docx` Word document unless the user explicitly asks for chat text or Markdown only.
 5. Do not draft before producing a research diagnosis: core problem, research object, concept ledger, theoretical tension, mechanism chain, source support, innovation claim, fact-risk list, length plan, and heading plan.
 6. Do not draft until `references/argument-depth-protocol.md` grants argument permission: the paper must have a non-obvious thesis, a real tension, a mechanism chain, and section-level argumentative obligations.
-7. Do not draft until `references/material-anchoring-protocol.md` has produced an interactive diagnosis card and the user has confirmed it. The card must show the central claim, why it is not obvious, the mechanism chain, the local-source coverage table, and each section's argumentative job.
+7. Do not draft until `references/material-anchoring-protocol.md` has produced an interactive diagnosis card and the user has confirmed it. The card must show the central claim, why it is not obvious, the mechanism chain, each section's argumentative job, and the source-to-argument plan.
 8. Every major body section must have at least one concrete anchor from a local source, case, policy, dataset, platform mechanism, or empirical finding. Paragraphs that float on abstract concepts are bad-draft failures.
 9. Do not draft until `references/scholarliness-protocol.md` has produced the academic map, phenomenon-to-problem transformation, concept ledger, framework consistency check, literature-dialogue plan, critical judgment, and material-to-theory abstraction route.
 10. Do not use citations as support labels. A source must be digested before citation: what problem it answers, what concept it contributes, what limit it has, and how this paper uses it.
-11. A normal full paper must target 10,000-12,000 Chinese characters in the main text unless the user explicitly asks for a shorter or longer work. Do not deliver 2,000-5,000 character chat essays as full papers.
-12. A normal full paper must include second-level headings under the major body sections. The default hierarchy is `一、` for first-level headings and `（一）` / `（二）` for second-level headings. Use third-level headings only when a section contains multiple mechanisms, stages, subjects, or cases.
-13. Do not produce flat "机遇、挑战、路径" essays. Each section must answer a theoretical question and advance the central thesis.
-14. Use corpus-derived structures dynamically. Pick a structure because it fits the topic, not because it sounds neat.
-15. Write in plain, clear, academically weighted Chinese. Let rhythm serve reasoning: long sentences can unfold relations, medium sentences can carry transitions, and short sentences can land judgments. Do not enforce sentence-count or sentence-length quotas.
-16. Treat review and revision as substantive reconstruction, not surface polishing.
-17. Run bad-draft review before delivery. If the draft is merely compliant in length, headings, and references but still formulaic, repetitive, or under-argued, reject it and revise.
-18. For referenced papers, use `references/citation-protocol.md`: one literature item only once, one author only once, citations inserted at the exact sentence, sequential numbering, and GB/T 7714 reference list in citation order.
-19. Apply the user's daily prose constraints from `references/style-protocol.md`: do not manufacture concepts, do not use inflated novelty language, avoid quotation marks and colon-heavy AI-looking punctuation unless required by citation or title format, and avoid mechanical sequence words such as `首先` / `其次` / `再次` / `最后` in running prose.
-20. Do not rely on binary contrast formulas such as `不是……而是……` or `并非……而是……`. State the claim directly and let the evidence and mechanism carry the distinction.
-21. Do not open paragraphs with naked negation. Apply `references/wording-expression-protocol.md`: orient the reader with object, relation, material, or field position before correction, critique, or negation.
-22. When new user materials or feedback reveal stable preferences, update `references/user-research-profile.md` or run `scripts/update_user_profile.py`.
+11. **Do not structure the paper around a source coverage table. The argument selects sources; sources do not select the argument.** A paper that moves from one workspace source to the next is a review, not a thesis.
+12. A normal full paper must target 10,000-12,000 Chinese characters in the main text unless the user explicitly asks for a shorter or longer work. Do not deliver 2,000-5,000 character chat essays as full papers.
+13. A normal full paper must include second-level headings under the major body sections. The default hierarchy is `一、` for first-level headings and `（一）` / `（二）` for second-level headings. Use third-level headings only when a section contains multiple mechanisms, stages, subjects, or cases.
+14. Do not produce flat "机遇、挑战、路径" essays. Each section must answer a theoretical question and advance the central thesis.
+15. Use corpus-derived structures dynamically. Pick a structure because it fits the topic, not because it sounds neat.
+16. Write in plain, clear, academically weighted Chinese. Let rhythm serve reasoning: long sentences can unfold relations, medium sentences can carry transitions, and short sentences can land judgments. Do not enforce sentence-count or sentence-length quotas.
+17. Treat review and revision as substantive reconstruction, not surface polishing.
+18. Run bad-draft review before delivery. If the draft is merely compliant in length, headings, and references but still formulaic, repetitive, or under-argued, reject it and revise.
+19. For referenced papers, use `references/citation-protocol.md`: one literature item only once, one author only once, citations inserted at the exact sentence, sequential numbering, and GB/T 7714 reference list in citation order.
+20. Apply the user's daily prose constraints from `references/style-protocol.md`: do not manufacture concepts, do not use inflated novelty language, avoid quotation marks and colon-heavy AI-looking punctuation unless required by citation or title format, and avoid mechanical sequence words such as `首先` / `其次` / `再次` / `最后` in running prose.
+21. Do not rely on binary contrast formulas such as `不是……而是……` or `并非……而是……`. State the claim directly and let the evidence and mechanism carry the distinction.
+22. Do not open paragraphs with naked negation. Apply `references/wording-expression-protocol.md`: orient the reader with object, relation, material, or field position before correction, critique, or negation.
+23. When new user materials or feedback reveal stable preferences, update `references/user-research-profile.md` or run `scripts/update_user_profile.py`.
 
 ## Script Tools
 

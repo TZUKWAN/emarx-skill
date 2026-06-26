@@ -93,6 +93,18 @@ Each second-level heading must do more than divide content. It must state the sp
 - governance response;
 - theoretical return.
 
+A section that merely lists sources, concepts, or dimensions is a review section, not an argument section.
+
+## Corpus-Driven Argument Rules
+
+Based on the nuwa distillation of the workspace corpus:
+
+1. **Open with a concrete contradiction within 300 characters.** A tension such as "technology expands reach while weakening interpretive control" is stronger than a policy quotation chain.
+2. **After introducing any theory, translate it into 2-4 operational variables within 200 characters.** If the theory cannot be observed in the paper's object, drop it.
+3. **Every case paragraph must answer two questions:** Which mechanism link does it test? What happens to the argument if the case is removed?
+4. **Countermeasure paragraphs need five elements:** actor, action, object, standard, and time. A sentence composed only of "完善/加强/深化/优化/构建" is a slogan, not a path.
+5. **Before the conclusion, perform one reflexive check:** state one condition or counter-example that could weaken the thesis and respond to it briefly.
+
 ## Paragraph Argument Unit
 
 A mature paragraph is not a miniature explanation of a heading. It is an argument unit.
@@ -120,6 +132,21 @@ Reject a paragraph if it only does one of these:
 - says "should strengthen / improve / optimize" without explaining why this path answers a diagnosed mechanism;
 - ends with a slogan instead of a judgment.
 
+## Anti-Review Check
+
+A thesis is not a literature review. Reject a draft if:
+
+- more than one major section is organized around a source, author, or school;
+- the body reads as a sequence of "某学者指出…" sentences;
+- paragraphs begin with author names more than twice per 1,000 characters;
+- the argument would disappear if all citations were removed.
+
+Citations must be subordinate to claims. A paragraph that exists only to summarize a source is not an argument paragraph.
+
+## Source-to-Argument Ratio
+
+Count the paragraphs that begin with a source/author label and count the paragraphs that begin with the paper's own claim or object. If the source-led paragraphs dominate a section, the section is likely a review. Rewrite it as claim -> mechanism -> source -> judgment.
+
 ## Bad Draft Rejection
 
 Before delivery, ask:
@@ -129,6 +156,7 @@ Is this merely a longer version of an outline?
 Could each section be summarized by its heading without losing much?
 Are the same concepts repeated instead of transformed?
 Do citations enter the argument or merely decorate it?
+Does the paper read like a summary of other people's claims?
 Does the paper contain a sentence that a mature scholar would recognize as an actual insight?
 Does the conclusion return to a sharpened thesis, or merely restate the path list?
 ```
