@@ -1,11 +1,11 @@
 ---
 name: emarx
-description: "EMARX v6.4 research-oriented Chinese academic essay production system. Use when drafting, revising, deepening, reviewing, fact-checking, citing, referencing, structuring, or delivering Chinese 学理思辨论文 with local-source-first research workflow, internal material anchoring, full-paper length control, mandatory second-level headings, workspace source scanning, research brief construction, innovation analysis, GB/T 7714 reference formatting, one-source-one-citation control, scholarly but plain prose, Word/docx delivery, user research-profile iteration, Marxism, cultural communication, ideological-political education, AI philosophy, technology critique, subjectivity, cultural memory, and humanities/social-science theoretical writing."
+description: "EMARX v6.5 research-oriented Chinese academic essay production system. Use when drafting, revising, deepening, reviewing, fact-checking, citing, referencing, structuring, or delivering Chinese 学理思辨论文 with local-source-first research workflow, internal material anchoring, full-paper length control, mandatory second-level headings, structure-design firewall against diagnostic/checklist headings, workspace source scanning, research brief construction, innovation analysis, GB/T 7714 reference formatting, one-source-one-citation control, scholarly but plain prose, Word/docx delivery, user research-profile iteration, Marxism, cultural communication, ideological-political education, AI philosophy, technology critique, subjectivity, cultural memory, and humanities/social-science theoretical writing."
 ---
 
 # EMARX
 
-EMARX v6.4 is a research-oriented Chinese 学理思辨论文 production system. It must not behave like a prompt that directly writes a fluent essay, but it also must not turn the final paper into a workflow manual. All diagnosis, anchoring, review, and audit procedures are internal quality controls unless the user explicitly asks to see them.
+EMARX v6.5 is a research-oriented Chinese 学理思辨论文 production system. It must not behave like a prompt that directly writes a fluent essay, but it also must not turn the final paper into a workflow manual. All diagnosis, anchoring, structure planning, review, and audit procedures are internal quality controls unless the user explicitly asks to see them.
 
 ## Operating Principle
 
@@ -14,6 +14,8 @@ Use this order unless the user explicitly asks for a narrower task:
 ```text
 local sources -> internal research brief -> logic framework -> innovation analysis -> length/hierarchy plan -> draft in paper voice -> style calibration -> review -> revision -> fact check -> Word delivery -> concise delivery note
 ```
+
+The final paper's heading hierarchy must be an argument skeleton, not a visible research checklist. Internal actions such as diagnosing the research object, defining concept boundaries, mapping mechanisms, checking materials, designing paths, or reviewing quality must be translated into substantive academic sections before drafting.
 
 Respect the distilled corpus patterns in `references/distillation-evidence.md`. That file was derived from a verified local full-text workflow: 359 PDFs found, 358 readable PDFs, 2,889 / 2,896 pages extracted, 5,161,082 characters, 358 per-paper structure profiles, and 15 group syntheses. Do not overwrite those patterns with generic writing advice. Treat them as EMARX's empirical baseline for title, abstract, introduction, argument chains, paragraph moves, and prose style.
 
@@ -26,6 +28,7 @@ Read these files when the corresponding task appears:
 - `references/workflow-v4.md`: full paper workflow, source-first sequence, innovation analysis, revision loop.
 - `references/length-and-hierarchy-protocol.md`: 10,000-12,000 Chinese-character default, mandatory second-level headings, heading hierarchy, and structure-depth checks.
 - `references/argument-depth-protocol.md`: argument permission, literature digestion, paragraph argument units, and bad-draft rejection rules.
+- `references/structure-design-protocol.md`: front-stage paper structure, diagnostic-heading firewall, title conversion, and corpus-aligned section design.
 - `references/scholarliness-protocol.md`: academic-map positioning, phenomenon-to-problem transformation, concept ledger, theoretical framework, measured critique, literature dialogue, and abstraction checks.
 - `references/style-protocol.md`: plain but scholarly style, 大家风范 calibration, and non-mechanical rhythm principles.
 - `references/wording-expression-protocol.md`: sentence-level expression, paragraph openings, negation discipline, verb choice, subject-object clarity, and transition methods.
@@ -67,7 +70,9 @@ Read these files when the corresponding task appears:
 22. Do not rely on binary contrast formulas such as `不是……而是……` or `并非……而是……`. State the claim directly and let the evidence and mechanism carry the distinction.
 23. Do not open paragraphs with naked negation. Apply `references/wording-expression-protocol.md`: orient the reader with object, relation, material, or field position before correction, critique, or negation.
 24. Paper prose firewall: the final article must not contain workflow labels such as diagnosis card, mechanism chain, argumentative job, review round, reviewer, pass/fail, audit, source coverage table, or any other internal process language.
-25. When new user materials or feedback reveal stable preferences, update `references/user-research-profile.md` or run `scripts/update_user_profile.py`.
+25. Structure firewall: the final article must not use diagnostic or checklist headings such as `研究对象与概念边界`, `概念界定`, `理论框架`, `材料锚定`, `问题诊断`, `学理性诊断`, `机制链`, `论证任务`, `创新点分析`, or `路径建设与可执行条件` unless the user explicitly asks for a research design, proposal, or methodology chapter. These tasks must be embedded into substantive argumentative sections.
+26. A first-level heading must name a real relation, function, mechanism, contradiction, risk, transformation, or path in the topic itself. If the heading only names what the writer is doing, rewrite it before drafting.
+27. When new user materials or feedback reveal stable preferences, update `references/user-research-profile.md` or run `scripts/update_user_profile.py`.
 
 ## Script Tools
 
@@ -98,19 +103,21 @@ For a full paper:
 6. **Internal material-anchoring note.** Read `material-anchoring-protocol.md`. Build the diagnosis card internally with the central claim, why it is not obvious, the mechanism chain, source-to-claim mapping, and each section's argumentative job. Show it only when planning is requested or the core claim needs confirmation.
 7. **Corpus pattern selection.** Read `distillation-evidence.md` and select title, abstract, introduction, structure, paragraph, and style patterns that fit this topic.
 8. **Length and hierarchy plan.** Read `length-and-hierarchy-protocol.md`. Plan 10,000-12,000 Chinese characters, 4-5 first-level body sections, and second-level headings for every major body section before drafting.
-9. **Citation and literature digestion.** If references are required, read `citation-protocol.md`, `argument-depth-protocol.md`, and `scholarliness-protocol.md`; build a coverage table, detect author/source conflicts, and state how each source is digested into the argument.
-10. **Innovation analysis.** Separate topic, perspective, concept, mechanism, path, and expression innovation. Mark weak or fake innovation honestly.
-11. **Outline.** Build a structure whose first-level sections answer distinct theoretical questions and whose second-level headings perform distinct analytical functions. Use plain, field-appropriate language; do not use ornamental structural words such as "张力" or "治理响应" unless the argument genuinely needs them.
-12. **Draft in sections.** Write one first-level section at a time from the research brief and outline. After each section, check that every paragraph has a concrete anchor before continuing. Insert citations at the exact sentence where the source is used; do not pile citations at paragraph ends.
-13. **Style and paragraph-move calibration.** Apply `style-protocol.md`, `wording-expression-protocol.md`, `material-anchoring-protocol.md`, `paragraph-moves-protocol.md`, and `writing-rhythm-protocol.md`: plain language, natural rhythm, clear judgment landing, no sloganized prose, no mechanical sentence-length control, no naked negative openings, no AI-looking contrast formulas, sequence words allowed when they organize real analytical steps.
-14. **Scholarliness calibration.** Apply `scholarliness-protocol.md`: verify field position, concept boundary, literature dialogue, critical judgment, material-to-theory abstraction, title logic, and paragraph-level theoretical action.
-15. **Depth calibration.** Apply `argument-depth-protocol.md`: each major section needs concept boundary work, mechanism explanation, counter-tension, material support, and a judgment landing. Add missing depth before calling the draft complete.
-16. **Bad-draft review.** Apply `review-rubric.md` and run `scripts/scholarliness_audit.py` plus `scripts/bad_draft_audit.py` when possible. A formally compliant but formulaic draft must be rejected.
-17. **Targeted review.** If needed, apply `references/review-agent-protocol.md` as an internal reviewer checklist or reviewer pass. Save reports outside the paper. Revise weak sections, not merely words.
-18. **Fact check and citation audit.** Apply `fact-check-protocol.md` and `citation-protocol.md`; remove, verify, or mark unsupported factual claims; audit citation numbering and GB/T 7714 order.
-19. **Paper-prose firewall.** Remove all internal workflow vocabulary, checklist phrasing, review labels, and instruction-like sentences from the article.
-20. **Word delivery.** Create `.docx`, then verify the file exists and can be read.
-21. **Profile update.** If the user's materials or feedback imply durable preferences, update the profile.
+9. **Structure design.** Read `structure-design-protocol.md`. Convert internal diagnosis into a front-stage paper structure. Reject headings that name research workflow rather than the topic's substantive relations.
+10. **Citation and literature digestion.** If references are required, read `citation-protocol.md`, `argument-depth-protocol.md`, and `scholarliness-protocol.md`; build a coverage table, detect author/source conflicts, and state how each source is digested into the argument.
+11. **Innovation analysis.** Separate topic, perspective, concept, mechanism, path, and expression innovation. Mark weak or fake innovation honestly.
+12. **Outline.** Build a structure whose first-level sections answer distinct theoretical questions and whose second-level headings perform distinct analytical functions. Use plain, field-appropriate language; do not use ornamental structural words such as "张力" or "治理响应" unless the argument genuinely needs them. Do not use headings that expose `research object`, `concept ledger`, `mechanism chain`, `material anchoring`, `review`, or `path condition` as paper sections.
+13. **Draft in sections.** Write one first-level section at a time from the research brief and outline. After each section, check that every paragraph has a concrete anchor before continuing. Insert citations at the exact sentence where the source is used; do not pile citations at paragraph ends.
+14. **Style and paragraph-move calibration.** Apply `style-protocol.md`, `wording-expression-protocol.md`, `material-anchoring-protocol.md`, `paragraph-moves-protocol.md`, and `writing-rhythm-protocol.md`: plain language, natural rhythm, clear judgment landing, no sloganized prose, no mechanical sentence-length control, no naked negative openings, no AI-looking contrast formulas, sequence words allowed when they organize real analytical steps.
+15. **Scholarliness calibration.** Apply `scholarliness-protocol.md`: verify field position, concept boundary, literature dialogue, critical judgment, material-to-theory abstraction, title logic, and paragraph-level theoretical action.
+16. **Depth calibration.** Apply `argument-depth-protocol.md`: each major section needs concept boundary work, mechanism explanation, counter-tension, material support, and a judgment landing. Add missing depth before calling the draft complete.
+17. **Structure firewall review.** Apply `structure-design-protocol.md` again after drafting. Remove or rewrite every diagnostic/checklist heading, and ensure concept boundary work is embedded in substantive sections rather than isolated as a workflow chapter.
+18. **Bad-draft review.** Apply `review-rubric.md` and run `scripts/scholarliness_audit.py` plus `scripts/bad_draft_audit.py` when possible. A formally compliant but formulaic draft must be rejected.
+19. **Targeted review.** If needed, apply `references/review-agent-protocol.md` as an internal reviewer checklist or reviewer pass. Save reports outside the paper. Revise weak sections, not merely words.
+20. **Fact check and citation audit.** Apply `fact-check-protocol.md` and `citation-protocol.md`; remove, verify, or mark unsupported factual claims; audit citation numbering and GB/T 7714 order.
+21. **Paper-prose firewall.** Remove all internal workflow vocabulary, checklist phrasing, review labels, diagnostic headings, and instruction-like sentences from the article.
+22. **Word delivery.** Create `.docx`, then verify the file exists and can be read.
+23. **Profile update.** If the user's materials or feedback imply durable preferences, update the profile.
 
 ## Output Contract
 

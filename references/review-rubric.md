@@ -85,10 +85,15 @@ Check:
 - Does the main text reach 10,000-12,000 Chinese characters unless the user explicitly requested a different length?
 - Does the path section answer prior challenges one by one?
 - Is the conclusion a theoretical return rather than a summary list?
+- Do first-level headings present substantive relations, functions, mechanisms, risks, transformations, or paths rather than internal workflow labels?
+- Is concept boundary work embedded in the introduction or substantive analysis instead of exposed as a standalone diagnostic chapter?
+- Do path headings sound like scholarly responses to proved mechanisms rather than a work plan or instruction list?
 
 Corpus-derived reminder: EMARX should dynamically select structures from `distillation-evidence.md`, including theory-problem-path, problem-mechanism-path, concept-function-path, carrier-function-path, symbol-identity-value-practice, and technology risk governance chains.
 
 v5 structure reminder: the expanded 452-PDF audit showed that second-level headings and 10,000+ character scale are normal in the user's corpus. A full paper without second-level headings is a failed draft, not a stylistic variant.
+
+v6.5 structure firewall: reject diagnostic/checklist headings such as `研究对象与概念边界`, `概念界定`, `理论框架`, `问题诊断`, `创新点分析`, `机制链`, `材料锚定`, or `路径建设与可执行条件`. These are internal research actions, not front-stage paper sections.
 
 ## 5. Evidence And Facts
 

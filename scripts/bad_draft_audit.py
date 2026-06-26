@@ -9,6 +9,9 @@ from pathlib import Path
 
 CN_RE = re.compile(r"[\u4e00-\u9fff]")
 HEADING_RE = re.compile(r"(?m)^(#{1,6})\s*(.+)$")
+FORMAL_HEADING_RE = re.compile(
+    r"^(?:[一二三四五六七八九十]+、|（[一二三四五六七八九十]+）|\d+[.．、])\s*\S+"
+)
 REF_HEADING_RE = re.compile(r"(?m)^#{0,6}\s*参考文献\s*$")
 SENTENCE_RE = re.compile(r"[^。！？!?；;]+[。！？!?；;]?")
 
@@ -136,6 +139,41 @@ PROCESS_LEAK_PATTERNS = [
     "audit",
 ]
 
+DIAGNOSTIC_HEADING_PATTERNS = [
+    "研究对象与概念边界",
+    "概念界定",
+    "概念边界",
+    "理论框架",
+    "研究设计",
+    "材料锚定",
+    "问题诊断",
+    "学理性诊断",
+    "机制链",
+    "论证任务",
+    "创新点分析",
+    "事实核查",
+    "审稿意见",
+]
+
+WORKFLOW_HEADING_PATTERNS = [
+    "可执行条件",
+    "路径建设与",
+    "建设与可执行",
+    "质量控制",
+    "写作思路",
+    "论文结构",
+    "资料梳理",
+]
+
+GENERIC_STRUCTURE_HEADINGS = [
+    "机遇",
+    "挑战",
+    "路径",
+    "对策",
+    "意义",
+    "价值",
+]
+
 INSTRUCTIONAL_MODAL_PATTERNS = [
     "应",
     "应当",
@@ -186,6 +224,60 @@ def split_body_and_refs(text: str) -> tuple[str, str]:
     if not match:
         return text, ""
     return text[: match.start()], text[match.start() :]
+
+
+def extract_heading_titles(text: str) -> list[dict]:
+    headings = []
+    seen = set()
+    for match in HEADING_RE.finditer(text):
+        title = match.group(2).strip()
+        key = (match.start(), title)
+        seen.add(key)
+        headings.append({
+            "line": text.count("\n", 0, match.start()) + 1,
+            "level": len(match.group(1)),
+            "title": title,
+            "source": "markdown",
+        })
+    for offset, line in enumerate(text.splitlines(), 1):
+        stripped = line.strip()
+        if not stripped or stripped.startswith("#"):
+            continue
+        if FORMAL_HEADING_RE.match(stripped) or stripped in {"摘要", "关键词", "引言", "结语", "结论", "参考文献"}:
+            key = (offset, stripped)
+            if key not in seen:
+                headings.append({
+                    "line": offset,
+                    "level": 0,
+                    "title": stripped,
+                    "source": "formal",
+                })
+    return headings
+
+
+def structure_heading_issues(text: str) -> dict:
+    headings = extract_heading_titles(text)
+    diagnostic = []
+    workflow = []
+    generic = []
+    for heading in headings:
+        title = heading["title"]
+        clean_title = re.sub(r"^[#\s一二三四五六七八九十、（）()0-9.．]+", "", title).strip()
+        if any(pattern in title for pattern in DIAGNOSTIC_HEADING_PATTERNS):
+            diagnostic.append(heading)
+        if any(pattern in title for pattern in WORKFLOW_HEADING_PATTERNS):
+            workflow.append(heading)
+        if clean_title in GENERIC_STRUCTURE_HEADINGS or re.fullmatch(
+            r"(?:结构性)?(?:机遇|挑战|路径|对策|意义|价值)(?:分析|研究|阐释|审视|探析)?",
+            clean_title,
+        ):
+            generic.append(heading)
+    return {
+        "headings": headings,
+        "diagnostic_heading_leaks": diagnostic,
+        "workflow_heading_leaks": workflow,
+        "generic_structure_headings": generic,
+    }
 
 
 def sentence_bucket(length: int) -> str:
@@ -350,7 +442,9 @@ def audit(path: Path, terms: list[str]) -> dict:
     text = path.read_text(encoding="utf-8-sig", errors="replace")
     body, refs = split_body_and_refs(text)
     headings = HEADING_RE.findall(text)
-    second_level = [title for marks, title in headings if "（" in title and "）" in title]
+    structure_issues = structure_heading_issues(text)
+    heading_titles = [item["title"] for item in structure_issues["headings"]]
+    second_level = [title for title in heading_titles if "（" in title and "）" in title]
     citations = re.findall(r"\[(\d+)\]", body)
     references = re.findall(r"(?m)^\[(\d+)\]\s*(.+)$", refs)
     starts = Counter(paragraph_starts(body))
@@ -442,6 +536,16 @@ def audit(path: Path, terms: list[str]) -> dict:
         risks.append("generic_verb_overuse")
     if process_leak_counts:
         risks.append("internal_process_language_leak")
+    if structure_issues["diagnostic_heading_leaks"]:
+        risks.append("diagnostic_heading_leak")
+    if structure_issues["workflow_heading_leaks"]:
+        risks.append("workflow_heading_leak")
+    if structure_issues["generic_structure_headings"]:
+        risks.append("generic_structure_heading")
+    if any("研究对象" in item["title"] for item in structure_issues["headings"]) and any(
+        "概念" in item["title"] for item in structure_issues["headings"]
+    ):
+        risks.append("concept_section_overexposure")
     if sum(instructional_modal_counts.values()) >= max(18, main_chars // 550):
         risks.append("instructional_modal_overuse")
     bucket_pct = sentence_stats.get("bucket_pct", {})
@@ -451,7 +555,7 @@ def audit(path: Path, terms: list[str]) -> dict:
     return {
         "paper": str(path),
         "main_text_cn_chars": main_chars,
-        "heading_count": len(headings),
+        "heading_count": len(structure_issues["headings"]),
         "second_level_heading_count": len(second_level),
         "body_citation_count": len(citations),
         "unique_body_citations": len(set(citations)),
@@ -469,6 +573,7 @@ def audit(path: Path, terms: list[str]) -> dict:
         "generic_verb_counts": generic_verb_counts,
         "process_leak_counts": process_leak_counts,
         "instructional_modal_counts": instructional_modal_counts,
+        "structure_heading_issues": structure_issues,
         "opening_issues": opening_issues,
         "review_like_patterns": review_like,
         "floating_paragraphs": floating,

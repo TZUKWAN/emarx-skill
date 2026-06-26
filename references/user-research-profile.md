@@ -108,6 +108,12 @@ Append future user feedback here with date, topic, preference, and action taken.
 - Feedback: 当前 EMARX 写出来越来越像说明书，不像论文。核心问题不是缺少规则，而是规则、诊断卡、材料锚定、审稿轮次和 agent 报告等后台流程过度前台化，压住了论文自己的思想运动。
 - Action: v6.4 将诊断卡、材料锚定、审稿 agent、多轮优化降为内部质量控制或按需展示；默认成文必须使用论文语体，不得把 diagnosis card、mechanism chain、argumentative job、review round、pass/fail、audit 等流程语言写入论文正文。
 
+## Feedback 2026-06-26 15:05
+
+- Topic: 论文结构设计与诊断性标题泄漏
+- Feedback: 用户指出 v64 文稿虽然有篇幅和二级标题，但出现了 `研究对象与概念边界` 这种单独一级章，说明 EMARX 仍把内部研究诊断写成了论文结构。用户要求对照工作空间论文和画像报告，真实论文的结构应围绕论证对象、功能、机制、困境、路向等展开，而不是暴露研究流程。
+- Action: v6.5 增加 `structure-design-protocol.md`，在 `SKILL.md` 中加入结构防火墙，明确禁止 `研究对象与概念边界`、`概念界定`、`理论框架`、`问题诊断`、`创新点分析`、`路径建设与可执行条件` 等诊断/清单式标题进入正式论文；概念边界必须嵌入引言或具体论证段落；坏稿审计新增诊断标题泄漏与流程标题泄漏检测。
+
 ## Feedback 2026-06-26 10:04
 
 - Topic: 避免装逼式结构重构
