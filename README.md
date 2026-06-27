@@ -1,17 +1,17 @@
 # EMARX
 
-EMARX 是一个面向 Codex 的中文学理思辨论文生产技能。v7 的目标不是增加更多模板，而是把论文生产还原为真实研究流程：先读资料，锚定论文，精读结构和语言，再建立论证骨架，逐段写作，最后做事实、引用、格式和 Word 交付审计。
+EMARX 是一个面向 Codex 的中文学理思辨论文生产技能。v7.1 的目标不是增加更多模板，而是把论文生产还原为真实研究流程：先读资料，锚定论文，精读结构和语言，再建立论证骨架、小节论证卡和文献功能绑定，以小节为准入单元逐段写作，最后做事实、引用、格式和 Word 交付审计。
 
 一句话概括：
 
-> 先读本次工作空间，再吸收语料规律；先建立论证骨架，再逐段成文；先让语言在首稿中写对，再用审计兜底。
+> 先读本次工作空间，再吸收语料规律；先建立论证骨架和小节论证卡，再逐段成文；先让语言在首稿中写对，再用小节质量门和全文审计兜底。
 
-## v7 核心变化
+## v7.1 核心变化
 
 - **入口重写为中文 v7 流程**：`SKILL.md` 不再把 v4/英文流程作为主路由，完整论文优先读取 `production-workflow-v7.md` 和 `citation-fact-protocol-v7.md`。
 - **当前工作空间优先**：锚定论文必须来自用户本次工作空间的真实文件，旧拆解报告只可作索引。
 - **反模板化精读**：每篇锚定论文回到原文连续读取，拆解摘要、引言、标题层级、主体推进、结论、句式节奏和文献进入方式。若报告大段相同，判为模板化失败。
-- **逐段写作**：先形成段落级大纲，一次只写一个自然段，写完即审，不一次生成多段后泛泛润色。
+- **小节生产控制**：先形成小节论证卡和文献功能绑定，再在小节内逐段写作；每个二级小节写完必须通过 `section_quality_gate.py`，未通过不得并入全文。
 - **结构防火墙**：正文标题不能暴露后台流程。默认禁止把“研究对象与概念边界”“理论框架”“材料锚定”“创新点分析”等诊断动作写成章节。
 - **引用与事实合并协议**：新增 `references/citation-fact-protocol-v7.md`，要求来源到论点映射、一文献一次、一作者一次、引用随句插入、文末按 GB/T 7714 顺序排列。
 - **Word 交付硬化**：完整论文默认生成 DOCX，并通过独立 DOCX 审计和渲染检查。
@@ -82,6 +82,7 @@ python ~/.codex/skills/.system/skill-installer/scripts/install-skill-from-github
 │   ├── prepare_anchor_reading.py
 │   ├── qwen_deep_distill_corpus.py
 │   ├── audit_deep_reading_reports.py
+│   ├── section_quality_gate.py
 │   ├── bad_draft_audit.py
 │   ├── citation_audit.py
 │   ├── markdown_to_docx.py
@@ -92,6 +93,7 @@ python ~/.codex/skills/.system/skill-installer/scripts/install-skill-from-github
     ├── citation-fact-protocol-v7.md
     ├── qwen-deep-reading-protocol.md
     ├── generative-writing-protocol.md
+    ├── section-production-gate-v71.md
     ├── wording-expression-protocol.md
     ├── style-protocol.md
     ├── structure-design-protocol.md
@@ -110,6 +112,7 @@ python scripts/select_anchor_papers.py --topic "论文题目" --workspace-root D
 python scripts/prepare_anchor_reading.py --anchors anchor-papers.md --output-dir anchor-reading
 python scripts/qwen_deep_distill_corpus.py --index structure_index.json --output-dir qwen_deep_reading --transport api
 python scripts/audit_deep_reading_reports.py --run-manifest qwen_deep_reading/run.jsonl --expected-count 450
+python scripts/section_quality_gate.py --paper paper.md --section-title "（一）小节标题" --output section-gate.json --require-citation
 python scripts/bad_draft_audit.py --paper paper.md --output bad-draft-audit.json
 python scripts/citation_audit.py --paper paper.md --output citation-audit.json
 python scripts/markdown_to_docx.py --input paper.md --output paper.docx
