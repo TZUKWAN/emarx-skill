@@ -1,135 +1,63 @@
-# EMARX Writing Rhythm Protocol
+# EMARX v7 写作节奏协议
 
-Use this file when drafting, revising, or reviewing the prose rhythm of a Chinese academic paper.
+本文件用于起草、修改和审查中文学术论文的行文节奏。节奏分析来自用户工作空间论文的总体观察，但这些观察只作为诊断证据，不能变成句长比例、句数配额或机械交替规则。
 
-## Evidence Boundary
+## 一、证据边界
 
-The full-corpus rhythm analysis of 450 readable papers produced useful observations about sentence length, alternation, and transition density. These numbers are diagnostic evidence only. Do not turn them into generation quotas.
+全量论文节奏分析说明，成熟学术论文通常会在长句、中句和短句之间形成变化。长句承担复杂关系，中句承担承接推进，短句承担判断落点。
 
-The purpose of rhythm analysis is to help EMARX notice how mature academic prose breathes. It must not make EMARX count short sentences, force alternation, or pad paragraphs to satisfy a ratio.
+这不是生成公式。节奏不能靠计数得到。EMARX 不得要求固定句数、固定比例、强制交替或自动插入短句。
 
-## Core Principle
+## 二、核心原则
 
-Writing rhythm should be governed by argumentative need.
+节奏服从论证需要。
 
-```text
-Complex relation -> use a sentence long enough to make the relation visible.
-Conceptual transition -> use a sentence steady enough to carry the turn.
-Theoretical judgment -> use a sentence firm enough to land the point.
-```
+复杂关系需要足够展开的句子。概念转折需要稳定的承接句。理论判断需要清楚、有分量的落点。节奏不是装饰，而是思想运动在汉语中的可见形态。
 
-Rhythm is not decoration. It is the visible movement of thought.
+## 三、三类句子的功能
 
-## Three Sentence Functions
+长句用于展开机制、容纳条件、连结主体与后果、区分表层现象和深层结构。好的长句让关系更清楚，坏的长句只是在堆抽象名词。
 
-### Long Sentences
+中句用于限定、过渡、承接和转换层次。它使文章不至于碎片化，也不至于被连续长句压住。
 
-Use long sentences when the paper needs to:
+短句用于标记转折、落定判断、点明问题和收束段落。短句必须有重量，不能为了“有节奏”而硬插。
 
-- unfold a mechanism;
-- hold together cause, condition, subject, and consequence;
-- distinguish surface phenomenon from deeper structure;
-- connect a source, concept, and judgment in one movement;
-- show how a problem is generated rather than merely state that it exists.
+## 四、段落呼吸
 
-Bad long sentences pile up abstract nouns. Good long sentences make relations clearer.
+成熟段落应有运动，而不只是一个话题。它可以从对象进入，展开关系，引入材料，解释机制，落到判断；也可以从概念边界进入，再推出后果和价值判断。具体运动由本段任务决定。
 
-### Medium Sentences
+避免下列段落：
 
-Use medium sentences when the paper needs to:
+- 只罗列一般判断；
+- 只重复政策词汇；
+- 连续堆叠长抽象句；
+- 把一个思想切成几句短评论；
+- 以口号代替判断落点；
+- 段落看似顺滑但没有推进。
 
-- qualify an earlier claim;
-- move from concept to problem;
-- move from problem to mechanism;
-- move from mechanism to path;
-- keep the argument steady without overloading the reader.
+## 五、修改方式
 
-Medium sentences are often the prose's joints. They keep the paper from becoming either fragmented or breathless.
+节奏差时，优先重写关系，而不是机械切句。
 
-### Short Sentences
+- 一个长句包含两个独立论证动作时，可以拆开；
+- 几个短句只是切碎一个意思时，应合并；
+- 段落跳跃时，补承接句；
+- 有材料无判断时，补判断落点；
+- 判断只是口号时，删掉并回到机制。
 
-Use short sentences when the paper needs to:
+## 六、审查问题
 
-- mark a turn;
-- land a judgment;
-- name a problem plainly;
-- stop a paragraph from drifting;
-- give the reader a moment of conceptual clarity.
-
-Short sentences should not be decorative. They must carry weight.
-
-## Paragraph Breathing
-
-A mature paragraph usually has a movement, not just a topic.
-
-Preferred paragraph movement:
+交付前检查：
 
 ```text
-opening claim -> relation/mechanism unfolding -> qualification or contrast -> judgment landing
+是否拥堵：
+是否平板：
+是否仓促：
+是否有材料无判断：
+是否有判断无解释：
+长句是否真正展开关系：
+短句是否真正落定判断：
+节奏变化是否对应思想推进：
 ```
 
-Other valid movements:
-
-```text
-concept boundary -> consequence -> value judgment
-phenomenon -> deeper cause -> theoretical return
-source/material -> interpretation -> claim
-risk description -> mechanism -> governance implication
-```
-
-Avoid:
-
-- one paragraph that only lists general statements;
-- one paragraph that only repeats policy vocabulary;
-- one paragraph that is a stack of long abstract sentences;
-- one paragraph that breaks every thought into short commentary sentences;
-- one paragraph that ends with a slogan instead of a judgment.
-
-## Rhythm Reading
-
-After drafting, read a section as prose, not as an outline.
-
-Ask:
-
-- Is the passage congested because several long sentences carry the same burden?
-- Is the passage flat because every sentence has the same length and movement?
-- Is the passage rushed because short sentences replace explanation?
-- Is the passage loose because there is no judgment landing?
-- Is the passage over-polished but under-argued?
-- Does each rhythm change correspond to a real turn in thought?
-
-Fix the problem by rewriting relations:
-
-- split a long sentence only when it contains two distinct argumentative actions;
-- merge short sentences when they merely chop up one thought;
-- add a transitional sentence when the argument jumps;
-- add a judgment sentence when the paragraph has evidence but no claim;
-- remove a judgment sentence when it only repeats a slogan.
-
-## What Not To Do
-
-Do not require:
-
-- a fixed number of sentences per paragraph;
-- a fixed percentage of short, medium, or long sentences;
-- mandatory alternation of sentence lengths;
-- automatic insertion of short sentences;
-- mechanical sentence splitting to "improve rhythm".
-
-The corpus numbers help diagnose tendencies. The final standard is whether the prose lets the argument unfold clearly, steadily, and with intellectual weight.
-
-## Review Output
-
-When reviewing rhythm, write qualitative comments:
-
-```text
-rhythm diagnosis:
-congested passages:
-flat passages:
-rushed passages:
-paragraphs without judgment landing:
-places where a long sentence should be kept:
-places where a long sentence should be split:
-places where short sentences are weightless:
-revision direction:
-```
+最终标准不是句子比例，而是读者能否清楚、稳定地跟随论证推进，并在关键处感到判断落定。

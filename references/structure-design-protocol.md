@@ -1,169 +1,118 @@
-# EMARX Structure Design Protocol
+# EMARX v7 结构设计协议
 
-Use this file when planning, drafting, reviewing, or revising a full Chinese academic paper.
+本文件用于规划、起草、审稿和修改中文学理思辨论文的标题层级与结构推进。它只约束最终论文结构，不展示后台生产流程。
 
-## Core Principle
+## 一、核心原则
 
-The paper structure must present the argument, not the workflow that produced the argument.
+论文结构必须呈现问题自身的运动，而不是呈现写作者的工作清单。
 
-Internal work can include research object diagnosis, concept boundary work, mechanism mapping, material anchoring, innovation analysis, review, and fact checking. The final paper must translate that work into substantive academic sections. A reader should see the movement of the problem itself, not the author's production checklist.
+资料扫描、概念边界、理论诊断、材料锚定、创新分析、事实核查和审稿都可以在后台进行，但不能直接变成正文标题。期刊读者应看到的是对象如何变化、矛盾如何显现、机制如何展开、风险如何成立、路径如何从前文推出，而不是看到一份研究流程说明。
 
-## Corpus-Based Judgment
+## 二、标题判断
 
-The user's workspace papers show that headings usually name substantive relations, functions, mechanisms, challenges, transformations, historical stages, value orientations, or paths. Even when concept work appears, it is normally embedded in titles such as `前提性认知`, `要件解读`, `意涵建构`, `生成机制`, `功能释放`, `现实困境`, or `发展路向`.
+一个合格标题应命名论文正在建立的实质关系。它可以命名关系、机制、功能、张力、转换、困境、条件、路径和价值回归。它不应命名后台动作。
 
-Do not imitate surface formulas mechanically. Use the corpus as a judgment standard: a heading is good when it names what the paper is arguing about, and weak when it names what the writer is doing behind the scenes.
+弱标题常见问题：
 
-## Diagnostic Heading Firewall
+- 只写“机遇”“挑战”“路径”，没有显示具体判断；
+- 把“研究对象与概念边界”“理论框架”“创新点分析”放进正文；
+- 用“路径建设与可执行条件”这类工作报告标题替代论文标题；
+- 一级标题之间可以互换顺序，说明结构只是并列罗列；
+- 二级标题只是把一级标题换一种说法。
 
-Do not use these as first-level or second-level paper headings unless the user explicitly asks for a research proposal, methodology chapter, teaching outline, or internal plan:
+强标题应通过题目自身的对象关系生成。例如讨论生成式人工智能与中华文化国际传播时，标题可以围绕“意义进入方式”“跨语境解释”“语料治理”“平台反馈”“文化主体性”等关系展开，而不是机械拆成“机遇、挑战、路径”三筐材料。
 
-- `研究对象与概念边界`
-- `概念界定`
-- `理论框架`
-- `研究设计`
-- `材料锚定`
-- `问题诊断`
-- `学理性诊断`
-- `机制链`
-- `论证任务`
-- `创新点分析`
-- `路径建设与可执行条件`
-- `事实核查`
-- `审稿意见`
+## 三、诊断性标题防火墙
 
-These actions may be necessary, but they belong in the research brief, not in the paper outline.
-
-## Front-Stage Heading Tests
-
-Before drafting, test every first-level heading:
-
-1. Does the heading name a relation, function, mechanism, contradiction, risk, transformation, or path inside the topic?
-2. Would the heading still make sense to a journal reader who never sees the internal research brief?
-3. Does the heading advance the central thesis rather than merely label a writing step?
-4. Can the section be summarized as a claim, not as a task?
-5. Does the next heading deepen, complicate, or answer the previous one?
-
-If any answer is no, rewrite the heading.
-
-## Converting Internal Work Into Paper Structure
-
-Use this conversion pattern:
-
-| Internal work | Paper-appropriate conversion |
-| --- | --- |
-| Research object diagnosis | Name how the object changes in the topic's field |
-| Concept boundary | Embed boundary work in the introduction or the opening of a substantive section |
-| Concept ledger | Stabilize terms across paragraphs; do not display the ledger |
-| Mechanism chain | Turn each necessary mechanism into a section or subsection |
-| Material anchoring | Let materials support claims; do not build a source parade |
-| Innovation analysis | Let novelty appear through the thesis and structure; do not announce it as a heading |
-| Path condition | Write paths as responses to previously proved mechanisms or risks |
-
-## Concept Boundary Rule
-
-Concept boundary work is required, but it should rarely become an isolated first-level section.
-
-Acceptable placements:
-
-- in the last part of the introduction, when defining the paper's scope;
-- in the opening paragraphs of the first body section, when the concept is immediately used for analysis;
-- in a second-level heading only when the paper itself is a concept-history or theory-construction paper.
-
-Bad:
+除非用户明确要求研究方案、教学提纲或方法章节，正文不得使用下列一级或二级标题：
 
 ```text
-一、研究对象与概念边界
+研究对象与概念边界
+概念界定
+理论框架
+研究设计
+材料锚定
+问题诊断
+学理性诊断
+机制链
+论证任务
+创新点分析
+事实核查
+审稿意见
 ```
 
-Better:
+这些工作应在研究简报、段落大纲或审稿记录中完成。若正文确实需要概念边界，应嵌入引言末段或主体首节的实际论证中，而不是单列一章。
+
+## 四、结构生成方式
+
+结构设计先问三件事：
+
+1. 这个题目真正需要解释的关系是什么。
+2. 哪一步分析如果缺失，后面的判断就不能成立。
+3. 读者读完上一节后，为什么必须进入下一节。
+
+由此形成一级标题链。常见但不能机械套用的运动包括：
 
 ```text
-一、生成式人工智能改变中华文化国际传播的意义进入方式
+对象变化 -> 机制展开 -> 风险显影 -> 路径回应 -> 理论回归
+概念关系 -> 理论张力 -> 机制推导 -> 边界校正 -> 抽象提升
+问题生成 -> 深层原因 -> 具体表现 -> 条件转换 -> 价值收束
+历史形成 -> 叙事机制 -> 认同功能 -> 当代困境 -> 实践转化
 ```
 
-The better heading still allows concept boundary work, but it places that work inside an argument about the object.
+选择哪一种运动，必须由题目、材料和锚定论文共同决定。不要把这些运动写成固定模板。
 
-## Structure Families
+## 五、二级标题
 
-Choose a structure family because it fits the topic.
+完整论文必须有二级标题。二级标题的功能是把一级标题内部的论证动作拆开，而不是装饰结构。
 
-### Cultural Communication And Technology
+二级标题通常承担以下一种任务：
 
-Use when the topic concerns culture, platforms, AI, media, translation, international communication, or meaning reception.
+- 澄清本节使用的概念或对象边界；
+- 展开形成机制；
+- 区分不同主体或不同层次；
+- 处理材料、案例或历史过程；
+- 显示风险的不同生成环节；
+- 把路径同前文已经证明的机制对应起来；
+- 完成本节的价值或理论回收。
 
-Typical movement:
+若一个一级标题下只有一大段文字，应退回大纲。若二级标题删去后不影响论证，也应删除或重写。
+
+## 六、路径部分
+
+路径部分不是行动清单。它应从前文已经证明的机制、风险和条件中推出。
+
+弱路径标题通常是：
 
 ```text
-object transformation -> communication mechanism -> risk/constraint -> capability/path -> theoretical return
+加强技术应用
+完善传播体系
+优化平台建设
+提升传播效能
 ```
 
-Heading functions:
-
-- show how the communication object changes;
-- explain the medium or platform mechanism;
-- diagnose how subjectivity, meaning, translation, or reception becomes unstable;
-- propose paths that answer the mechanism already proved.
-
-### Theoretical Speculation
-
-Use when the topic is mainly philosophical, Marxist, aesthetic, literary-theoretical, or social-theoretical.
-
-Typical movement:
+更合格的标题应说明要修复的关系或要形成的能力，例如：
 
 ```text
-concept relation -> theoretical tension -> mechanism deduction -> boundary/correction -> abstraction
+以语料治理稳固跨语境解释的前端基础
+在平台反馈中校正文化意义的接受偏差
+通过解释主体建设提高文化叙事的语境转译能力
 ```
 
-### Problem And Path
+标题不需要华丽，但必须能让读者看见前文论证如何延伸到此处。
 
-Use when the topic has a clear practical problem.
+## 七、最终结构审查
 
-Typical movement:
+起草前和交付前必须检查：
 
 ```text
-problem emergence -> deeper cause -> risk manifestation -> path response -> value return
+是否出现诊断性标题：
+是否机械使用“机遇、挑战、路径”：
+是否把概念边界孤立成工作流程章节：
+一级标题能否形成递进：
+二级标题是否真正收窄分析动作：
+路径标题是否回应前文机制：
+任意两节互换后是否仍然成立：
 ```
 
-Avoid flat `机遇、挑战、路径` unless each title carries a specific thesis.
-
-### Historical Or Memory Studies
-
-Use when the topic concerns memory, history, narrative, tradition, identity, or political culture.
-
-Typical movement:
-
-```text
-historical formation -> symbolic/narrative mechanism -> identity/value function -> contemporary challenge -> practical transformation
-```
-
-## Path Section Rule
-
-A path section must not sound like a work plan.
-
-Weak path headings use directive nouns: `建设`, `完善`, `优化`, `提升`, `加强`, `可执行条件`.
-
-Stronger path headings name the relation being repaired or the capability being formed:
-
-```text
-从内容输出转向意义协商
-以语料治理稳固文化解释的前端基础
-在平台反馈中形成跨语境理解的校正机制
-```
-
-Use plain language. Do not inflate headings with ornamental terms merely to look theoretical.
-
-## Final Structure Review
-
-Before delivery, run this review:
-
-```text
-diagnostic/checklist heading present:
-generic "opportunity/challenge/path" labels present:
-concept boundary isolated as a workflow chapter:
-path section sounds like a manual:
-first-level headings form a thesis movement:
-second-level headings narrow the analytical action:
-```
-
-If the first four checks are yes, reject the draft. If the last two checks are no, rewrite the outline before revising the prose.
+如果结构只是顺滑、整齐、完整，但不能显示论证推进，应重写大纲，而不是直接润色正文。

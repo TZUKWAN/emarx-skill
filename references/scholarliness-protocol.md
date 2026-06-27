@@ -1,249 +1,142 @@
-# EMARX Scholarliness Protocol
+# EMARX v7 学理性协议
 
-Use this file when building, drafting, revising, or reviewing the 学理性 of a Chinese humanities and social-science theoretical paper.
+本文件用于提升中文人文社科思辨论文的学理性。学理性不是更重的语气、更多的术语或更密的引用，而是理论位置、问题提炼、概念纪律、论证建构、批判判断、材料转化和理论抽象之间的可见关系。
 
-## Core Standard
+## 一、三个基本问题
 
-学理性 is not a heavier academic tone. It is the visible relation among theoretical position, academic problem, conceptual discipline, argumentative construction, critical judgment, evidence transformation, and theoretical abstraction.
-
-Do not treat scholarliness as:
-
-- more abstract nouns;
-- more citations;
-- more solemn phrasing;
-- more invented concepts;
-- more section titles.
-
-A paper becomes scholarly when it knows its field, transforms a phenomenon into a theoretical problem, builds a framework that can carry the object, digests literature into judgment, and rises from material to transferable insight.
-
-## The Three Soul Questions of Scholarliness
-
-学理性最朴素的判断标准是三个灵魂拷问：
-
-1. **你的研究从哪来？** —— 学术脉络与问题缺口。论文必须交代它站立的学术传统、前人做到哪一步、哪里还没解决。不是政策摘要，也不是现象描述。
-2. **怎么一步步走？** —— 理论逻辑与机制推导。从核心理论出发，拆解出命题成立的具体机制，明确边界条件，再得出结论。每一步都要有可见的推理。
-3. **最后给这个领域留下了什么？** —— 理论贡献与可迁移洞见。不是搬运理论，而是发展理论：补充、修正、拓展或转译已有框架，让后来的研究者可以接着用。
-
-这三个问题必须能在论文中被直接回答。审稿人应该能在 5 分钟内找到对应的段落和句子。
-
-## Five Practical Operations
-
-These five operations answer the three soul questions:
-
-| 灵魂拷问 | 对应操作 |
-|---|---|
-| 从哪来？ | Positioning + Problem Extraction + Literature Dialogue |
-| 怎么一步步走？ | Framework Construction + Critical Judgment + Argument Progression |
-| 留下什么？ | Theoretical Abstraction + Contribution Statement |
-
-### 1. Positioning
-
-Before drafting, locate the paper on the academic map.
-
-State:
-
-- discipline or subfield;
-- central theoretical problem in that field;
-- main conversation partners;
-- the unaddressed aspect this paper will enter;
-- why the topic belongs in this conversation rather than in ordinary commentary.
-
-Failure sign: the paper names a topic but no field conversation.
-
-### 2. Problem Extraction
-
-Phenomena are not yet academic problems. Turn the visible phenomenon into a problem that requires theoretical reasoning.
-
-Ask:
-
-- What relation, contradiction, mechanism, or category problem is hidden in the phenomenon?
-- Which concept is being stretched, confused, or used too casually?
-- What cannot be answered by journalistic description alone?
-
-A good problem can be explained to ordinary readers, but it cannot be solved by common sense.
-
-### 3. Framework Construction
-
-Build a framework whose theory, object, and argument support one another.
-
-Check:
-
-- the theory explains the object;
-- the object tests, revises, or enriches the theory;
-- each section performs a function inside the framework;
-- concepts do not float away from materials;
-- materials are not merely attached after the theory has already finished speaking.
-
-Failure sign: theory and object appear as two parallel tracks.
-
-### 4. Critical Judgment
-
-学理性 requires measured critique. The goal is not to attack prior studies, but to identify their assumptions, scope, and limits.
-
-Use critique to show academic judgment:
-
-- a prior approach explains one part of the problem but leaves another relation underdeveloped;
-- a dominant framework works at one level but becomes weak at another;
-- a concept travels across contexts but changes meaning in the new context;
-- an existing path names the problem but does not explain the mechanism.
-
-Keep critique proportionate. Do not claim total novelty unless the literature review has proved it.
-
-### 5. Theoretical Abstraction
-
-The paper should return from material to theory.
-
-After analyzing policy, literature, case, history, platform, text, or practice, ask:
-
-- What transferable mechanism has been clarified?
-- What concept has become sharper?
-- What relation has been made visible?
-- What does the object teach the theory?
-- What can later researchers reuse from this analysis?
-
-Failure sign: the paper ends by restating suggestions without theoretical return.
-
-### 6. Contribution Statement
-
-Before delivery, write one explicit contribution paragraph that answers:
-
-- Compared to the literature identified in the paper, what gap is filled?
-- What concept, mechanism, or boundary has been developed rather than merely applied?
-- What can later researchers take from this paper?
-
-The contribution statement must be concrete enough that a reader can disagree with it. Vague claims such as " enriching the theoretical research" or "providing practical enlightenment" are not contributions.
-
-## Concept Work
-
-Theoretical prose needs concepts with edges.
-
-For each core concept, write a concept ledger:
+一篇有学理性的论文必须回答三个问题：
 
 ```text
-concept:
-ordinary meaning:
-academic meaning in this paper:
-adjacent concepts:
-boundary:
-object it explains:
-source basis:
-misuse risk:
+研究从哪里来：它属于哪个学科问题域，正在同哪些已有研究或理论传统对话。
+论证怎样推进：它如何把现象转化为理论问题，并一步一步建立判断。
+最后留下什么：它让哪个概念、机制、边界或关系变得更清楚。
 ```
 
-Define by boundary, function, and relation. Do not decorate the paper with concepts that do no analytical work.
+如果论文只描述现象、整理政策、列举对策，即便语言顺滑，也不构成学理性。
 
-Prefer:
+## 二、定位
 
-- `A is used here to name...`
-- `A refers to... under the condition of...`
-- `A differs from B because...`
-- `A is valid at this level, but becomes insufficient when...`
+写作前先确定论文在学术地图中的位置：
 
-Avoid:
+- 属于哪个学科或子领域；
+- 该领域已有的核心理论问题是什么；
+- 本题进入的是哪个争论、缺口或未充分解释的关系；
+- 为什么这个题目需要理论推理，而不是普通评论或政策宣传即可回答。
 
-- invented concept labels that the paper cannot sustain;
-- changing terms for the same concept without explanation;
-- using policy phrases as theoretical categories without mediation.
+定位不等于正文里堆学科名词。正文应让读者看见论文站在什么问题域中说话。
 
-## Argument Progression
+## 三、提炼问题
 
-A scholarly paper should have visible movement.
+现象不是问题。技术发展、传播变化、文化出海、认同建构都只是现象入口。学术问题必须进一步追问：现象背后有什么关系被改变，什么机制未被解释，什么概念被混用，什么既有解释在新语境下不够用。
 
-Useful movements:
+问题提炼的合格信号是：它能够被普通读者理解，但不能仅靠常识回答。
+
+## 四、建构框架
+
+理论、对象和材料不能分成两张皮。
+
+框架应满足：
+
+- 理论能够解释对象；
+- 对象能够检验、修正或丰富理论；
+- 每个一级部分都在框架中承担功能；
+- 材料不是在理论说完之后补贴上去；
+- 概念不会离开材料空转。
+
+如果一个章节删去后全文仍然成立，说明它没有进入框架。若理论只在引言出现，后文完全变成政策建议，也应重构。
+
+## 五、温和批判
+
+学理性需要判断力。批判不是否定前人，而是说明既有研究能解释什么，又在哪个层面不足。
+
+可处理的限度包括：
+
+- 既有研究解释了宏观背景，但没有进入微观机制；
+- 某一概念在原有语境中成立，迁入新对象后需要限定；
+- 某类路径提出了方向，但没有说明行动为何能回应问题；
+- 文献关注了传播效果，却忽视意义被生成、改写和接受的过程。
+
+批判必须有分寸。没有文献梳理和材料支持，不得宣称“填补空白”或“重构理论”。
+
+## 六、概念纪律
+
+每个核心概念都要有边界、对象和功能。内部应建立概念台账：
 
 ```text
-phenomenon -> hidden relation -> concept boundary -> mechanism -> judgment
-literature map -> shared premise -> limit -> paper's entry point
-material -> interpretation -> theoretical claim
-case/text/policy -> mechanism extraction -> transferable insight
+概念：
+日常含义：
+本文中的学术含义：
+邻近概念：
+边界条件：
+解释对象：
+来源依据：
+误用风险：
 ```
 
-Each paragraph should perform one argumentative action. It may define, distinguish, interpret, compare, critique, infer, abstract, or close. It should not merely repeat the heading in longer words.
+台账是后台工具，不直接变成正文标题。正文只在论证需要时自然澄清概念。术语必须保持一致，同一概念不要随意换词。
 
-## Literature Dialogue
+## 七、论证推进
 
-Do not list scholars. Organize literature by the problem.
+每段至少完成一个真实动作：定义、区分、解释、比较、批判、限定、推导、抽象或收束。段落不能只是重复标题。
 
-For every cited source, identify its function:
+常见有效运动包括：
 
 ```text
-source:
-contribution:
-limit:
-how this paper uses it:
-citation sentence:
+现象 -> 隐含关系 -> 概念边界 -> 机制解释 -> 判断
+文献路径 -> 共同前提 -> 解释限度 -> 本文入口
+材料事实 -> 理论解释 -> 可迁移判断
+风险表现 -> 生成条件 -> 治理含义
 ```
 
-Common source functions:
+这些是思考方式，不是段落模板。具体顺序由本段任务决定。
 
-- foundation: provides a theoretical starting point;
-- distinction: helps separate adjacent concepts;
-- evidence: provides factual or textual support;
-- limitation: marks where this paper must advance;
-- correction: shows what must be revised in another context.
+## 八、材料转化
 
-Citations should enter the sentence where the source is doing work. A citation that merely proves the author has read something is not enough.
+材料进入论文后必须被解释。政策、案例、平台机制、历史文本、既有文献不能只作例子或装饰。
 
-## Language And Restraint
+材料至少承担一种功能：
 
-Scholarliness should be clear, restrained, and exact.
+- 支撑事实判断；
+- 说明概念边界；
+- 显示机制如何发生；
+- 构成既有解释的限制；
+- 提供反例或条件；
+- 推出更高层次的理论判断。
 
-Use:
+材料不能越权。案例材料不能直接证明普遍理论，单篇文献不能替代整个学术领域。
 
-- exact verbs;
-- stable terms;
-- clean transitions;
-- material-backed judgment;
-- long sentences only when relations require them;
-- short sentences only when a judgment needs to land.
+## 九、理论抽象
 
-Avoid:
+论文结尾应从材料回到理论。它要说明经过分析后，哪个机制被澄清，哪个概念变得更准确，哪个关系获得了可迁移解释。
 
-- empty academic oral habits such as `笔者认为`, `众所周知`, `不言而喻`;
-- inflated claims such as total innovation or historical overturning before proof;
-- question-style headings unless the user asks for them;
-- mechanical sequence words in body prose;
-- formulaic binary contrasts that simulate depth.
+抽象不是喊“具有重要意义”。它应具体到别人可以接着讨论、反驳或使用。
 
-## Title And Heading Logic
+## 十、学理性审查
 
-Titles and headings are part of the argument.
-
-Check:
-
-- the main title names the problem or relation, not only the object;
-- first-level headings form an argumentative chain;
-- second-level headings show internal analytical steps;
-- headings do not repeat the same verb in different clothes;
-- headings have academic weight without becoming ornate.
-
-Formal heading hierarchy remains required for full papers. Inside body paragraphs, do not use mini-headings or list markers to replace prose reasoning.
-
-## Scholarliness Review
-
-Before delivery, write a short internal review:
+交付前内部审查：
 
 ```text
-灵魂拷问 1 — 从哪来？
-  academic map:
-  phenomenon-to-problem transformation:
-  literature dialogue:
+研究从哪里来：
+  学科位置：
+  现象如何转化为学术问题：
+  文献或理论对话：
 
-灵魂拷问 2 — 怎么一步步走？
-  theoretical starting point:
-  framework self-consistency:
-  critical judgment:
-  argument progression:
-  concept ledger complete:
+论证怎样推进：
+  中心判断：
+  框架是否自洽：
+  概念是否稳定：
+  每节是否推进：
+  材料是否被解释：
 
-灵魂拷问 3 — 留下什么？
-  material-to-theory abstraction:
-  contribution statement:
+最后留下什么：
+  澄清的机制：
+  修正的边界：
+  可迁移的理论判断：
 
-形式与表达
-  language restraint:
-  title and heading logic:
-  remaining weak spots:
+表达：
+  是否像论文而非说明书：
+  是否有综述插入：
+  是否有口号化路径：
 ```
 
-Reject the draft if it is only formal, smooth, and orderly. A qualified EMARX paper must show why the problem matters inside a field and what theoretical relation the paper has made clearer.
+若论文只是形式完整、语言顺滑、结构整齐，但无法回答上述问题，应退回重写。

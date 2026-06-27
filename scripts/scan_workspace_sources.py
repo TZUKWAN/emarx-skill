@@ -12,17 +12,26 @@ import argparse
 import json
 import re
 from collections import Counter
+import hashlib
 from pathlib import Path
 from typing import Iterable
 
 
 SUPPORTED = {".pdf", ".docx", ".md", ".markdown", ".txt", ".html", ".htm"}
-SKIP_DIRS = {".git", "node_modules", "__pycache__", ".venv", "venv", ".idea", ".vscode"}
+SKIP_DIRS = {
+    ".git", ".codex", ".sophia", "node_modules", "__pycache__", ".venv",
+    "venv", ".idea", ".vscode", "generated_documents",
+}
+GENERATED_PATTERNS = [
+    "EMARX", "重写版", "最新版", "最新", "审计", "audit", "anchor-test",
+    "research-brief", "source-inventory", "anchors.md", "anchor-reading-manifest",
+    "reading-packets", "reading_packet", "逐篇精读报告", "拆解报告",
+]
 
 
 def iter_files(root: Path) -> Iterable[Path]:
-    for path in root.rglob("*"):
-        if any(part in SKIP_DIRS for part in path.parts):
+    for path in sorted(root.rglob("*"), key=lambda item: str(item).lower()):
+        if any(part.lower() in SKIP_DIRS or part.startswith(".") for part in path.parts):
             continue
         if path.is_file() and path.suffix.lower() in SUPPORTED:
             yield path
@@ -85,11 +94,19 @@ def make_record(path: Path, root: Path, sample_pages: int) -> dict:
     else:
         text = read_text_file(path)
     sample = clean_text(text)
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for block in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(block)
+    path_text = str(path).lower()
+    generated = any(pattern.lower() in path_text for pattern in GENERATED_PATTERNS)
     return {
         "path": str(path),
         "relative_path": str(path.relative_to(root)),
         "type": suffix.lstrip("."),
         "size": path.stat().st_size,
+        "source_sha256": digest.hexdigest(),
+        "category": "generated_or_internal" if generated else "candidate_source",
         "keywords": keywords(sample),
         "sample": sample[:1200],
         "char_count_sampled": len(sample),
@@ -101,13 +118,14 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--root", required=True, help="Workspace root to scan")
     parser.add_argument("--output", required=True, help="Output JSON path")
-    parser.add_argument("--max-files", type=int, default=500, help="Maximum files to index")
+    parser.add_argument("--max-files", type=int, default=2000, help="Maximum files to index")
     parser.add_argument("--pdf-pages", type=int, default=3, help="PDF pages to sample per file")
     args = parser.parse_args()
 
     root = Path(args.root).resolve()
     records: list[dict] = []
-    for path in iter_files(root):
+    all_paths = list(iter_files(root))
+    for path in all_paths:
         records.append(make_record(path, root, args.pdf_pages))
         if len(records) >= args.max_files:
             break
@@ -117,6 +135,8 @@ def main() -> None:
     payload = {
         "root": str(root),
         "count": len(records),
+        "available_count": len(all_paths),
+        "truncated": len(records) < len(all_paths),
         "supported_types": sorted(SUPPORTED),
         "records": records,
     }

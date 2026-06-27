@@ -1,84 +1,36 @@
-# EMARX Length And Hierarchy Protocol
+# EMARX v7 篇幅与标题层级协议
 
-Use this file when planning, drafting, reviewing, or revising a full Chinese academic paper.
+本文件用于控制完整中文学术论文的字数、一级标题、二级标题和结构深度。它以用户工作空间 450 篇可读论文的结构审计为基础，但不把统计结果机械转换为写作模板。
 
-## Evidence Base
+## 一、证据基础
 
-This protocol does not replace `distillation-evidence.md`. It adds a second empirical layer after the user's workspace expanded.
+2026-06-25 的工作空间结构审计显示：
 
-Full-corpus structure audit on 2026-06-25:
+- PDF 总数 452 篇；
+- 可读 PDF 450 篇；
+- 提取页数 3700 页；
+- 提取字符约 778 万；
+- 单篇字符数四分位大致为 11676 / 15877 / 21072；
+- 可读论文中多数具有两级以上标题层级。
 
-- Workspace PDF count: 452.
-- Readable PDFs: 450.
-- Empty file: `35.论文化记忆与文化自信_左路平.pdf`.
-- Malformed PDF: `范式转型与国家文化安全的结构性危机——关于构建中国自主国家文化安全知识体系的思考.pdf`.
-- Extracted pages: 3,700.
-- Extracted characters: 7,783,902.
-- Character count P25/P50/P75: 11,676 / 15,877 / 21,072.
-- Page count P25/P50/P75: 6 / 8 / 10.
-- Papers with at least 10,000 extracted characters: 379 / 450 readable PDFs.
-- Papers with at least 12,000 extracted characters: 328 / 450 readable PDFs.
-- Papers with at least 8 pages: 234 / 450 readable PDFs.
+这些结果只能说明：用户语料中的正式论文通常有真实篇幅和二级标题。它不能说明每篇新论文必须按固定比例分配字数，也不能说明标题应套用某种模板。
 
-Heading-depth distribution from the extraction script:
+## 二、篇幅硬约束
 
-```text
-0 levels: 44 papers
-1 level : 91 papers
-2 levels: 257 papers
-3 levels: 60 papers
-```
+用户未另行指定时，完整论文正文目标为 10000-12000 个中文字符。这里的正文不包含题目、摘要、关键词、参考文献、附录、事实核查表和交付说明。
 
-Heading type counts:
+判定标准：
 
-```text
-level1_cn        1165
-level2_arabic    1205
-level2_cn_paren   989
-level3_cn_paren   135
-level3_decimal      1
-special            66
-```
+- 少于 8000 字：不能视为完整论文；
+- 8000-9999 字：除非用户明确要求短文，否则视为未完成；
+- 10000-12000 字：默认合格区间；
+- 超过 12000 字：只有在材料和题目确实需要时才允许。
 
-Important caveat: the extraction script can misread journal headers, DOI strings, page numbers, and reference entries as headings. It can also miss headings when PDF layout merges title and body text. Treat the statistics as a structural signal, not as publication-grade bibliometrics. The signal is still strong enough for EMARX: full papers need real length and second-level headings.
+篇幅不是靠空话填充。扩展字数必须来自概念辨析、材料进入、机制解释、反向限定、路径推导和理论回收。
 
-## Hard Length Rule
+## 三、标题层级硬约束
 
-For a normal full paper, target 10,000-12,000 Chinese characters in the main text unless the user explicitly asks for another length.
-
-Do not count these as main text:
-
-- title;
-- abstract;
-- keywords;
-- reference list;
-- appendices;
-- fact-check notes;
-- delivery notes.
-
-Failure conditions:
-
-- Less than 8,000 main-text Chinese characters: not a full paper.
-- 8,000-9,999 main-text Chinese characters: incomplete unless the user explicitly requested a shorter paper.
-- 10,000-12,000 main-text Chinese characters: default target.
-- More than 12,000 main-text Chinese characters: allowed only when the topic, source base, or user request requires expansion.
-
-Recommended distribution:
-
-```text
-Title: 20-35 Chinese characters
-Abstract: 300-450 Chinese characters
-Keywords: 3-5 terms
-Introduction / problem statement: 1,200-1,600 Chinese characters
-Body: 4-5 first-level sections, each 1,600-2,200 Chinese characters
-Conclusion: 800-1,200 Chinese characters
-```
-
-## Mandatory Heading Hierarchy
-
-A normal full paper must use at least two heading levels.
-
-Default Chinese academic hierarchy:
+完整论文必须至少使用两级标题：
 
 ```text
 一、一级标题
@@ -90,7 +42,7 @@ Default Chinese academic hierarchy:
 （二）二级标题
 ```
 
-Acceptable alternative when it fits the user's corpus or target journal:
+在少数更适合阿拉伯数字的期刊风格中，可使用：
 
 ```text
 一、一级标题
@@ -98,105 +50,85 @@ Acceptable alternative when it fits the user's corpus or target journal:
 2. 二级标题
 ```
 
-Third-level headings are optional and should be used only when the section contains multiple mechanisms, stages, subjects, cases, or sub-arguments:
+三级标题只在确有复杂材料、多个机制、多个主体或多阶段推演时使用。不得为了显得“深入”添加装饰性三级标题。
+
+Markdown 交付时必须显式映射标题层级：
 
 ```text
-一、一级标题
-（一）二级标题
-1. 三级标题
-2. 三级标题
+# 论文题目
+## 摘要
+## 关键词
+## 引言
+## 一、一级标题
+### （一）二级标题
+### （二）二级标题
+## 二、一级标题
+### （一）二级标题
+### （二）二级标题
+## 结语
+## 参考文献
 ```
 
-Do not create a decorative third level. A third-level heading must reduce complexity, not inflate the outline.
+这里的 `### （一）` 才是论文正文中的二级标题。不能只在段落内部写“（一）……”而不使用 Markdown 标题标记；也不能只有 `## 一、……`、`## 二、……` 这类一级章节。
 
-## Structure Rules
+## 四、默认结构深度
 
-Each full paper should normally include:
+完整论文通常包括：
 
 ```text
 题目
 摘要
 关键词
-引言 / 问题的提出
-一、...
-（一）...
-（二）...
-二、...
-（一）...
-（二）...
-三、...
-（一）...
-（二）...
-四、...
-（一）...
-（二）...
-结语 / 结论
+引言
+一、……
+（一）……
+（二）……
+二、……
+（一）……
+（二）……
+三、……
+（一）……
+（二）……
+四、……
+（一）……
+（二）……
+结语
 参考文献
 ```
 
-The body should usually have 4-5 first-level sections. Use 3 only for narrow revision tasks or shorter requested papers. Use 6 only for unusually broad source bases.
+主体通常为四到五个一级部分。题目较窄时可以是三个一级部分，但每一部分必须承担不可替代的论证任务。不要为了凑四部分把一个关系拆碎，也不要为了省事把完整论文写成三个长段。
 
-Every first-level body section must have at least two second-level headings unless it is a short conclusion. No orphan first-level heading is allowed in the body.
+每个主体一级部分原则上至少包含两个二级标题。若某一级部分无法拆出二级标题，说明它可能只是过渡段、结论段或大纲设计不充分。
 
-Each second-level heading must perform one distinct function:
+## 五、写作前计划
 
-- concept boundary;
-- historical generation;
-- theoretical tension;
-- mechanism explanation;
-- risk diagnosis;
-- subject relation;
-- material/case analysis;
-- path design;
-- value return.
-
-Do not repeat the first-level heading in softer words. A second-level heading must narrow the analytical action.
-
-## Depth Rules
-
-Before drafting, write a length and hierarchy plan:
+正式起草前必须形成篇幅与层级计划：
 
 ```text
-target main-text characters:
-first-level sections:
-second-level headings per section:
-sections requiring third-level headings:
-why this structure fits the topic:
-which corpus pattern from distillation-evidence.md is being used:
+目标正文字数：
+一级标题数量：
+各一级标题的论证任务：
+每个一级标题下的二级标题：
+可能需要三级标题的位置：
+该结构为什么符合题目：
+锚定论文中可参照的结构动作：
 ```
 
-During revision, each major section must pass five checks:
+这些内容是后台计划，不能原样进入论文正文。
+
+## 六、交付前检查
+
+交付前必须报告：
 
 ```text
-concept boundary:
-mechanism chain:
-source/material support:
-counter-tension or risk:
-judgment landing:
+正文中文字符数：
+一级标题数量：
+二级标题数量：
+三级标题数量：
+是否存在无二级标题的主体部分：
+Markdown 是否存在 `###` 二级标题：
+是否存在诊断性标题：
+是否存在段落式长块而无结构展开：
 ```
 
-If a section only lists phenomena, rewrite it. If it only offers solutions, add the mechanism that makes the solution necessary. If it only repeats policy vocabulary, translate the vocabulary into a theoretical relation.
-
-## Review Failure Conditions
-
-Mark the draft as failed if any of the following is true:
-
-- main text is below 10,000 Chinese characters without explicit user permission;
-- body sections lack second-level headings;
-- a first-level section is just a long block of paragraphs;
-- headings are generic labels such as "机遇、挑战、路径" without a central thesis;
-- conclusion only repeats the outline;
-- paragraph development is shallow, slogan-like, or unsupported by sources;
-- source citations are piled at the end of paragraphs rather than attached to exact claims.
-
-## Practical Reminder
-
-The user's complaint that an EMARX paper had no second-level headings is valid. Treat this as a regression guard. Before delivery, always report:
-
-```text
-main-text character count:
-first-level heading count:
-second-level heading count:
-third-level heading count if any:
-sections without second-level headings:
-```
+如果正文低于 10000 字、主体缺少二级标题、标题只是“机遇/挑战/路径”的空标签、结论只复述目录，必须退回重写或扩写，不能宣称完成。

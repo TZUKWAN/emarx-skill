@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
 from pathlib import Path
@@ -109,7 +110,58 @@ def normalized_text(text: str) -> str:
     return re.sub(r"[^\u4e00-\u9fffA-Za-z0-9]+", "", text).lower()
 
 
-def workspace_candidates(root: Path, cache: dict[str, dict], topic: str) -> list[dict]:
+def clean_extracted_text(text: str, max_chars: int) -> str:
+    text = text.replace("\ufeff", "")
+    text = re.sub(r"[ \t]+", " ", text)
+    text = re.sub(r"\n{3,}", "\n\n", text)
+    return text.strip()[:max_chars]
+
+
+def read_live_content(path: Path, pdf_pages: int, max_chars: int) -> tuple[str, str]:
+    suffix = path.suffix.lower()
+    try:
+        if suffix == ".pdf":
+            import pdfplumber
+
+            chunks = []
+            with pdfplumber.open(str(path)) as pdf:
+                for page in pdf.pages[:pdf_pages]:
+                    chunks.append(page.extract_text() or "")
+            text = "\n".join(chunks)
+        elif suffix == ".docx":
+            from docx import Document
+
+            document = Document(str(path))
+            text = "\n".join(paragraph.text for paragraph in document.paragraphs)
+        elif suffix in {".md", ".txt", ".html", ".htm"}:
+            text = path.read_text(encoding="utf-8", errors="replace")
+            if suffix in {".html", ".htm"}:
+                text = re.sub(r"<script\b[^>]*>.*?</script>", " ", text, flags=re.I | re.S)
+                text = re.sub(r"<style\b[^>]*>.*?</style>", " ", text, flags=re.I | re.S)
+                text = re.sub(r"<[^>]+>", " ", text)
+        else:
+            return "", f"unsupported_live_reader:{suffix}"
+    except Exception as exc:
+        return "", f"live_read_error:{type(exc).__name__}"
+    cleaned = clean_extracted_text(text, max_chars)
+    return cleaned, "live_text_ok" if cleaned else "live_text_empty"
+
+
+def file_sha256(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for block in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(block)
+    return digest.hexdigest()
+
+
+def workspace_candidates(
+    root: Path,
+    cache: dict[str, dict],
+    topic: str,
+    pdf_pages: int,
+    max_live_chars: int,
+) -> list[dict]:
     exts = {".pdf", ".docx", ".doc", ".md", ".txt", ".html", ".htm"}
     generated_name_patterns = [
         "EMARX",
@@ -139,6 +191,7 @@ def workspace_candidates(root: Path, cache: dict[str, dict], topic: str) -> list
             continue
         resolved = str(path.resolve()).lower()
         cached = cache.get(resolved)
+        live_text, live_status = read_live_content(path, pdf_pages, max_live_chars)
         candidates.append({
             "name": path.name,
             "file": str(path),
@@ -146,6 +199,9 @@ def workspace_candidates(root: Path, cache: dict[str, dict], topic: str) -> list
             "whole_style_label": cached.get("whole_style_label", "") if cached else "",
             "attention_points": cached.get("attention_points", []) if cached else [],
             "cache_status": "matched_report_cache" if cached else "live_workspace_file",
+            "live_text": live_text,
+            "live_status": live_status,
+            "source_sha256": file_sha256(path),
         })
     return candidates
 
@@ -157,13 +213,21 @@ def main() -> int:
     parser.add_argument("--summary", help="optional article_deconstruction summary.json cache")
     parser.add_argument("--output", required=True, help="markdown output path")
     parser.add_argument("--top-k", type=int, default=5)
+    parser.add_argument("--pdf-pages", type=int, default=5, help="Pages read from every current-workspace PDF before ranking")
+    parser.add_argument("--max-live-chars", type=int, default=20000, help="Maximum live-extracted characters used per candidate")
     args = parser.parse_args()
 
     topic_terms = cn_terms(args.topic)
     cache = load_summary_cache(args.summary)
     if args.workspace_root:
-        candidates = workspace_candidates(Path(args.workspace_root), cache, args.topic)
-        source_mode = "current_workspace"
+        candidates = workspace_candidates(
+            Path(args.workspace_root),
+            cache,
+            args.topic,
+            args.pdf_pages,
+            args.max_live_chars,
+        )
+        source_mode = "current_workspace_live_content"
     elif args.summary:
         data = json.loads(Path(args.summary).read_text(encoding="utf-8"))
         candidates = []
@@ -175,6 +239,9 @@ def main() -> int:
                 "whole_style_label": item.get("whole_style_label", ""),
                 "attention_points": item.get("attention_points", []),
                 "cache_status": "report_only_legacy_mode",
+                "live_text": "",
+                "live_status": "legacy_report_only",
+                "source_sha256": "",
             })
         source_mode = "report_cache_only"
     else:
@@ -182,13 +249,15 @@ def main() -> int:
 
     ranked = []
     for item in candidates:
-        text = ""
+        live_text = item.get("live_text", "")
+        report_text = ""
         report_path = Path(item["report"]) if item.get("report") else None
         if report_path and report_path.exists():
-            text = report_path.read_text(encoding="utf-8", errors="replace")
-        score, hits = score_text(topic_terms, item["name"], text)
+            report_text = report_path.read_text(encoding="utf-8", errors="replace")[:3000]
+        scoring_text = live_text if live_text else report_text
+        score, hits = score_text(topic_terms, item["name"], scoring_text)
         if score > 0:
-            ranked.append((score, hits, item, text))
+            ranked.append((score, hits, item, scoring_text))
     ranked.sort(key=lambda row: row[0], reverse=True)
     selected = ranked[: max(1, args.top_k)]
 
@@ -198,6 +267,7 @@ def main() -> int:
         "## 使用说明",
         "",
         f"- 选择来源：{source_mode}",
+        f"- 排序前读取：每个 PDF 前 {args.pdf_pages} 页，单个候选最多 {args.max_live_chars} 字符。",
         "- 本报告用于写作前的三至五篇锚定。锚定对象必须是用户当次工作空间中的真实论文文件。",
         "- 既有拆解报告只能作为缓存和索引，不能替代对锚定论文原文的即时读取与拆解。",
         "- 锚定论文只能作为结构、逻辑、材料和文风参照，不能把原文拼贴为最终论文。若后续生成影子重组稿，必须保留来源标记，并在正式写作阶段逐段重写、改造和引用。",
@@ -214,6 +284,8 @@ def main() -> int:
             f"- 命中词：{'、'.join(hits) if hits else '无'}",
             f"- 建议角色：{role}",
             f"- 缓存状态：{item.get('cache_status', '')}",
+            f"- 当次原文读取：{item.get('live_status', '')}，提取 {len(item.get('live_text', ''))} 字符",
+            f"- 文件 SHA-256：`{item.get('source_sha256', '')}`",
             f"- 拆解报告缓存：`{item['report']}`" if item.get("report") else "- 拆解报告缓存：无，需对该工作空间文件即时拆解",
             f"- 原文件：`{item['file']}`",
             f"- 文风标签：{item.get('whole_style_label', '')}",

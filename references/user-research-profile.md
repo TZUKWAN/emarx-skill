@@ -1,13 +1,13 @@
-# EMARX User Research Profile
+# EMARX v7 用户研究画像
 
-This file stores durable user preferences and research direction. Update it only when the user provides materials, feedback, or standards that should influence future work.
+本文件保存刘总长期稳定的研究方向、写作偏好和失败教训。只有当用户提供新材料、明确反馈或可迁移标准时才更新。个别任务中的临时要求不得直接提升为通用规则。
 
-## Research Themes
+## 研究主题
 
 - Chinese academic-theoretical essay writing.
 - Marxism, ideological-political education, Chinese culture, cultural communication, subjectivity, AI philosophy, technology critique, cultural memory.
 
-## Preferred Workflow
+## 偏好工作流
 
 - Read local workspace materials before web search.
 - Build research logic before drafting.
@@ -16,7 +16,7 @@ This file stores durable user preferences and research direction. Update it only
 - Review and revise substantively.
 - Fact-check source-backed claims.
 
-## Style Preferences
+## 文风偏好
 
 - Plain and clear language.
 - Strong academic texture.
@@ -26,7 +26,7 @@ This file stores durable user preferences and research direction. Update it only
 - Conceptually precise but not obscure.
 - Deep insight over formulaic completeness.
 
-## Disliked Output
+## 明确反感的输出
 
 - Shallow "机遇、挑战、路径" listing.
 - Generic policy commentary.
@@ -35,7 +35,7 @@ This file stores durable user preferences and research direction. Update it only
 - Chat-only paper delivery when Word is expected.
 - Fabricated citations or unsupported factual claims.
 
-## Confirmed Lessons
+## 已确认教训
 
 - v3 improved Word delivery and anti-shallow rules but still needs a full research-production workflow.
 - EMARX must preserve corpus-derived writing patterns from `distillation-evidence.md`.
@@ -44,9 +44,9 @@ This file stores durable user preferences and research direction. Update it only
 - Full papers must include second-level headings under major body sections. Missing second-level headings is a visible quality failure.
 - The expanded workspace audit on 2026-06-25 found 452 PDFs, 450 readable PDFs, and a strong structural signal for two-level headings and 10,000+ character papers.
 
-## Updating Notes
+## 更新说明
 
-Append future user feedback here with date, topic, preference, and action taken.
+后续反馈应记录日期、主题、原始反馈、适用范围、采取动作和是否已经进入技能协议。不得把一次失败的表面现象直接写成僵硬模板。
 
 ## Feedback 2026-06-25 13:42
 
