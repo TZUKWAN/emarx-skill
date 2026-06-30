@@ -14,6 +14,9 @@ FORMAL_HEADING_RE = re.compile(
 )
 REF_HEADING_RE = re.compile(r"(?m)^#{0,6}\s*参考文献\s*$")
 SENTENCE_RE = re.compile(r"[^。！？!?；;]+[。！？!?；;]?")
+QUESTION_HEADING_RE = re.compile(
+    r"[？?]|如何|何以|为何|为什么|怎样|怎么|是否|能否|吗(?:$|[：:，,、。！？?])"
+)
 
 DEFAULT_TERMS = [
     "生成式人工智能",
@@ -324,9 +327,12 @@ def structure_heading_issues(text: str) -> dict:
     diagnostic = []
     workflow = []
     generic = []
+    question_form = []
     for heading in headings:
         title = heading["title"]
         clean_title = re.sub(r"^[#\s一二三四五六七八九十、（）()0-9.．]+", "", title).strip()
+        if QUESTION_HEADING_RE.search(clean_title):
+            question_form.append(heading)
         if any(pattern in title for pattern in DIAGNOSTIC_HEADING_PATTERNS):
             diagnostic.append(heading)
         if any(pattern in title for pattern in WORKFLOW_HEADING_PATTERNS):
@@ -341,6 +347,7 @@ def structure_heading_issues(text: str) -> dict:
         "diagnostic_heading_leaks": diagnostic,
         "workflow_heading_leaks": workflow,
         "generic_structure_headings": generic,
+        "question_form_headings": question_form,
     }
 
 
@@ -625,6 +632,8 @@ def audit(path: Path, terms: list[str]) -> dict:
         risks.append("workflow_heading_leak")
     if structure_issues["generic_structure_headings"]:
         risks.append("generic_structure_heading")
+    if structure_issues["question_form_headings"]:
+        risks.append("question_form_heading")
     if any("研究对象" in item["title"] for item in structure_issues["headings"]) and any(
         "概念" in item["title"] for item in structure_issues["headings"]
     ):

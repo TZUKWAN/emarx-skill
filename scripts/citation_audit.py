@@ -163,6 +163,7 @@ def audit(
     text: str,
     expected_count: int | None = None,
     required_sources: list[dict] | None = None,
+    min_count: int = 28,
 ) -> dict:
     body, refs, has_reference_heading = split_body_refs(text)
     cites = [int(number) for number in CITE_RE.findall(body)]
@@ -207,6 +208,8 @@ def audit(
         "expected_source_count_ok": None
         if expected_count is None
         else len(reference_numbers) == expected_count == len(first_order),
+        "min_reference_count": min_count,
+        "min_reference_count_ok": len(reference_numbers) >= min_count and len(first_order) >= min_count,
         "semantic_support_verified": False,
         "semantic_support_note": "必须由主模型逐条对照原文与引文句复核，脚本不能证明语义支持关系。",
     }
@@ -227,6 +230,7 @@ def audit(
         and not result["generic_attribution_citations"]
         and not result["gbt_7714_issues"]
         and (result["expected_source_count_ok"] is not False)
+        and result["min_reference_count_ok"]
         and (not required_sources or coverage["ok"])
     )
     return result
@@ -238,6 +242,12 @@ def main() -> None:
     parser.add_argument("--output", help="Optional JSON report path")
     parser.add_argument("--expected-count", type=int, help="Expected number of sources")
     parser.add_argument(
+        "--min-count",
+        type=int,
+        default=28,
+        help="Minimum number of references expected for a complete paper; use 0 for small section tests",
+    )
+    parser.add_argument(
         "--required-sources",
         type=Path,
         help="JSON manifest or UTF-8 text file listing sources that must be covered",
@@ -246,7 +256,7 @@ def main() -> None:
 
     text = Path(args.paper).read_text(encoding="utf-8")
     required_sources = load_required_sources(args.required_sources)
-    result = audit(text, args.expected_count, required_sources)
+    result = audit(text, args.expected_count, required_sources, args.min_count)
     payload = json.dumps(result, ensure_ascii=False, indent=2)
     if args.output:
         out = Path(args.output)

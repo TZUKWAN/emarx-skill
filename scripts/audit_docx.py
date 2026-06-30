@@ -25,7 +25,7 @@ def style_color(style) -> str | None:
     return str(color.rgb) if color is not None and color.rgb is not None else None
 
 
-def audit(path: Path) -> dict:
+def audit(path: Path, min_reference_count: int = 28) -> dict:
     zip_error = None
     with zipfile.ZipFile(path) as archive:
         zip_error = archive.testzip()
@@ -90,6 +90,8 @@ def audit(path: Path) -> dict:
         "keywords_count": len(keywords),
         "body_paragraph_count": len(body),
         "reference_count": len(references),
+        "min_reference_count": min_reference_count,
+        "min_reference_count_ok": len(references) >= min_reference_count,
         "body_citation_numbers": body_citations,
         "reference_numbers": reference_numbers,
         "baseline_citations": baseline_citations,
@@ -114,6 +116,7 @@ def audit(path: Path) -> dict:
         and result["abstract_count"] == 1
         and result["keywords_count"] == 1
         and result["body_paragraph_count"] > 0
+        and result["min_reference_count_ok"]
         and not result["baseline_citations"]
         and result["citation_reference_count_ok"]
         and not result["nonblack_relevant_styles"]
@@ -127,8 +130,14 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--docx", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)
+    parser.add_argument(
+        "--min-reference-count",
+        type=int,
+        default=28,
+        help="Minimum reference count for a complete EMARX paper; use 0 for small format tests",
+    )
     args = parser.parse_args()
-    result = audit(args.docx)
+    result = audit(args.docx, args.min_reference_count)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
     print(json.dumps({"ok": result["ok"], "output": str(args.output)}, ensure_ascii=False))
