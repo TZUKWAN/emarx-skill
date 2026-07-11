@@ -1,0 +1,10 @@
+playwright>=1.60
+click>=8.0
+requests>=2.31
+beautifulsoup4>=4.12
+lxml>=5.0
+pillow>=10.0
+opencv-python>=4.9
+numpy>=1.26
+ddddocr>=1.6
+playwright-stealth>=1.0.6
