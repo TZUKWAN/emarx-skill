@@ -25,6 +25,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from cnki import config, reader, search, summarizer, utils
 from cnki.browser import managed_browser
 from cnki.citation import format_gb7714
+from cnki.env_check import ensure_ready
 
 
 def normalize_paper(raw: dict) -> dict:
@@ -280,6 +281,7 @@ def main():
     parser = argparse.ArgumentParser(description="EMARX 内置 CNKI 工具")
     parser.add_argument("--slow", action="store_true", help="降低操作频率（5-12s），减少反爬风险")
     parser.add_argument("--no-headless", action="store_true", help="非无头模式，便于人工处理验证")
+    parser.add_argument("--no-auto-install", action="store_true", help="禁止自动安装缺失依赖")
 
     subparsers = parser.add_subparsers(dest="command", required=True)
 
@@ -306,6 +308,11 @@ def main():
     import_parser.add_argument("--top-k", type=int, default=10, help="入选精读数量")
 
     args = parser.parse_args()
+
+    # 环境检查：缺少依赖时自动安装（除非用户禁止）
+    if not ensure_ready(auto=not args.no_auto_install):
+        print("环境未就绪，无法继续。请运行：python scripts/setup_emarx.py")
+        sys.exit(1)
 
     if args.command == "search":
         cmd_search(args)
