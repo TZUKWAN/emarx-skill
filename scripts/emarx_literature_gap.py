@@ -26,6 +26,12 @@ import subprocess
 import sys
 from pathlib import Path
 
+# 在脚本目录中查找 cnki 模块
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from emarx_env import ensure_venv_and_reexec
+ensure_venv_and_reexec()
+from cnki.env_check import ensure_ready
+
 
 def collect_local_sources(workspace: Path) -> list[dict]:
     """扫描工作空间中的潜在文献文件（PDF、MD、TXT）。"""
@@ -176,6 +182,10 @@ def main():
             print(f"  - {r}")
 
     if gap["needs_cnki"] and not args.skip_cnki:
+        # 自动确保 CNKI 环境就绪
+        if not ensure_ready(auto=True):
+            print("CNKI 环境准备失败，请运行：python scripts/setup_emarx.py", file=sys.stderr)
+            sys.exit(1)
         try:
             results_path = trigger_cnki_search(workspace, args.topic, args.cnki_pages, args.top_k)
             trigger_cnki_import(workspace, results_path, args.top_k)

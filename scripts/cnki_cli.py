@@ -22,6 +22,9 @@ from pathlib import Path
 # 把 scripts/ 加入路径，使 import cnki 可工作
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
+from emarx_env import ensure_venv_and_reexec
+ensure_venv_and_reexec()
+
 from cnki import config, reader, search, summarizer, utils
 from cnki.browser import managed_browser
 from cnki.citation import format_gb7714

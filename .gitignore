@@ -1,3 +1,15 @@
+.venv/
 __pycache__/
 *.pyc
 *.pyo
+*.egg-info/
+.ipynb_checkpoints/
+.cnki_storage_state.json
+.cnki_storage_state.json.bak
+downloads/
+summaries/
+summaries_slow/
+workspace/
+results.json
+results_slow.json
+*.docx

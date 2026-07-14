@@ -18,6 +18,10 @@ import subprocess
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from emarx_env import ensure_venv_and_reexec
+ensure_venv_and_reexec()
+
 
 def main():
     parser = argparse.ArgumentParser(description="EMARX 内置 CNKI 搜索（兼容包装）")

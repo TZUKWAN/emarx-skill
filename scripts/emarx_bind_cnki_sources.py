@@ -18,7 +18,12 @@ CNKI 搜到的论文不会自动进正文。本工具生成一个 source-claim-m
 """
 import argparse
 import json
+import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from emarx_env import ensure_venv_and_reexec
+ensure_venv_and_reexec()
 
 
 FUNCTIONS = ["概念", "机制", "问题", "材料", "限制", "反例"]
