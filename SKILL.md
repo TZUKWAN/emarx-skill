@@ -80,6 +80,7 @@ AI 的操作逻辑：
 - `references/review-rubric.md`：匿名审稿式质量检查。
 - `references/user-research-profile.md`：用户稳定偏好和历史失败教训。
 - `references/cnki-integration-protocol.md`：EMARX 与 CNKI Control 的集成方式（按需读取，工作空间本地文献不足时使用）。
+- `references/classics-vector-retrieval-protocol.md`：马恩全集与习近平谈治国理政向量库的检索纪律（核验经典原句、找理论源头、政治合规核验时使用）。
 - `references/audit-then-fix-protocol.md`：成稿修改任务的两阶段协议——先只读审计出清单，再按清单逐项修复；含版本回退与作废声明机制（修改已有稿件时必读）。
 - `references/dissertation-source-mining-protocol.md`：学位论文引用的压减方法——把 [D] 当文献库溯源改引，禁止同题替换（稿件含较多学位论文引用时必读）。
 
@@ -106,6 +107,7 @@ AI 的操作逻辑：
 - 锚定后必须回到原文连续读取，不能只看拆解报告或 CNKI 摘要。重点看摘要、引言、标题关系、段落运动和文献进入方式。
 - **建立概念台账**：参考 `references/concept-ledger-protocol.md`，记录题目核心概念的定义、来源、与相近概念的区分、论证功能和使用边界。
 - **经典文本精读**：如果题目涉及马克思主义经典概念或文本，参考 `references/classic-text-reading-protocol.md` 和 `references/marxist-classics-index.md`，回到原文精读，并按“论证参与式”进入正文。
+- **经典文本定位可用向量库辅助**：核验经典原句卷页、寻找理论源头时，运行 `scripts/classics_search.py` 检索马恩全集和习近平谈治国理政向量库；命中结果必须回原文核验后才能引用，纪律见 `references/classics-vector-retrieval-protocol.md`。
 
 ### 3. 结构与素材
 
@@ -213,6 +215,10 @@ python scripts/emarx_bind_cnki_sources.py --sources workspace/sources.json --out
 python scripts/cnki_cli.py search "生成式人工智能 国际传播" --pages 3 --output workspace/cnki_results.json
 python scripts/cnki_cli.py read-batch --results workspace/cnki_results.json --output-dir workspace/summaries --limit 10
 python scripts/cnki_cli.py import --results workspace/cnki_results.json --summaries-dir workspace/summaries --output-dir workspace --top-k 10
+
+# 经典文本向量检索（马恩全集 / 习近平谈治国理政，需本机已部署 classics-rag 库）
+python scripts/classics_search.py "精神生产与物质生产" --db both --top-k 8
+python scripts/classics_search.py --fetch marx 42 368
 
 # 小节与质量
 python scripts/section_quality_gate.py --paper paper.md --section-title "（一）小节标题" --output section-gate.json --require-citation

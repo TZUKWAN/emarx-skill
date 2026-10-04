@@ -13,3 +13,7 @@ opencv-python>=4.9
 numpy>=1.26
 ddddocr>=1.6
 playwright-stealth>=1.0.6
+
+# 经典文本向量检索依赖（马恩全集/治国理政向量库）
+chromadb==1.2.2
+sentence-transformers>=2.2.0
