@@ -1,4 +1,4 @@
-# EMARX v7.4
+# EMARX v7.5
 
 面向中文人文社科期刊语境的学理思辨论文生产技能。覆盖选题、资料读取、结构搭建、正文写作、审稿改稿到 Word 交付的全流程，尤其适合马克思主义理论、思想政治教育、党史党建、文化研究等纯文字性学科学术写作。
 
@@ -6,11 +6,15 @@
 
 EMARX 不是论文模板或提示词集合，而是一套带证据门槛的论文生产系统。它要求 AI 先读取用户工作空间的真实资料，锚定 3-5 篇相关论文并回到原文精读，形成期刊体例画像、论证骨架和段落级大纲，再以小节为最小单元逐段生成有推进、有判断、有材料支撑的学术论文。
 
-v7.4 在 v7.x 基础上重点做了三件事：
+v7.4 在 v7.x 基础上做了三件事：减少规则过载和模板化、吸收 marx-paper-skills 的选题结构方法与 Word 交付技术、内置 CNKI 文献能力。
 
-1. **减少规则过载和模板化**：从固定章节结构转向由题目内部关系生长结构，避免"概念边界—理论基础—现实意义"这类形式主义标题。
-2. **吸收 marx-paper-skills 优势**：融合其选题分流方法、结构方法和 Word 交付技术，形成统一入口。
-3. **内置 CNKI 文献能力**：把 CNKI Control 的核心检索、摘要、引用功能内置到 EMARX，工作空间文献不足时可自动触发 CNKI 补充。
+v7.5 新增了成稿修改与交付加固能力：
+
+1. **脚注工程化**：一注一证、脚注定义数/正文引用数/编号连续性闭环对账、首次完整著录加后续短引、同一文献著录变体的语义归并、文集书级著录统一；
+2. **审计先行两阶段协议**：修改已有成稿时先只读审计产出量化问题清单，确认后按清单逐项修复，最后回归审计；
+3. **学位论文文献库方法**：把 [D] 学位论文当作待挖掘的文献库逐条溯源改引，禁止"同题替换"；
+4. **版本回退机制**：大规模改写前建基线备份，处理过度立即回退并声明作废版本；
+5. **Word 交付加固**：批注 XML 清理、修订标记接受、目录缓存写回（打开即见目录，不依赖 F9）。
 
 ## 适用场景
 
@@ -69,6 +73,9 @@ emarx/
 ├── references/                       # 写作协议与指南
 │   ├── production-workflow-v7.md     # 主流程
 │   ├── citation-fact-protocol-v7.md  # 引用与事实核查
+│   ├── footnote-engineering-protocol.md  # 脚注工程化（一注一证/闭环对账/短引/语义归并）
+│   ├── audit-then-fix-protocol.md    # 成稿审计先行两阶段 + 版本回退
+│   ├── dissertation-source-mining-protocol.md  # 学位论文文献库方法
 │   ├── logical-chain-protocol.md     # 逻辑推理链
 │   ├── cnki-integration-protocol.md  # CNKI 集成
 │   ├── journal-profiles/             # 顶刊画像
@@ -79,6 +86,8 @@ emarx/
 │   ├── emarx_literature_gap.py       # 文献缺口诊断与 CNKI 触发
 │   ├── emarx_bind_cnki_sources.py    # CNKI 文献功能绑定
 │   ├── emarx_build_docx.py           # Word 交付
+│   ├── emarx_finalize_docx.py        # Word 后处理（批注清理/修订接受/目录缓存写回）
+│   ├── footnote_audit.py             # 脚注工程化审计
 │   ├── emarx_env.py                  # 自动环境管理
 │   ├── scan_workspace_sources.py     # 工作空间扫描
 │   ├── select_anchor_papers.py       # 锚定论文选择
@@ -117,7 +126,9 @@ emarx/
 
 ### 5. 审稿改稿
 
-初稿完成后依次审逻辑、审语言、审政治合规、审格式。运行 AI 痕迹审计，对高风险段落进行人工改写。形式合格但仍像说明书、综述或套壳稿时，必须回到段落级大纲重写，不能只润色。
+修改已有成稿时，先按 `audit-then-fix-protocol.md` 走两阶段：只读审计产出量化问题清单（严重度/位置/证据/修改方向），确认后逐项修复，最后回归审计确认清零。大规模改写前建基线备份，处理过度立即回退并声明作废版本。
+
+初稿完成后依次审逻辑、审语言、审政治合规、审格式。运行 `footnote_audit.py` 做脚注闭环对账和复合脚注、语义归并检查；运行 `ai_trace_audit.py` 检查 AI 痕迹，改写时遵守保真编辑规则，不按词频表机械替换。稿件含较多学位论文引用时按文献库方法溯源改引。形式合格但仍像说明书、综述或套壳稿时，必须回到段落级大纲重写，不能只润色。
 
 ### 6. Word 交付
 
@@ -125,9 +136,10 @@ emarx/
 
 ```bash
 python scripts/emarx_build_docx.py paper.md paper.docx
+python scripts/emarx_finalize_docx.py paper.docx --update-toc
 ```
 
-默认生成圈码脚注并每页重新编号。交付前确认：标题黑色、正文引用为上标、脚注格式正确、参考文献悬挂缩进。
+默认生成圈码脚注并每页重新编号；后处理脚本清理批注 XML、接受修订标记，并把目录缓存写回 DOCX（打开即见目录，不依赖 F9）。交付前确认：标题黑色、正文引用为上标、脚注格式正确、参考文献悬挂缩进、批注和修订标记为零。
 
 ## 安装
 
@@ -197,7 +209,9 @@ python scripts/audit_docx.py --docx workspace/paper.docx --output workspace/docx
 | `python scripts/emarx_build_docx.py` | Word 交付 |
 | `python scripts/citation_audit.py` | 引用审计 |
 | `python scripts/citation_position_audit.py` | 引用位置审计 |
+| `python scripts/footnote_audit.py` | 脚注工程化审计（对账/复合脚注/语义归并） |
 | `python scripts/ai_trace_audit.py` | AI 痕迹审计 |
+| `python scripts/emarx_finalize_docx.py` | Word 后处理（批注清理/修订接受/目录缓存写回） |
 | `python scripts/audit_docx.py` | DOCX 审计 |
 
 ## 引用规则
@@ -262,7 +276,8 @@ scripts/emarx_bind_cnki_sources.py
 
 ## 版本历史
 
-- **v7.4**（当前）：减少规则过载，吸收 marx-paper-skills 方法，内置 CNKI，新增逻辑链 subagent 群，零配置环境。
+- **v7.5**（当前）：脚注工程化（一注一证/闭环对账/语义归并/书级著录）、成稿审计先行两阶段协议、学位论文文献库方法、版本回退机制、Word 批注清理与目录缓存写回、去 AI 味保真编辑规则。
+- **v7.4**：减少规则过载，吸收 marx-paper-skills 方法，内置 CNKI，新增逻辑链 subagent 群，零配置环境。
 - v7.3：标题与参考文献规则优化。
 - v7.2：期刊体例与问题链 workflow。
 - v7.1：小节质量门。

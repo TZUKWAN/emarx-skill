@@ -1,9 +1,9 @@
 ---
 name: emarx
-description: "EMARX v7.4 中文学理思辨论文生产技能。用于中文人文社科论文的选题、资料读取、结构搭建、正文写作、审稿改稿与 Word 交付。核心要求：先读用户当前工作空间真实资料，锚定三至五篇相关论文并精读，形成期刊体例画像、论证骨架和段落级大纲，再以小节为最小单元写成 10000-12000 字左右、有二级标题、学理性强、语言平实成熟的论文。v7.4 重点减少规则过载和模板化，吸收 marx-paper-skills 的 Word 交付技术和选题结构方法。首次使用或调用 CNKI/Word 相关脚本前，AI 必须自动检查并确保环境就绪；若未就绪，应自动运行 scripts/setup_emarx.py 完成依赖和浏览器安装，无需用户手动操作。"
+description: "EMARX v7.5 中文学理思辨论文生产技能。用于中文人文社科论文的选题、资料读取、结构搭建、正文写作、审稿改稿与 Word 交付。核心要求：先读用户当前工作空间真实资料，锚定三至五篇相关论文并精读，形成期刊体例画像、论证骨架和段落级大纲，再以小节为最小单元写成 10000-12000 字左右、有二级标题、学理性强、语言平实成熟的论文。v7.5 新增脚注工程化（一注一证、闭环对账、语义归并）、成稿审计先行两阶段协议、学位论文文献库方法、版本回退机制和 Word 批注清理/目录缓存写回。首次使用或调用 CNKI/Word 相关脚本前，AI 必须自动检查并确保环境就绪；若未就绪，应自动运行 scripts/setup_emarx.py 完成依赖和浏览器安装，无需用户手动操作。"
 ---
 
-# EMARX v7.4
+# EMARX v7.5
 
 EMARX 是中文学理思辨论文生产技能，不是论文说明书、流程展示器或提示词集合。所有扫描、锚定、诊断、审稿和引用审计都属于后台工作，不能写进论文正文。
 
@@ -49,6 +49,7 @@ AI 的操作逻辑：
 
 - `references/production-workflow-v7.md`：从资料建档到 Word 交付的主流程。
 - `references/citation-fact-protocol-v7.md`：引用、事实核查和 GB/T 7714。
+- `references/footnote-engineering-protocol.md`：脚注一注一证、闭环对账、首次完整著录加短引、语义归并和文集书级著录。
 - `references/generative-writing-protocol.md`：摘要、正文、文献进入、路径段和结论的生成规则。
 - `references/section-production-gate-v71.md`：小节论证卡、小节级生成和质量准入门槛。
 - `references/style-protocol.md`：平实学术语言和语体要求。
@@ -79,8 +80,10 @@ AI 的操作逻辑：
 - `references/review-rubric.md`：匿名审稿式质量检查。
 - `references/user-research-profile.md`：用户稳定偏好和历史失败教训。
 - `references/cnki-integration-protocol.md`：EMARX 与 CNKI Control 的集成方式（按需读取，工作空间本地文献不足时使用）。
+- `references/audit-then-fix-protocol.md`：成稿修改任务的两阶段协议——先只读审计出清单，再按清单逐项修复；含版本回退与作废声明机制（修改已有稿件时必读）。
+- `references/dissertation-source-mining-protocol.md`：学位论文引用的压减方法——把 [D] 当文献库溯源改引，禁止同题替换（稿件含较多学位论文引用时必读）。
 
-旧版文件已移入 `references/archive/`，若其内容与 v7.4 协议冲突，以 v7.4 协议为准。
+旧版文件已移入 `references/archive/`，若其内容与 v7.5 协议冲突，以 v7.5 协议为准。
 
 ## 三、完整论文六段流程
 
@@ -132,8 +135,12 @@ AI 的操作逻辑：
 
 ### 5. 审稿改稿
 
+- **修改已有成稿时，必须先走 `references/audit-then-fix-protocol.md` 的两阶段流程**：第一阶段只读审计、产出带位置和证据的量化问题清单；第二阶段按清单逐项修复；完成后回归审计确认问题清零。不边查边改，不凭印象改。
+- 大规模改写（重排脚注、批量合并、整章重写）前必须建立基线备份；发现处理过度立即回退并声明中间版本作废，作废版本数字不得进入交付报告。
 - 初稿完成后先审逻辑（中心判断是否贯穿、标题链是否递进、材料是否支撑判断），再审语言（禁用表达、AI 腔、公式化对照），然后审政治合规（`references/political-compliance-protocol.md`），最后审格式。
-- 运行 `scripts/ai_trace_audit.py` 检查 AI 痕迹，对高风险段落进行人工改写。
+- 运行 `scripts/ai_trace_audit.py` 检查 AI 痕迹，对高风险段落进行人工改写。去 AI 味修改必须遵守 `references/ai-trace-mitigation-protocol.md` 第八节的保真编辑规则：保留事实、归因、页码和承担理论关系的连接词，禁止按词频表机械替换。
+- 运行 `scripts/footnote_audit.py` 做脚注工程化审计：闭环对账、复合脚注、禁用词、著录变体重复组、同段同页重复。脚本只发现候选，合并删除必须主模型逐组确认。
+- 稿件含较多学位论文引用时，按 `references/dissertation-source-mining-protocol.md` 处理：把 [D] 当文献库逐条溯源改引，禁止同题替换。
 - 形式合格但仍像说明书、综述或套壳稿时，必须重写结构或段落，不能只润色。
 - 失败稿回炉不得全文润色。应保留中心判断、标题链、来源映射和有效材料，回到干净段落级大纲按小节重写。
 - 收到外审意见后，参考 `references/peer-review-response-protocol.md` 进行修改和回应。
@@ -159,7 +166,13 @@ python scripts/emarx_build_docx.py paper.md paper.docx --no-circle
 python scripts/emarx_build_docx.py paper.md paper.docx --keep-references
 ```
 
-- 交付前必须确认：标题黑色、正文引用为上标、脚注格式正确、参考文献悬挂缩进、摘要和关键词格式正确。
+- Word 生成后，运行后处理脚本清理批注、接受修订标记；需要目录打开即可见时加 `--update-toc`（会用 Word/WPS COM 更新目录域并把缓存写回 DOCX）：
+
+```bash
+python scripts/emarx_finalize_docx.py paper.docx --update-toc
+```
+
+- 交付前必须确认：标题黑色、正文引用为上标、脚注格式正确、参考文献悬挂缩进、摘要和关键词格式正确、批注和修订标记为零、目录内容已写入缓存。
 
 ## 四、语言规则
 
@@ -209,12 +222,14 @@ python scripts/bad_draft_audit.py --paper paper.md --output bad-draft-audit.json
 python scripts/scholarliness_audit.py --paper paper.md --output scholarliness-audit.json
 python scripts/citation_audit.py --paper paper.md --output citation-audit.json --min-count 28
 python scripts/citation_position_audit.py --paper paper.md --output citation-position-audit.json
+python scripts/footnote_audit.py --paper paper.md --output footnote-audit.json
 python scripts/ai_trace_audit.py --paper paper.md --output ai-trace-audit.json
 
 # Word 交付（新 pipeline）
 python scripts/emarx_build_docx.py paper.md paper.docx                   # 默认圈码 + 每页重编号（静默 COM）
 python scripts/emarx_build_docx.py paper.md paper.docx --no-circle       # 不调用 COM
 python scripts/emarx_build_docx.py paper.md paper.docx --keep-references # 保留文末参考文献表
+python scripts/emarx_finalize_docx.py paper.docx --update-toc            # 批注/修订清理 + 目录缓存写回
 python scripts/audit_docx.py --docx paper.docx --output docx-audit.json
 ```
 
@@ -277,12 +292,15 @@ python scripts/audit_docx.py --docx paper.docx --output docx-audit.json
 - 核心论点摘要；
 - 使用的主要本地来源和来源缺口；
 - 引用冲突、引用审计状态和引用位置审计状态；
+- 脚注闭环对账结果（定义数/引用数/编号连续性）和脚注工程化审计状态；
 - 参考文献数量，若少于 28 条必须说明真实原因；
 - 事实核查状态；
 - 政治合规自查状态；
 - AI 痕迹审计状态；
 - 查重预检与 AI 检测预检状态；
 - DOCX 审计和渲染检查状态；
+- 批注与修订标记清理状态、目录缓存写回状态；
+- 本轮修改若经历版本回退，必须声明作废版本且不使用其统计数字；
 - 残余风险。
 
 交付前必须至少运行语言风险审计、引用审计、引用位置审计和 DOCX 审计；其中任何一项未通过时，只能说明正在回炉或存在风险，不能宣称稿件合格。
